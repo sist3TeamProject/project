@@ -40,6 +40,19 @@
           <ul>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+                코로나
+                
+              </a>
+                
+              <ul class="dropdown-menu">
+                <li><a href="#">국내 발생 현황</a></li>
+                <li><a href="#">시도별 발생동향</a></li>
+                <li><a href="#">확진환자 이동경로</a></li>
+                <li><a href="#">백신 예약</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
                 응급실
                 
               </a>

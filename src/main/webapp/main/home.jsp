@@ -124,8 +124,17 @@
         <!-- BEGIN RECENT WORKS -->
         <div class="row recent-work margin-bottom-40">
           <div class="col-md-3">
-            <h2><a href="portfolio.html">Recent Works</a></h2>
-            <p>Lorem ipsum dolor sit amet, dolore eiusmod quis tempor incididunt ut et dolore Ut veniam unde voluptatem. Sed unde omnis iste natus error sit voluptatem.</p>
+            <div class="recent-work-item">
+                <em>
+                  <img src="../pages/img/works/img1.jpg" alt="Amazing Project" class="img-responsive">
+                  <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
+                  <a href="../pages/img/works/img1.jpg" class="fancybox-button" title="Project Name #1" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                </em>
+                <a class="recent-work-description" href="javascript:;">
+                  <strong>Amazing Project</strong>
+                  <b>Agenda corp.</b>
+                </a>
+              </div>
           </div>
           <div class="col-md-9">
             <!-- <div class="owl-carousel owl-carousel3"> -->
