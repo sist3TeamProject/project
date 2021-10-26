@@ -180,17 +180,7 @@
                   <b>Agenda corp.</b>
                 </a>
               </div>
-              <div class="recent-work-item">
-                <em>
-                  <img src="../pages/img/works/img6.jpg" alt="Amazing Project" class="img-responsive">
-                  <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                  <a href="../pages/img/works/img6.jpg" class="fancybox-button" title="Project Name #6" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
-                </em>
-                <a class="recent-work-description" href="javascript:;">
-                  <strong>Amazing Project</strong>
-                  <b>Agenda corp.</b>
-                </a>
-              </div>
+             
               
             </div>       
           </div>
