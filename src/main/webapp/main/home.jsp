@@ -128,7 +128,7 @@
             <p>Lorem ipsum dolor sit amet, dolore eiusmod quis tempor incididunt ut et dolore Ut veniam unde voluptatem. Sed unde omnis iste natus error sit voluptatem.</p>
           </div>
           <div class="col-md-9">
-            <div class="owl-carousel owl-carousel3">
+            <!-- <div class="owl-carousel owl-carousel3"> -->
               <div class="recent-work-item">
                 <em>
                   <img src="../pages/img/works/img1.jpg" alt="Amazing Project" class="img-responsive">
@@ -216,7 +216,7 @@
                   <strong>Amazing Project</strong>
                   <b>Agenda corp.</b>
                 </a>
-              </div>
+              <!-- </div> -->
             </div>       
           </div>
         </div>   
