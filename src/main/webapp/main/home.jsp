@@ -124,11 +124,11 @@
         <!-- BEGIN RECENT WORKS -->
         <div class="row recent-work margin-bottom-40">
           <div class="col-md-9">
-<<<<<<< HEAD
+
             <div class="owl-carousel owl-carousel5">
-=======
+
             <!-- <div class="owl-carousel owl-carousel3"> -->
->>>>>>> branch 'master' of https://github.com/sist3TeamProject/project.git
+
               <div class="recent-work-item">
                 <em>
                   <img src="../pages/img/works/img1.jpg" alt="Amazing Project" class="img-responsive">
@@ -184,10 +184,7 @@
                   <b>Agenda corp.</b>
                 </a>
               </div>
-<<<<<<< HEAD
-             
-              
-=======
+
               <div class="recent-work-item">
                 <em>
                   <img src="../pages/img/works/img6.jpg" alt="Amazing Project" class="img-responsive">
