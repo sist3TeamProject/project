@@ -236,13 +236,13 @@
               </div>
               <div class="recent-work-item">
                 <em>
-                  <img src="../pages/img/works/img4.jpg" alt="Amazing Project" class="img-responsive">
+                  <img src="../pages/img/works/emer1.jpg" class="img-responsive" style="height: 123px">
                   <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                  <a href="../pages/img/works/img4.jpg" class="fancybox-button" title="Project Name #4" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                  <a href="../emergency_treat/list.jsp" class="fancybox-button" title="응급처치방법" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
-                <a class="recent-work-description" href="javascript:;">
-                  <strong>Amazing Project</strong>
-                  <b>Agenda corp.</b>
+                <a class="recent-work-description" href="../emergency_treat/list.jsp">
+                  <strong>응급처치방법</strong>
+                  <b>Detail</b>
                 </a>
               </div>
               <div class="recent-work-item">
