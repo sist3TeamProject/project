@@ -278,7 +278,8 @@
               </div>
               <div class="recent-work-item">
                 <em>
-                  <img src="../pages/img/works/emer1.jpg" class="img-responsive" style="height: 170px">
+                  <img src="../pages/img/works/emer1.jpg" class="img-responsive" style="height: 167px">
+                  <!-- <a href="portfolio-item.html"><i class="fa fa-link"></i></a> -->
                   <a href="../emergency_treat/list.jsp" class="fancybox-button" title="응급처치방법" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
                 <a class="recent-work-description" href="../emergency_treat/list.jsp">
