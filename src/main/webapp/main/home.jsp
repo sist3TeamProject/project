@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
 <style type="text/css">
 .list0 { clear:both; position: relative; z-index: 1; top: -35px; left: -5px; } 
 .list1 { clear:both; position: absolute; z-index: 1; top: 260px; left: 20px; }
@@ -23,7 +25,40 @@
 .list14 { clear:both; position: absolute; z-index: 14; top: 223px; left: 157px; } 
 .list15 { clear:both; position: absolute; z-index: 15; top: 242px; left: 189px; } 
 .list16 { clear:both; position: absolute; z-index: 16; top: 263px; left: 179px; }
+#wrapper_yang{
+  
+  width: 840px;
+  height:700px;
+  padding: 10px;
+  position: absolute;
+  transform:scale(1.3);
+  margin: 0px auto;
+  left: 50px;
+}
+#map_yang{
+  border: 1px solid;
+  width: 300px;
+  height:390px;
+  float: left;
+  padding: 10px;
+  top: 50px;
+  
+  
+}
+#content_yang{
+  border: 1px solid;
+  width: 490px;
+  height: 390px;
+  float: right;
+  padding: 10px;
+  
+}
+.chart-div{
+  margin-left: 160px;
+  margin-bottom: 30px; 
+}
 </style>
+
 </head>
 <body>
     <!-- BEGIN SLIDER -->
@@ -39,11 +74,12 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <!-- First slide -->
-                <div class="item carousel-item-eight active">
+                <div class="item carousel-item-eight active"  style="background-color: #e6f4fa;">
                     <div class="container">
-                        <div class="carousel-position-six text-uppercase text-center">
-                          <div style="position: relative; left: 300px; bottom: 100px; ">
-                            <div style="display: inline-block; width: 200px;">
+                        <div class="carousel-position-six text-uppercase text-center" >
+                          <div id="wrapper_yang">
+                            
+                            <div id="map_yang" >
 							        <a href='../bbs/board.php?bo_table=m101&sca=전남' onfocus='this.blur()' onmouseover=mus_on('mus1') onmouseout=mus_off('mus1') onclick=smenu_click('mus1')>
 								      <img src='../map/m061.gif' alt='' border='0' name='mus1' class='list1' >
 								    </a>
@@ -91,15 +127,23 @@
 								    <a href='../bbs/board.php?bo_table=m101&sca=부산' onfocus='this.blur()' onmouseover=mus_on('mus16') onmouseout=mus_off('mus16') onclick=smenu_click('mus16')>
 								      <img src='../map/m051.gif' alt='' border='0' name='mus16' class='list16' >
 								    </a> 
+								    
 						    </div>
-						    <div style="position:relative; left: 300px; top: 50px;">
-						      <ul>
-						       <li>누적환자</li>
-						       <li>격리중</li>
-						       <li>누적격리해제</li>
-						       <li>사망자</li>
+						    <div id="content_yang">
+						      
+						      <ul class="nav">
+						       <li class="carousel-subtitle-v7 margin-bottom-30">누적 확진환자&nbsp;&nbsp;&nbsp;&nbsp;<strong>1명</strong></li>
+						       <li class="carousel-subtitle-v7 margin-bottom-30">전일 대비 증감률&nbsp;&nbsp;&nbsp;&nbsp;<strong>+1명</strong></li>
+						       <li class="carousel-subtitle-v7 margin-bottom-30">격리중&nbsp;&nbsp;&nbsp;&nbsp;<strong>1명</strong></li>
+						       <li class="carousel-subtitle-v7 margin-bottom-30">누적격리해제&nbsp;&nbsp;&nbsp;&nbsp;<strong>1명</strong></li>
+						       <li class="carousel-subtitle-v7 margin-bottom-30">사망자&nbsp;&nbsp;&nbsp;&nbsp;<strong>1명</strong></li>
 						      </ul>
+						      <div class="chart-div">
+						            <canvas id="pieChartCanvas" width="130px" height="130px"></canvas>
+						      </div>
+												      
 						    </div>
+						    
 					      </div>  
                         </div>
                     </div>
@@ -153,7 +197,7 @@
         </div>
     </div>
     <!-- END SLIDER -->
-
+  
     <div class="main">
       <div class="container">
         <!-- BEGIN SERVICE BOX -->   
@@ -557,6 +601,29 @@ function smenu_click(musName){
 }
 
 //-----------------------------------------------------------------------------------------
+window.onload = function () {
+    pieChartDraw();
+}
+
+let pieChartData = {
+    
+    datasets: [{
+        data: [95, 12, 13, 7, 13, 10],
+        backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)']
+    }] 
+};
+
+let pieChartDraw = function () {
+    let ctx = document.getElementById('pieChartCanvas').getContext('2d');
+    
+    window.pieChart = new Chart(ctx, {
+        type: 'pie',
+        data: pieChartData,
+        options: {
+            responsive: false
+        }
+    });
+};
 </script>
 </body>
 </html>
