@@ -278,13 +278,12 @@
               </div>
               <div class="recent-work-item">
                 <em>
-                  <img src="../pages/img/works/emer1.jpg" class="img-responsive" style="height: 123px">
-                  <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
+                  <img src="../pages/img/works/emer1.jpg" class="img-responsive" style="height: 170px">
                   <a href="../emergency_treat/list.jsp" class="fancybox-button" title="응급처치방법" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
                 <a class="recent-work-description" href="../emergency_treat/list.jsp">
                   <strong>응급처치방법</strong>
-                  <b>Detail</b>
+                  <b>응급상황일때 대처요령 정보를 확인할 수 있습니다.</b>
                 </a>
               </div>
               <div class="recent-work-item">
