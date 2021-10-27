@@ -88,18 +88,17 @@
               </ul>
             </li>
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="../emergency_treat/list.jsp">
                응급처치방법
                 
               </a>
                 
               <ul class="dropdown-menu">
-                <li><a href="#">응급상황시 대처요령</a></li>
-                <li><a href="#">응급처치 개요</a></li>
-                <li><a href="#">응급상황</a></li>
-                <li><a href="#">기본응급처치</a></li>
-                <li><a href="#">상황별응급처치</a></li>
-                <li><a href="#">응급의료자료실</a></li>
+                <li><a href="../emergency_treat/treat.jsp">응급상황시 대처요령</a></li>
+                <li><a href="../emergency_treat/treat1.jsp">응급처치 개요</a></li>
+                <li><a href="../emergency_treat/treat2.jsp">응급상황</a></li>
+                <li><a href="../emergency_treat/treat3.jsp">기본응급처치</a></li>
+                <li><a href="../emergency_treat/treat4.jsp">상황별응급처치</a></li>
               </ul>
             </li>
             <li class="dropdown">
