@@ -195,7 +195,7 @@
 
         <!-- BEGIN RECENT WORKS -->
         <div class="row recent-work margin-bottom-40">
-          <div class="col-md-9">
+          <div<%--  class="col-md-9" --%>>
 
             <div class="owl-carousel owl-carousel5">
 
@@ -203,13 +203,13 @@
 
               <div class="recent-work-item">
                 <em>
-                  <img src="../pages/img/works/img1.jpg" alt="Amazing Project" class="img-responsive">
-                  <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                  <a href="../pages/img/works/img1.jpg" class="fancybox-button" title="Project Name #1" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                  <img src="../pages/img/works/ambulance.jpg" alt="Amazing Project" class="img-responsive">
+                  <!-- <a href="portfolio-item.html"><i class="fa fa-link"></i></a> -->
+                  <a href="../emergency_center/find.jsp" class="fancybox-button" title="Project Name #1" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
                 <a class="recent-work-description" href="javascript:;">
-                  <strong>Amazing Project</strong>
-                  <b>Agenda corp.</b>
+                  <strong>응급실 찾기</strong>
+                  <b>주변에 위치한 응급실 정보를 알려드립니다.</b>
                 </a>
               </div>
               <div class="recent-work-item">
