@@ -237,7 +237,7 @@
 
         <!-- BEGIN RECENT WORKS -->
         <div class="row recent-work margin-bottom-40">
-          <div<%--  class="col-md-9" --%>>
+          <div class="col-md-12">
 
             <div class="owl-carousel owl-carousel5">
 
@@ -247,7 +247,7 @@
                 <em>
                   <img src="../pages/img/works/ambulance.jpg" alt="Amazing Project" class="img-responsive">
                   <!-- <a href="portfolio-item.html"><i class="fa fa-link"></i></a> -->
-                  <a href="../emergency_center/find.jsp" class="fancybox-button" title="Project Name #1" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                  <a href="../emergency_center/find.jsp" class="fancybox-button" title="응급실 찾기" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
                 <a class="recent-work-description" href="javascript:;">
                   <strong>응급실 찾기</strong>
