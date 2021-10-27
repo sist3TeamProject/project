@@ -287,17 +287,17 @@
                   <b>응급상황일때 대처요령 정보를 확인할 수 있습니다.</b>
                 </a>
               </div>
-              <div class="recent-work-item">
-                <em>
-                  <img src="../pages/img/works/img5.jpg" alt="Amazing Project" class="img-responsive">
-                  <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                  <a href="../pages/img/works/img5.jpg" class="fancybox-button" title="Project Name #5" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
-                </em>
-                <a class="recent-work-description" href="javascript:;">
-                  <strong>Amazing Project</strong>
-                  <b>Agenda corp.</b>
-                </a>
-              </div>
+                <div class="recent-work-item">
+                    <em>
+                        <img src="../pages/img/works/health-check.png" style="height: 163.5px;" alt="Amazing Project" class="img-responsive">
+                        <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
+                        <a href="../pages/img/works/health-check.png" class="fancybox-button" title="Project Name #5" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                    </em>
+                    <a class="recent-work-description" href="javascript:;">
+                        <strong>자가 진단</strong>
+                        <b>자가진단을 통해 본인의 건강상태를 스스로 체크해 볼 수 있습니다.</b>
+                    </a>
+                </div>
 
               <div class="recent-work-item">
                 <em>
