@@ -31,13 +31,13 @@
                           <!-- Carousel items -->
                           <div class="carousel-inner">
                             <div class="item">
-                              <img alt="" src="assets/pages/img/works/img1.jpg">
+                              <img alt="" src="../assets/pages/img/works/img1.jpg">
                             </div>
                             <div class="item">
-                              <img alt="" src="assets/pages/img/works/img2.jpg">
+                              <img alt="" src="../assets/pages/img/works/img2.jpg">
                             </div>
                             <div class="item active">
-                              <img alt="" src="assets/pages/img/works/img3.jpg">
+                              <img alt="" src="../assets/pages/img/works/img3.jpg">
                             </div>
                           </div>
                           <!-- Carousel nav -->
@@ -65,7 +65,7 @@
                   <hr class="blog-post-sep">
                   <div class="row">
                     <div class="col-md-4 col-sm-4">
-                      <img class="img-responsive" alt="" src="assets/pages/img/works/img4.jpg">
+                      <img class="img-responsive" alt="" src="../assets/pages/img/works/img4.jpg">
                     </div>
                     <div class="col-md-8 col-sm-8">
                       <h2><a href="blog-item.html">Corrupti quos dolores etquas</a></h2>
@@ -99,7 +99,7 @@
                   <hr class="blog-post-sep">
                   <div class="row">
                     <div class="col-md-4 col-sm-4">
-                      <img class="img-responsive" alt="" src="assets/pages/img/works/img2.jpg">
+                      <img class="img-responsive" alt="" src="../assets/pages/img/works/img2.jpg">
                     </div>
                     <div class="col-md-8 col-sm-8">
                       <h2><a href="javascript:;">Corrupti quos dolores etquas</a></h2>
@@ -143,7 +143,7 @@
                   <div class="recent-news margin-bottom-10">
                     <div class="row margin-bottom-10">
                       <div class="col-md-3">
-                        <img class="img-responsive" alt="" src="assets/pages/img/people/img2-large.jpg">                        
+                        <img class="img-responsive" alt="" src="../assets/pages/img/people/img2-large.jpg">                        
                       </div>
                       <div class="col-md-9 recent-news-inner">
                         <h3><a href="javascript:;">Letiusto gnissimos</a></h3>
@@ -152,7 +152,7 @@
                     </div>
                     <div class="row margin-bottom-10">
                       <div class="col-md-3">
-                        <img class="img-responsive" alt="" src="assets/pages/img/people/img1-large.jpg">                        
+                        <img class="img-responsive" alt="" src="../assets/pages/img/people/img1-large.jpg">                        
                       </div>
                       <div class="col-md-9 recent-news-inner">
                         <h3><a href="javascript:;">Deiusto anissimos</a></h3>
@@ -161,7 +161,7 @@
                     </div>
                     <div class="row margin-bottom-10">
                       <div class="col-md-3">
-                        <img class="img-responsive" alt="" src="assets/pages/img/people/img3-large.jpg">                        
+                        <img class="img-responsive" alt="" src="../assets/pages/img/people/img3-large.jpg">                        
                       </div>
                       <div class="col-md-9 recent-news-inner">
                         <h3><a href="javascript:;">Tesiusto baissimos</a></h3>
@@ -196,14 +196,14 @@
                   <div class="blog-photo-stream margin-bottom-20">
                     <h2>Photos Stream</h2>
                     <ul class="list-unstyled">
-                      <li><a href="javascript:;"><img alt="" src="assets/pages/img/people/img5-small.jpg"></a></li>
-                      <li><a href="javascript:;"><img alt="" src="assets/pages/img/works/img1.jpg"></a></li>
-                      <li><a href="javascript:;"><img alt="" src="assets/pages/img/people/img4-large.jpg"></a></li>
-                      <li><a href="javascript:;"><img alt="" src="assets/pages/img/works/img6.jpg"></a></li>
-                      <li><a href="javascript:;"><img alt="" src="assets/pages/img/pics/img1-large.jpg"></a></li>
-                      <li><a href="javascript:;"><img alt="" src="assets/pages/img/pics/img2-large.jpg"></a></li>
-                      <li><a href="javascript:;"><img alt="" src="assets/pages/img/works/img3.jpg"></a></li>
-                      <li><a href="javascript:;"><img alt="" src="assets/pages/img/people/img2-large.jpg"></a></li>
+                      <li><a href="javascript:;"><img alt="" src="../assets/pages/img/people/img5-small.jpg"></a></li>
+                      <li><a href="javascript:;"><img alt="" src="../assets/pages/img/works/img1.jpg"></a></li>
+                      <li><a href="javascript:;"><img alt="" src="../assets/pages/img/people/img4-large.jpg"></a></li>
+                      <li><a href="javascript:;"><img alt="" src="../assets/pages/img/works/img6.jpg"></a></li>
+                      <li><a href="javascript:;"><img alt="" src="../assets/pages/img/pics/img1-large.jpg"></a></li>
+                      <li><a href="javascript:;"><img alt="" src="../assets/pages/img/pics/img2-large.jpg"></a></li>
+                      <li><a href="javascript:;"><img alt="" src="../assets/pages/img/works/img3.jpg"></a></li>
+                      <li><a href="javascript:;"><img alt="" src="../assets/pages/img/people/img2-large.jpg"></a></li>
                     </ul>                    
                   </div>
                   <!-- END BLOG PHOTOS STREAM -->
