@@ -127,7 +127,6 @@
 								    <a href='../bbs/board.php?bo_table=m101&sca=부산' onfocus='this.blur()' onmouseover=mus_on('mus16') onmouseout=mus_off('mus16') onclick=smenu_click('mus16')>
 								      <img src='../map/m051.gif' alt='' border='0' name='mus16' class='list16' >
 								    </a> 
-								    
 						    </div>
 						    <div id="content_yang">
 						      
@@ -140,8 +139,7 @@
 						      </ul>
 						      <div class="chart-div">
 						            <canvas id="pieChartCanvas" width="130px" height="130px"></canvas>
-						      </div>
-												      
+						      </div>      
 						    </div>
 						    
 					      </div>  
