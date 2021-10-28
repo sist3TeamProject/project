@@ -34,6 +34,7 @@
     <bean id="ssf"
         class="org.mybatis.spring.SqlSessionFactoryBean"
         p:dataSource-ref="ds"
+		p:configLocation="classpath:/mybatis-config.xml" 
     />
     <!-- 
           Datasoure / XML => SqlSessionFactoryBean / SqlSessionTemplate
@@ -51,7 +52,7 @@
        p:sqlSessionFactory-ref="ssf"
        p:mapperInterface="com.sist.mapper.MemberMapper"
     /> -->
-    <!-- <mybatis-spring:scan base-package="com.sist.mapper"/> -->
+	<mybatis-spring:scan base-package="com.sist.mapper" />
 </beans>
 
 

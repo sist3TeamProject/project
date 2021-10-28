@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,10 +22,31 @@
                 <!-- END TOP BAR LEFT PART -->
                 <!-- BEGIN TOP BAR MENU -->
                 <div class="col-md-6 col-sm-6 additional-nav">
-                    <ul class="list-unstyled list-inline pull-right">
-                        <li><a href="#">로그인</a></li>
-                        <li><a href="#">회원가입</a></li>
-                    </ul>
+                    <sec:authorize access="isAnonymous()">
+						<ul class="list-unstyled list-inline pull-right">
+	                        <li>
+	                        	<a href="<c:url value="/member/login.do" />">로그인</a>
+	                        </li>
+	                        <li>
+	                        	<a href="<c:url value="/member/findPassword.do" />">비밀번호찾기</a>
+	                        </li>
+	                        <li>
+	                       	 	<a href="<c:url value="/member/signup.do" />">회원가입</a>
+	                        </li>
+	                    </ul>
+	                </sec:authorize>
+                    <sec:authorize access="isAuthenticated()">
+						<ul class="list-unstyled list-inline pull-right">
+							<li>
+								<a href="<c:url value="/member/info.do" />" class="button asset fit">내 정보</a></li>
+							<li>
+								<a href="javascript:void(0)" onclick="deleteMember()" class="button asset fit">회원탈퇴</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" onclick="logout()" class="button asset primary fit">로그아웃</a>
+							</li>
+	                    </ul>
+	                </sec:authorize>
                 </div>
                 <!-- END TOP BAR MENU -->
             </div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,5 +77,26 @@
             Layout.initNavScrolling();
         });
     </script>
+   	<script src="<c:url value="/resources/js/basic.js" />"></script>
+    <script type="text/javascript">
+		const contextRoot = "${pageContext.request.contextPath}";
+	
+		const logout=()=>{
+			if (confirm("로그아웃하시겠습니까?")) {
+				location.href = contextRoot+"/member/logout.do";
+			}
+		}
+		
+		const deleteMember=()=>{
+			if (confirm("정말로 탈퇴하시겠습니까?")) {
+				let uri = contextRoot+"/member/delete.do";
+				let form = $("<form></form>");
+				form.attr("action", uri);
+				form.attr("method", "post");
+				form.appendTo("body");
+				form.submit();
+			}
+		}
+	</script>
 </body>
 </html>
