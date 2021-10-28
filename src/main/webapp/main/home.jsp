@@ -212,46 +212,41 @@
         <div class="row recent-work margin-bottom-40">
           <div class="col-md-12">
             <div class="owl-carousel owl-carousel5">
-
             <!-- <div class="owl-carousel owl-carousel3"> -->
-
               <div class="recent-work-item">
                 <em>
-                  <img src="../pages/img/works/ambulance.jpg" alt="Amazing Project" class="img-responsive">
+                  <img src="../pages/img/works/img1.jpg" class="img-responsive">
                   <!-- <a href="portfolio-item.html"><i class="fa fa-link"></i></a> -->
                   <a href="../emergency_center/find.jsp" class="fancybox-button" title="응급실 찾기" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
-                <a class="recent-work-description" href="javascript:;">
+                <a class="recent-work-description" href="../emergency_center/find.jsp">
                   <strong>응급실 찾기</strong>
                   <b>주변에 위치한 응급실 정보를 알려드립니다.</b>
                 </a>
               </div>
               <div class="recent-work-item">
                 <em>
-                  <img src="../pages/img/works/hopital.png" alt="Amazing Project" class="img-responsive" style="height: 165px">
-                  <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
+                  <img src="../pages/img/works/img2.jpg" class="img-responsive">
                   <a href="../findhopital/find.jpg" class="fancybox-button" title="병원·약국 찾기" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
-                <a class="recent-work-description" href="javascript:;">
+                <a class="recent-work-description" href="../findhopital/find.jpg">
                   <strong>병원·약국 찾기</strong>
                   <b>주변에 위치한 병원·약국 정보를 알려드립니다. </b>
                 </a>
               </div>
               <div class="recent-work-item">
                 <em>
-                  <img src="../pages/img/works/AED.jpg" alt="Amazing Project" class="img-responsive" style="height: 165px">
-                  <a href="#"><i class="fa fa-link"></i></a>
-                  <a href="../pages/img/works/AED.jpg" class="fancybox-button" title="Project Name #3" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                  <img src="../pages/img/works/img3.jpg" class="img-responsive">
+                  <a href="../pages/img/works/AED.jpg" class="fancybox-button" title="자동 심장충격기" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
-                <a class="recent-work-description" href="javascript:;">
+                <a class="recent-work-description" href="../pages/img/works/AED.jpg">
                   <strong>자동 심장충격기</strong>
                   <b>주변에 위치한 자동 심장충격기 정보를 알려드립니다. </b>
                 </a>
               </div>
               <div class="recent-work-item">
                 <em>
-                  <img src="../pages/img/works/emer1.jpg" class="img-responsive" style="height: 167px">
-                  <!-- <a href="portfolio-item.html"><i class="fa fa-link"></i></a> -->
+                  <img src="../pages/img/works/img4.jpg" class="img-responsive">
                   <a href="../emergency_treat/list.jsp" class="fancybox-button" title="응급처치방법" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
                 <a class="recent-work-description" href="../emergency_treat/list.jsp">
@@ -259,52 +254,17 @@
                   <b>응급상황일때 대처요령 정보를 확인할 수 있습니다.</b>
                 </a>
               </div>
-                <div class="recent-work-item">
-                    <em>
-                        <img src="../pages/img/works/health-check.png" style="height: 163.5px;" alt="Amazing Project" class="img-responsive">
-                        <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                        <a href="../pages/img/works/health-check.png" class="fancybox-button" title="Project Name #5" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
-                    </em>
-                    <a class="recent-work-description" href="javascript:;">
-                        <strong>자가 진단</strong>
-                        <b>자가진단을 통해 본인의 건강상태를 스스로 체크해 볼 수 있습니다.</b>
-                    </a>
-                </div>
-
               <div class="recent-work-item">
                 <em>
-                  <img src="../pages/img/works/img6.jpg" alt="Amazing Project" class="img-responsive">
-                  <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                  <a href="../pages/img/works/img6.jpg" class="fancybox-button" title="Project Name #6" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                    <img src="../pages/img/works/img5.jpg" class="img-responsive">
+                    <a href="../pages/img/works/health-check.png" class="fancybox-button" title="자가 진단" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
                 <a class="recent-work-description" href="javascript:;">
-                  <strong>Amazing Project</strong>
-                  <b>Agenda corp.</b>
+                    <strong>자가 진단</strong>
+                    <b>자가진단을 통해 본인의 건강상태를 스스로 체크해 볼 수 있습니다.</b>
                 </a>
               </div>
-              <div class="recent-work-item">
-                <em>
-                  <img src="../pages/img/works/img3.jpg" alt="Amazing Project" class="img-responsive">
-                  <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                  <a href="../pages/img/works/img3.jpg" class="fancybox-button" title="Project Name #3" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
-                </em>
-                <a class="recent-work-description" href="javascript:;">
-                  <strong>Amazing Project</strong>
-                  <b>Agenda corp.</b>
-                </a>
-              </div>
-              <div class="recent-work-item">
-                <em>
-                  <img src="../pages/img/works/img4.jpg" alt="Amazing Project" class="img-responsive">
-                  <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                  <a href="../pages/img/works/img4.jpg" class="fancybox-button" title="Project Name #4" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
-                </em>
-                <a class="recent-work-description" href="javascript:;">
-                  <strong>Amazing Project</strong>
-                  <b>Agenda corp.</b>
-                </a>
               <!-- </div> -->
-
             </div>       
           </div>
         </div>   
