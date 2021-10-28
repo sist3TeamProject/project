@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
 <style type="text/css">
 .list0 { clear:both; position: relative; z-index: 1; top: -35px; left: -5px; } 
 .list1 { clear:both; position: absolute; z-index: 1; top: 260px; left: 20px; }
@@ -23,7 +25,40 @@
 .list14 { clear:both; position: absolute; z-index: 14; top: 223px; left: 157px; } 
 .list15 { clear:both; position: absolute; z-index: 15; top: 242px; left: 189px; } 
 .list16 { clear:both; position: absolute; z-index: 16; top: 263px; left: 179px; }
+#wrapper_yang{
+  
+  width: 840px;
+  height:700px;
+  padding: 10px;
+  position: absolute;
+  transform:scale(1.3);
+  margin: 0px auto;
+  left: 150px;
+}
+#map_yang{
+  border: 1px solid;
+  width: 300px;
+  height:390px;
+  float: left;
+  padding: 10px;
+  top: 50px;
+  
+  
+}
+#content_yang{
+  border: 1px solid;
+  width: 490px;
+  height: 390px;
+  float: right;
+  padding: 10px;
+  
+}
+.chart-div{
+  margin-left: 160px;
+  margin-bottom: 30px; 
+}
 </style>
+
 </head>
 <body>
     <!-- BEGIN SLIDER -->
@@ -39,11 +74,12 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <!-- First slide -->
-                <div class="item carousel-item-eight active">
+                <div class="item carousel-item-eight active"  style="background-color: #e6f4fa;">
                     <div class="container">
-                        <div class="carousel-position-six text-uppercase text-center">
-                          <div style="position: relative; left: 300px; bottom: 100px; ">
-                            <div style="display: inline-block; width: 200px;">
+                        <div class="carousel-position-six text-uppercase text-center" >
+                          <div id="wrapper_yang">
+                            
+                            <div id="map_yang" >
 							        <a href='../bbs/board.php?bo_table=m101&sca=전남' onfocus='this.blur()' onmouseover=mus_on('mus1') onmouseout=mus_off('mus1') onclick=smenu_click('mus1')>
 								      <img src='../map/m061.gif' alt='' border='0' name='mus1' class='list1' >
 								    </a>
@@ -92,14 +128,20 @@
 								      <img src='../map/m051.gif' alt='' border='0' name='mus16' class='list16' >
 								    </a> 
 						    </div>
-						    <div style="position:relative; left: 300px; top: 50px;">
-						      <ul>
-						       <li>누적환자</li>
-						       <li>격리중</li>
-						       <li>누적격리해제</li>
-						       <li>사망자</li>
+						    <div id="content_yang">
+						      
+						      <ul class="nav">
+						       <li class="carousel-subtitle-v7 margin-bottom-30">누적 확진환자&nbsp;&nbsp;&nbsp;&nbsp;<strong>1명</strong></li>
+						       <li class="carousel-subtitle-v7 margin-bottom-30">전일 대비 증감률&nbsp;&nbsp;&nbsp;&nbsp;<strong>+1명</strong></li>
+						       <li class="carousel-subtitle-v7 margin-bottom-30">격리중&nbsp;&nbsp;&nbsp;&nbsp;<strong>1명</strong></li>
+						       <li class="carousel-subtitle-v7 margin-bottom-30">누적격리해제&nbsp;&nbsp;&nbsp;&nbsp;<strong>1명</strong></li>
+						       <li class="carousel-subtitle-v7 margin-bottom-30">사망자&nbsp;&nbsp;&nbsp;&nbsp;<strong>1명</strong></li>
 						      </ul>
+						      <div class="chart-div">
+						            <canvas id="pieChartCanvas" width="130px" height="130px"></canvas>
+						      </div>      
 						    </div>
+						    
 					      </div>  
                         </div>
                     </div>
@@ -153,74 +195,46 @@
         </div>
     </div>
     <!-- END SLIDER -->
-
+  
     <div class="main">
       <div class="container">
-        <!-- BEGIN SERVICE BOX -->   
-        <div class="row service-box margin-bottom-40">
-          <div class="col-md-4 col-sm-4">
-            <div class="service-box-heading">
-              <em><i class="fa fa-location-arrow blue"></i></em>
-              <span>Multipurpose Template</span>
-            </div>
-            <p>Lorem ipsum dolor sit amet, dolore eiusmod quis tempor incididunt ut et dolore Ut veniam unde nostrudlaboris. Sed unde omnis iste natus error sit voluptatem.</p>
-          </div>
-          <div class="col-md-4 col-sm-4">
-            <div class="service-box-heading">
-              <em><i class="fa fa-check red"></i></em>
-              <span>Well Documented</span>
-            </div>
-            <p>Lorem ipsum dolor sit amet, dolore eiusmod quis tempor incididunt ut et dolore Ut veniam unde nostrudlaboris. Sed unde omnis iste natus error sit voluptatem.</p>
-          </div>
-          <div class="col-md-4 col-sm-4">
-            <div class="service-box-heading">
-              <em><i class="fa fa-compress green"></i></em>
-              <span>Responsive Design</span>
-            </div>
-            <p>Lorem ipsum dolor sit amet, dolore eiusmod quis tempor incididunt ut et dolore Ut veniam unde nostrudlaboris. Sed unde omnis iste natus error sit voluptatem.</p>
-          </div>
-        </div>
-        <!-- END SERVICE BOX -->
-
+        
         <!-- BEGIN BLOCKQUOTE BLOCK -->   
         <div class="row quote-v1 margin-bottom-30">
-          <div class="col-md-9">
-            <span>Metronic - The Most Complete &amp; Popular Admin &amp; Frontend Theme</span>
+          <div class="text-center">
+            <span>응급의료정보</span>
           </div>
-          <div class="col-md-3 text-right">
-            <a class="btn-transparent" href="http://www.keenthemes.com/preview/index.php?theme=metronic_admin" target="_blank"><i class="fa fa-rocket margin-right-10"></i>Preview Admin</a>
-          </div>
+          
         </div>
         <!-- END BLOCKQUOTE BLOCK -->
 
         <!-- BEGIN RECENT WORKS -->
         <div class="row recent-work margin-bottom-40">
           <div class="col-md-12">
-
             <div class="owl-carousel owl-carousel5">
 
             <!-- <div class="owl-carousel owl-carousel3"> -->
 
               <div class="recent-work-item">
                 <em>
-                  <img src="../pages/img/works/img1.jpg" alt="Amazing Project" class="img-responsive">
-                  <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                  <a href="../pages/img/works/img1.jpg" class="fancybox-button" title="Project Name #1" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                  <img src="../pages/img/works/ambulance.jpg" alt="Amazing Project" class="img-responsive">
+                  <!-- <a href="portfolio-item.html"><i class="fa fa-link"></i></a> -->
+                  <a href="../emergency_center/find.jsp" class="fancybox-button" title="응급실 찾기" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
                 <a class="recent-work-description" href="javascript:;">
-                  <strong>Amazing Project</strong>
-                  <b>Agenda corp.</b>
+                  <strong>응급실 찾기</strong>
+                  <b>주변에 위치한 응급실 정보를 알려드립니다.</b>
                 </a>
               </div>
               <div class="recent-work-item">
                 <em>
-                  <img src="../pages/img/works/img2.jpg" alt="Amazing Project" class="img-responsive">
+                  <img src="../pages/img/works/hopital.png" alt="Amazing Project" class="img-responsive" style="height: 165px">
                   <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                  <a href="../pages/img/works/img2.jpg" class="fancybox-button" title="Project Name #2" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                  <a href="../findhopital/find.jpg" class="fancybox-button" title="병원·약국 찾기" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
                 <a class="recent-work-description" href="javascript:;">
-                  <strong>Amazing Project</strong>
-                  <b>Agenda corp.</b>
+                  <strong>병원·약국 찾기</strong>
+                  <b>주변에 위치한 병원·약국 정보를 알려드립니다. </b>
                 </a>
               </div>
               <div class="recent-work-item">
@@ -235,26 +249,26 @@
               </div>
               <div class="recent-work-item">
                 <em>
-                  <img src="../pages/img/works/emer1.jpg" class="img-responsive" style="height: 123px">
-                  <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
+                  <img src="../pages/img/works/emer1.jpg" class="img-responsive" style="height: 167px">
+                  <!-- <a href="portfolio-item.html"><i class="fa fa-link"></i></a> -->
                   <a href="../emergency_treat/list.jsp" class="fancybox-button" title="응급처치방법" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
                 <a class="recent-work-description" href="../emergency_treat/list.jsp">
                   <strong>응급처치방법</strong>
-                  <b>Detail</b>
+                  <b>응급상황일때 대처요령 정보를 확인할 수 있습니다.</b>
                 </a>
               </div>
-              <div class="recent-work-item">
-                <em>
-                  <img src="../pages/img/works/img5.jpg" alt="Amazing Project" class="img-responsive">
-                  <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                  <a href="../pages/img/works/img5.jpg" class="fancybox-button" title="Project Name #5" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
-                </em>
-                <a class="recent-work-description" href="javascript:;">
-                  <strong>Amazing Project</strong>
-                  <b>Agenda corp.</b>
-                </a>
-              </div>
+                <div class="recent-work-item">
+                    <em>
+                        <img src="../pages/img/works/health-check.png" style="height: 163.5px;" alt="Amazing Project" class="img-responsive">
+                        <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
+                        <a href="../pages/img/works/health-check.png" class="fancybox-button" title="Project Name #5" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                    </em>
+                    <a class="recent-work-description" href="javascript:;">
+                        <strong>자가 진단</strong>
+                        <b>자가진단을 통해 본인의 건강상태를 스스로 체크해 볼 수 있습니다.</b>
+                    </a>
+                </div>
 
               <div class="recent-work-item">
                 <em>
@@ -289,7 +303,7 @@
                   <b>Agenda corp.</b>
                 </a>
               <!-- </div> -->
->>>>>>> branch 'master' of https://github.com/sist3TeamProject/project.git
+
             </div>       
           </div>
         </div>   
@@ -383,85 +397,61 @@
         </div>                
         <!-- END TABS AND TESTIMONIALS -->
 
-        <!-- BEGIN STEPS -->
-        <div class="row margin-bottom-40 front-steps-wrapper front-steps-count-3">
-          <div class="col-md-4 col-sm-4 front-step-col">
-            <div class="front-step front-step1">
-              <h2>Goal definition</h2>
-              <p>Lorem ipsum dolor sit amet sit consectetur adipisicing eiusmod tempor.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-4 front-step-col">
-            <div class="front-step front-step2">
-              <h2>Analyse</h2>
-              <p>Lorem ipsum dolor sit amet sit consectetur adipisicing eiusmod tempor.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-4 front-step-col">
-            <div class="front-step front-step3">
-              <h2>Implementation</h2>
-              <p>Lorem ipsum dolor sit amet sit consectetur adipisicing eiusmod tempor.</p>
-            </div>
-          </div>
-        </div>
-        <!-- END STEPS -->
+       
 
         <!-- BEGIN CLIENTS -->
         <div class="row margin-bottom-40 our-clients">
-          <div class="col-md-3">
-            <h2><a href="javascript:;">Our Clients</a></h2>
-            <p>Lorem dipsum folor margade sitede lametep eiusmod psumquis dolore.</p>
+          <div class="text-center">
+            <h2><a href="javascript:;">응급처치방법</a></h2>
+           
           </div>
-          <div class="col-md-9">
+          <div style="transform:scale(0.8)">
             <div class="owl-carousel owl-carousel6-brands">
-              <div class="client-item">
+              <div class="client-item" style="margin-right: 20px; ">
                 <a href="javascript:;">
-                  <img src="../pages/img/clients/client_1_gray.png" class="img-responsive" alt="">
-                  <img src="../pages/img/clients/client_1.png" class="color-img img-responsive" alt="">
+                  <img src="../pages/img/main_service1.png" class="img-responsive" alt="">
+                  <img src="../pages/img/main_service1.png" class="color-img img-responsive" alt="">
+                  <h4>응급상황시 대처요령</h4>
+                  
+                </a>
+                
+              </div>
+              <div class="client-item" style="margin-right: 20px; ">
+                <a href="javascript:;" >
+                  <img src="../pages/img/main_service2.png" class="img-responsive" alt="">
+                  <img src="../pages/img/main_service2.png" class="color-img img-responsive" alt="">
+                  <h4>응급처치 개요</h4>
                 </a>
               </div>
-              <div class="client-item">
+              <div class="client-item" style="margin-right: 20px; ">
                 <a href="javascript:;">
-                  <img src="../pages/img/clients/client_2_gray.png" class="img-responsive" alt="">
-                  <img src="../pages/img/clients/client_2.png" class="color-img img-responsive" alt="">
+                  <img src="../pages/img/main_service3.png" class="img-responsive" alt="">
+                  <img src="../pages/img/main_service3.png" class="color-img img-responsive" alt="">
+                  <h4>응급상황</h4>
                 </a>
               </div>
-              <div class="client-item">
+              <div class="client-item" style="margin-right: 20px; ">
                 <a href="javascript:;">
-                  <img src="../pages/img/clients/client_3_gray.png" class="img-responsive" alt="">
-                  <img src="../pages/img/clients/client_3.png" class="color-img img-responsive" alt="">
+                  <img src="../pages/img/main_service4.png" class="img-responsive" alt="">
+                  <img src="../pages/img/main_service4.png" class="color-img img-responsive" alt="">
+                  <h4>기본응급처치</h4>
                 </a>
               </div>
-              <div class="client-item">
+              <div class="client-item" style="margin-right: 20px; ">
                 <a href="javascript:;">
-                  <img src="../pages/img/clients/client_4_gray.png" class="img-responsive" alt="">
-                  <img src="../pages/img/clients/client_4.png" class="color-img img-responsive" alt="">
+                  <img src="../pages/img/main_service5.png" class="img-responsive" alt="">
+                  <img src="../pages/img/main_service5.png" class="color-img img-responsive" alt="">
+                  <h4>상황별응급처치</h4>
                 </a>
               </div>
-              <div class="client-item">
+              <div class="client-item" style="margin-right: 20px; ">
                 <a href="javascript:;">
-                  <img src="../pages/img/clients/client_5_gray.png" class="img-responsive" alt="">
-                  <img src="../pages/img/clients/client_5.png" class="color-img img-responsive" alt="">
+                  <img src="../pages/img/main_service6.png" class="img-responsive" alt="">
+                  <img src="../pages/img/main_service6.png" class="color-img img-responsive" alt="">
+                  <h4>응급의료 자료실</h4>
                 </a>
               </div>
-              <div class="client-item">
-                <a href="javascript:;">
-                  <img src="../pages/img/clients/client_6_gray.png" class="img-responsive" alt="">
-                  <img src="../pages/img/clients/client_6.png" class="color-img img-responsive" alt="">
-                </a>
-              </div>
-              <div class="client-item">
-                <a href="javascript:;">
-                  <img src="../pages/img/clients/client_7_gray.png" class="img-responsive" alt="">
-                  <img src="../pages/img/clients/client_7.png" class="color-img img-responsive" alt="">
-                </a>
-              </div>
-              <div class="client-item">
-                <a href="javascript:;">
-                  <img src="../pages/img/clients/client_8_gray.png" class="img-responsive" alt="">
-                  <img src="../pages/img/clients/client_8.png" class="color-img img-responsive" alt="">
-                </a>
-              </div>                  
+                               
             </div>
           </div>          
         </div>
@@ -556,6 +546,29 @@ function smenu_click(musName){
 }
 
 //-----------------------------------------------------------------------------------------
+window.onload = function () {
+    pieChartDraw();
+}
+
+let pieChartData = {
+    
+    datasets: [{
+        data: [95, 12, 13, 7, 13, 10],
+        backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)']
+    }] 
+};
+
+let pieChartDraw = function () {
+    let ctx = document.getElementById('pieChartCanvas').getContext('2d');
+    
+    window.pieChart = new Chart(ctx, {
+        type: 'pie',
+        data: pieChartData,
+        options: {
+            responsive: false
+        }
+    });
+};
 </script>
 </body>
 </html>
