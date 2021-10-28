@@ -239,7 +239,7 @@
               </div>
               <div class="recent-work-item">
                 <em>
-                  <img src="../pages/img/works/AED.jpg" alt="Amazing Project" class="img-responsive">
+                  <img src="../pages/img/works/AED.jpg" alt="Amazing Project" class="img-responsive" style="height: 165px">
                   <a href="#"><i class="fa fa-link"></i></a>
                   <a href="../pages/img/works/AED.jpg" class="fancybox-button" title="Project Name #3" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
