@@ -406,8 +406,8 @@
             <h2><a href="javascript:;">응급처치방법</a></h2>
            
           </div>
-          <div style="transform:scale(0.8)">
-            <div class="owl-carousel owl-carousel6-brands">
+          <div style="transform:scale(0.7)">
+            <div class="owl-carousel owl-carousel5">
               <div class="client-item" style="margin-right: 20px; ">
                 <a href="javascript:;">
                   <img src="../pages/img/main_service1.png" class="img-responsive" alt="">
@@ -444,15 +444,7 @@
                   <img src="../pages/img/main_service5.png" class="color-img img-responsive" alt="">
                   <h4>상황별응급처치</h4>
                 </a>
-              </div>
-              <div class="client-item" style="margin-right: 20px; ">
-                <a href="javascript:;">
-                  <img src="../pages/img/main_service6.png" class="img-responsive" alt="">
-                  <img src="../pages/img/main_service6.png" class="color-img img-responsive" alt="">
-                  <h4>응급의료 자료실</h4>
-                </a>
-              </div>
-                               
+              </div>                
             </div>
           </div>          
         </div>
