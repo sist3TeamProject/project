@@ -245,6 +245,7 @@
                 </em>
                 <a class="recent-work-description" href="javascript:;">
                   <strong>자동 심장충격기</strong>
+                  <b>주변에 위치한 자동 심장충격기 정보를 알려드립니다. </b>
                 </a>
               </div>
               <div class="recent-work-item">
