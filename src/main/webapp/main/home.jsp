@@ -229,13 +229,13 @@
               </div>
               <div class="recent-work-item">
                 <em>
-                  <img src="../pages/img/works/img2.jpg" alt="Amazing Project" class="img-responsive">
+                  <img src="../pages/img/works/hopital.png" alt="Amazing Project" class="img-responsive" style="height: 165px">
                   <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
-                  <a href="../pages/img/works/img2.jpg" class="fancybox-button" title="Project Name #2" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                  <a href="../findhopital/find.jpg" class="fancybox-button" title="병원·약국 찾기" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
                 <a class="recent-work-description" href="javascript:;">
-                  <strong>Amazing Project</strong>
-                  <b>Agenda corp.</b>
+                  <strong>병원·약국 찾기</strong>
+                  <b>주변에 위치한 병원·약국 정보를 알려드립니다. </b>
                 </a>
               </div>
               <div class="recent-work-item">
