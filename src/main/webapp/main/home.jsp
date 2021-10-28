@@ -33,7 +33,7 @@
   position: absolute;
   transform:scale(1.3);
   margin: 0px auto;
-  left: 50px;
+  left: 150px;
 }
 #map_yang{
   border: 1px solid;
@@ -198,40 +198,13 @@
   
     <div class="main">
       <div class="container">
-        <!-- BEGIN SERVICE BOX -->   
-        <div class="row service-box margin-bottom-40">
-          <div class="col-md-4 col-sm-4">
-            <div class="service-box-heading">
-              <em><i class="fa fa-location-arrow blue"></i></em>
-              <span>Multipurpose Template</span>
-            </div>
-            <p>Lorem ipsum dolor sit amet, dolore eiusmod quis tempor incididunt ut et dolore Ut veniam unde nostrudlaboris. Sed unde omnis iste natus error sit voluptatem.</p>
-          </div>
-          <div class="col-md-4 col-sm-4">
-            <div class="service-box-heading">
-              <em><i class="fa fa-check red"></i></em>
-              <span>Well Documented</span>
-            </div>
-            <p>Lorem ipsum dolor sit amet, dolore eiusmod quis tempor incididunt ut et dolore Ut veniam unde nostrudlaboris. Sed unde omnis iste natus error sit voluptatem.</p>
-          </div>
-          <div class="col-md-4 col-sm-4">
-            <div class="service-box-heading">
-              <em><i class="fa fa-compress green"></i></em>
-              <span>Responsive Design</span>
-            </div>
-            <p>Lorem ipsum dolor sit amet, dolore eiusmod quis tempor incididunt ut et dolore Ut veniam unde nostrudlaboris. Sed unde omnis iste natus error sit voluptatem.</p>
-          </div>
-        </div>
-        <!-- END SERVICE BOX -->
-
+        
         <!-- BEGIN BLOCKQUOTE BLOCK -->   
         <div class="row quote-v1 margin-bottom-30">
-          <div class="col-md-9">
-            <span>Metronic - The Most Complete &amp; Popular Admin &amp; Frontend Theme</span>
+          <div class="text-center">
+            <span>응급의료정보</span>
           </div>
-          <div class="col-md-3 text-right">
-            <a class="btn-transparent" href="http://www.keenthemes.com/preview/index.php?theme=metronic_admin" target="_blank"><i class="fa fa-rocket margin-right-10"></i>Preview Admin</a>
-          </div>
+          
         </div>
         <!-- END BLOCKQUOTE BLOCK -->
 
@@ -332,7 +305,7 @@
                   <b>Agenda corp.</b>
                 </a>
               <!-- </div> -->
->>>>>>> branch 'master' of https://github.com/sist3TeamProject/project.git
+
             </div>       
           </div>
         </div>   
@@ -426,85 +399,61 @@
         </div>                
         <!-- END TABS AND TESTIMONIALS -->
 
-        <!-- BEGIN STEPS -->
-        <div class="row margin-bottom-40 front-steps-wrapper front-steps-count-3">
-          <div class="col-md-4 col-sm-4 front-step-col">
-            <div class="front-step front-step1">
-              <h2>Goal definition</h2>
-              <p>Lorem ipsum dolor sit amet sit consectetur adipisicing eiusmod tempor.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-4 front-step-col">
-            <div class="front-step front-step2">
-              <h2>Analyse</h2>
-              <p>Lorem ipsum dolor sit amet sit consectetur adipisicing eiusmod tempor.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-4 front-step-col">
-            <div class="front-step front-step3">
-              <h2>Implementation</h2>
-              <p>Lorem ipsum dolor sit amet sit consectetur adipisicing eiusmod tempor.</p>
-            </div>
-          </div>
-        </div>
-        <!-- END STEPS -->
+       
 
         <!-- BEGIN CLIENTS -->
         <div class="row margin-bottom-40 our-clients">
-          <div class="col-md-3">
-            <h2><a href="javascript:;">Our Clients</a></h2>
-            <p>Lorem dipsum folor margade sitede lametep eiusmod psumquis dolore.</p>
+          <div class="text-center">
+            <h2><a href="javascript:;">응급처치방법</a></h2>
+           
           </div>
-          <div class="col-md-9">
+          <div style="transform:scale(0.8)">
             <div class="owl-carousel owl-carousel6-brands">
-              <div class="client-item">
+              <div class="client-item" style="margin-right: 20px; ">
                 <a href="javascript:;">
-                  <img src="../pages/img/clients/client_1_gray.png" class="img-responsive" alt="">
-                  <img src="../pages/img/clients/client_1.png" class="color-img img-responsive" alt="">
+                  <img src="../pages/img/main_service1.png" class="img-responsive" alt="">
+                  <img src="../pages/img/main_service1.png" class="color-img img-responsive" alt="">
+                  <h4>응급상황시 대처요령</h4>
+                  
+                </a>
+                
+              </div>
+              <div class="client-item" style="margin-right: 20px; ">
+                <a href="javascript:;" >
+                  <img src="../pages/img/main_service2.png" class="img-responsive" alt="">
+                  <img src="../pages/img/main_service2.png" class="color-img img-responsive" alt="">
+                  <h4>응급처치 개요</h4>
                 </a>
               </div>
-              <div class="client-item">
+              <div class="client-item" style="margin-right: 20px; ">
                 <a href="javascript:;">
-                  <img src="../pages/img/clients/client_2_gray.png" class="img-responsive" alt="">
-                  <img src="../pages/img/clients/client_2.png" class="color-img img-responsive" alt="">
+                  <img src="../pages/img/main_service3.png" class="img-responsive" alt="">
+                  <img src="../pages/img/main_service3.png" class="color-img img-responsive" alt="">
+                  <h4>응급상황</h4>
                 </a>
               </div>
-              <div class="client-item">
+              <div class="client-item" style="margin-right: 20px; ">
                 <a href="javascript:;">
-                  <img src="../pages/img/clients/client_3_gray.png" class="img-responsive" alt="">
-                  <img src="../pages/img/clients/client_3.png" class="color-img img-responsive" alt="">
+                  <img src="../pages/img/main_service4.png" class="img-responsive" alt="">
+                  <img src="../pages/img/main_service4.png" class="color-img img-responsive" alt="">
+                  <h4>기본응급처치</h4>
                 </a>
               </div>
-              <div class="client-item">
+              <div class="client-item" style="margin-right: 20px; ">
                 <a href="javascript:;">
-                  <img src="../pages/img/clients/client_4_gray.png" class="img-responsive" alt="">
-                  <img src="../pages/img/clients/client_4.png" class="color-img img-responsive" alt="">
+                  <img src="../pages/img/main_service5.png" class="img-responsive" alt="">
+                  <img src="../pages/img/main_service5.png" class="color-img img-responsive" alt="">
+                  <h4>상황별응급처치</h4>
                 </a>
               </div>
-              <div class="client-item">
+              <div class="client-item" style="margin-right: 20px; ">
                 <a href="javascript:;">
-                  <img src="../pages/img/clients/client_5_gray.png" class="img-responsive" alt="">
-                  <img src="../pages/img/clients/client_5.png" class="color-img img-responsive" alt="">
+                  <img src="../pages/img/main_service6.png" class="img-responsive" alt="">
+                  <img src="../pages/img/main_service6.png" class="color-img img-responsive" alt="">
+                  <h4>응급의료 자료실</h4>
                 </a>
               </div>
-              <div class="client-item">
-                <a href="javascript:;">
-                  <img src="../pages/img/clients/client_6_gray.png" class="img-responsive" alt="">
-                  <img src="../pages/img/clients/client_6.png" class="color-img img-responsive" alt="">
-                </a>
-              </div>
-              <div class="client-item">
-                <a href="javascript:;">
-                  <img src="../pages/img/clients/client_7_gray.png" class="img-responsive" alt="">
-                  <img src="../pages/img/clients/client_7.png" class="color-img img-responsive" alt="">
-                </a>
-              </div>
-              <div class="client-item">
-                <a href="javascript:;">
-                  <img src="../pages/img/clients/client_8_gray.png" class="img-responsive" alt="">
-                  <img src="../pages/img/clients/client_8.png" class="color-img img-responsive" alt="">
-                </a>
-              </div>                  
+                               
             </div>
           </div>          
         </div>
