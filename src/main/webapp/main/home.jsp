@@ -285,8 +285,8 @@
             <ul class="nav nav-tabs">
               <li class="active"><a href="#tab-1" data-toggle="tab">공지사항</a></li>
               <li><a href="#tab-2" data-toggle="tab">보도자료</a></li>
-              <li><a href="#tab-3" data-toggle="tab">Responsive</a></li>
-              <li><a href="#tab-4" data-toggle="tab">Clean & Fresh</a></li>
+              <li><a href="#tab-3" data-toggle="tab">홍보동영상&음성</a></li>
+              <li><a href="#tab-4" data-toggle="tab">홍보웹툰&이미지</a></li>
             </ul>
             <div class="tab-content">
               <div class="tab-pane row fade in active" id="tab-1">
@@ -327,10 +327,23 @@
                 </div>
               </div>
               <div class="tab-pane fade" id="tab-3">
-                <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+                <ul>
+                  <li><a class="margin-bottom-10" href="#"><strong>홍보동영상 - </strong>[2016년 대학생 응급의료 홍보대사] 에디션즈(E.DI.CIANS) 팀_달빛어린이병원</strong></a><br></li>
+                  <li><a class="margin-bottom-10" href="#"><strong>홍보동영상 - </strong>[2016년 대학생 응급의료 홍보대사] 스팸(SPEM) 팀_심폐소생술</strong></a><br></li>
+                 <li> <a class="margin-bottom-10" href="#"><strong>홍보음성 - </strong>[2016년 홍보자료] 보건복지부_응급실감염예방 라디오 광고</strong></a><br></li>
+                  </ul>
+                   <p><a class="more" href="#">더 알아 보기 <i class="icon-angle-right"></i></a></p>
+               
               </div>
               <div class="tab-pane fade" id="tab-4">
-                <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+                 <ul>
+                  <li><a class="margin-bottom-10" href="#"><strong>홍보웹툰 - </strong>[2016년 홍보자료] 미스터나이팅게일_8화</strong></a><br></li>
+                  <li><a class="margin-bottom-10" href="#"><strong>홍보웹툰 - </strong>[2016년 홍보자료] 미스터나이팅게일_7화</strong></a><br></li>
+                 <li> <a class="margin-bottom-10" href="#"><strong>홍보이미지 - </strong>외상응급처치) 도와줘요~ 닥터T</strong></a><br></li>
+                  <li> <a class="margin-bottom-10" href="#"><strong>홍보이미지 - </strong>생활 속 거리두기! 1일 1깡? 나는 1일 5수칙</strong></a><br></li>
+                  </ul>
+                   <p><a class="more" href="#">더 알아 보기 <i class="icon-angle-right"></i></a></p>
+               
               </div>
             </div>
           </div>
@@ -339,43 +352,9 @@
           <!-- TESTIMONIALS -->
           <div class="col-md-5 testimonials-v1">
             <div id="myCarousel" class="carousel slide">
-              <!-- Carousel items -->
-              <div class="carousel-inner">
-                <div class="active item">
-                  <blockquote><p>Denim you probably haven't heard of. Lorem ipsum dolor met consectetur adipisicing sit amet, consectetur adipisicing elit, of them jean shorts sed magna aliqua. Lorem ipsum dolor met.</p></blockquote>
-                  <div class="carousel-info">
-                    <img class="pull-left" src="../pages/img/people/img1-small.jpg" alt="">
-                    <div class="pull-left">
-                      <span class="testimonials-name">Lina Mars</span>
-                      <span class="testimonials-post">Commercial Director</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="item">
-                  <blockquote><p>Raw denim you Mustache cliche tempor, williamsburg carles vegan helvetica probably haven't heard of them jean shorts austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</p></blockquote>
-                  <div class="carousel-info">
-                    <img class="pull-left" src="../pages/img/people/img5-small.jpg" alt="">
-                    <div class="pull-left">
-                      <span class="testimonials-name">Kate Ford</span>
-                      <span class="testimonials-post">Commercial Director</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="item">
-                  <blockquote><p>Reprehenderit butcher stache cliche tempor, williamsburg carles vegan helvetica.retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid Aliquip placeat salvia cillum iphone.</p></blockquote>
-                  <div class="carousel-info">
-                    <img class="pull-left" src="../pages/img/people/img2-small.jpg" alt="">
-                    <div class="pull-left">
-                      <span class="testimonials-name">Jake Witson</span>
-                      <span class="testimonials-post">Commercial Director</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <iframe width="400" height="200" src="https://www.youtube.com/embed/q7J2T6MFA9g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-              <!-- Carousel nav -->
-              <a class="left-btn" href="#myCarousel" data-slide="prev"></a>
-              <a class="right-btn" href="#myCarousel" data-slide="next"></a>
+              
             </div>
           </div>
           <!-- END TESTIMONIALS -->

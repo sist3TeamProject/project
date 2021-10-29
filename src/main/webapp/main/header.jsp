@@ -138,7 +138,7 @@
 
              <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
-               알림&소식
+               홍보자료
                 
               </a>
             <ul class="dropdown-menu">
