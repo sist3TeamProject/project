@@ -290,18 +290,30 @@
                     <img class="img-responsive" src="../pages/img/photos/img7.jpg" alt="">
                   </a>
                 </div>
-                <div class="col-md-9 col-sm-9">
-                
-                  <a class="margin-bottom-10" href="../notice/notice.jsp"><strong>2021년 10월 응급의료기관 및 응급의료기관 외의 의료기관(응급의료시설) 현황</strong></a>
-                  <a class="margin-bottom-10" href="../notice/notice.jsp"><strong>2021년 9월 응급의료기관 및 응급의료기관 외의 의료기관(응급의료시설) 현황</strong></a>
-                  <a class="margin-bottom-10" href="../notice/notice.jsp"><strong>2021년 8월 응급의료기관 및 응급의료기관 외의 의료기관(응급의료시설) 현황</strong></a>
-                  
+                <div class="col-md-12 col-sm-12">
+                <ul>
+                  <li><a class="margin-bottom-10" href="../notice/notice.jsp"><strong>2021년 10월 응급의료기관 및 응급의료기관 외의 의료기관(응급의료시설) 현황</strong></a></li>
+                  <li><a class="margin-bottom-10" href="../notice/notice.jsp"><strong>2021년 9월 응급의료기관 및 응급의료기관 외의 의료기관(응급의료시설) 현황</strong></a></li>
+                  <li><a class="margin-bottom-10" href="../notice/notice.jsp"><strong>2021년 8월 응급의료기관 및 응급의료기관 외의 의료기관(응급의료시설) 현황</strong></a></li>
+                 </ul>
                   <p><a class="more" href="../notice/notice.jsp">더 알아 보기 <i class="icon-angle-right"></i></a></p>
                 </div>
               </div>
+              
+              
               <div class="tab-pane row fade" id="tab-2">
                 <div class="col-md-9 col-sm-9">
-                  <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia..</p>
+                <a href="assets/temp/photos/img7.jpg" class="fancybox-button" title="Image Title" data-rel="fancybox-button">
+                    <img class="img-responsive" src="../pages/img/photos/img7.jpg" alt="">
+                  </a>
+                </div>
+                <div class="col-md-9 col-sm-9">
+                <ul>
+                  <li><a class="margin-bottom-10" href="../press/press.jsp"><strong>유행성 이하선염 소아청소년 환자 4월부터 응급실 이용 급증</strong></a><br></li>
+                  <li><a class="margin-bottom-10" href="../press/press.jsp"><strong>개학하는 3월에 초중고생 독감환자 급증, 4월 중순까지 영향</strong></a><br></li>
+                 <li> <a class="margin-bottom-10" href="../press/press.jsp"><strong>유행성 이하선염 소아청소년 환자 4월부터 응급실 이용 급증</strong></a><br></li>
+                  </ul>
+                   <p><a class="more" href="../press/press.jsp">더 알아 보기 <i class="icon-angle-right"></i></a></p>
                 </div>
                 <div class="col-md-3 col-sm-3">
                   <a href="assets/temp/photos/img10.jpg" class="fancybox-button" title="Image Title" data-rel="fancybox-button">
