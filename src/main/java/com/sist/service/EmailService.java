@@ -6,19 +6,25 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMessage.RecipientType;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-
 @Service
-@RequiredArgsConstructor
 public class EmailService {
 
-	@Getter
 	private static String code;
+	
+	public String getCode() {
+		return EmailService.code;
+	}
+	
 	private final JavaMailSender emailSender;
+
+    @Autowired
+    public EmailService(JavaMailSender emailSender) {
+        this.emailSender = emailSender;
+    }
 
 	private MimeMessage createMessage(String to) throws Exception {
 		MimeMessage message = emailSender.createMimeMessage();
