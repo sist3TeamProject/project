@@ -22,6 +22,6 @@ public class EmailController {
 	@PostMapping("/member/emailCheck")
 	public Boolean emailCheck(@RequestParam(value = "emailCode") final String emailCode) {
 
-		return EmailService.getCode().equals(emailCode);
+		return emailService.getCode().equals(emailCode);
 	}
 }
