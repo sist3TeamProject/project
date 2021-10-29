@@ -17,7 +17,7 @@ INCIDENCE_RATE        VARCHAR2(20)
 @Getter
 @Setter
 public class Main_coronaVO {
-    private String city,total_today,domestic,overseas,total_count,quarantine,quarantine_release,dying,incidence_rate;
+    private String city,totaltoday,domestic,overseas,totalcount,quarantine,quarantinerelease,dying,incidencerate;
     
     
 }

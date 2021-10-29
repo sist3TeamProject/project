@@ -29,10 +29,10 @@ public class CoronaRestController {
  		   // List ==> JSONArray city,total_count,total_today,quarantine,quarantine_release,dying
  		   JSONObject obj=new JSONObject(); // VO를 자바스크립트에서 인식 
  		   obj.put("city", vo.getCity());
- 		   obj.put("total_count", vo.getTotal_count());
- 		   obj.put("total_today", vo.getTotal_today());
+ 		   obj.put("totalcount", vo.getTotalcount());
+ 		   obj.put("totaltoday", vo.getTotaltoday());
  		   obj.put("quarantine", vo.getQuarantine());
- 		   obj.put("quarantine_release", vo.getQuarantine_release());
+ 		   obj.put("quarantinerelease", vo.getQuarantinerelease());
  		   obj.put("dying", vo.getDying());
  		   /*
  		    *    let info={"title":"","subject":""}
