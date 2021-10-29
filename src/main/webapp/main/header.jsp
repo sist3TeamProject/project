@@ -54,7 +54,7 @@
     </div>
      <div class="header">
       <div class="container">
-        <a class="site-logo" href="#">홍대공동의료포털</a>
+        <a class="site-logo" href="../main/main.do">홍대공동의료포털</a>
 
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 
