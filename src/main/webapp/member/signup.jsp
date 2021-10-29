@@ -86,7 +86,7 @@
 							</label>
 						</span>
 						<input type="text" class="form-control" style="width:calc(100% - 50px); background-color:#ffffff" id="postcode" name="postcode" placeholder="우편번호" readonly>
-						<button type="button" id="find" class="btn btn-success" style="margin-left:5px; padding-left:10px; padding-right:10px; height:45px" onclick="execDaumPostcode()">찾기</button>
+						<button type="button" id="find" class="btn btn-success" style="width:50px; height:34px" onclick="execDaumPostcode()">찾기</button>
 						<div id="wrap" style="display:none; border:1px solid;width:50%; min-width:320px; height:400px; margin:5px 0; position:relative">
 							<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer; position:absolute; right:0px; top:-1px; z-index:1; width:30px; height:30px" onclick="foldDaumPostcode()" alt="접기 버튼" />
 						</div>
@@ -98,8 +98,8 @@
 						<span id="valid_postcode"></span>
 					</div>
 				</div>
-				<div class="text-right" style="padding-top:30px">
-					<input type="button" class="btn btn-primary" value="가입하기" onclick="checkConditions()" />
+				<div class="input-group col-sm-10" style="margin:20px auto 60px">
+					<input type="button" class="btn btn-primary" style="float:right" value="가입하기" onclick="checkConditions()" />
 				</div>
 			</form>
 		</div>

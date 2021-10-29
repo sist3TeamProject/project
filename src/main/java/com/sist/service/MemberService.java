@@ -22,13 +22,13 @@ public class MemberService {
 		return sqlCheck == 1;
 	}
 
-	public MemberDTO searchMember(Integer idx) {
+	public MemberDTO selectMember(Integer idx) {
 		MemberDTO memberDTO = memberMapper.findByIdx(idx);
 
 		return memberDTO;
 	}
 
-	public MemberDTO searchMember(String email) {
+	public MemberDTO selectMember(String email) {
 		MemberDTO memberDTO = memberMapper.findByEmail(email);
 		
 		return memberDTO;
@@ -53,7 +53,7 @@ public class MemberService {
 	}
 
 	public boolean delete(Integer idx) {
-		MemberDTO memberDTO = searchMember(idx);
+		MemberDTO memberDTO = selectMember(idx);
 		if (memberDTO != null) {
 
 			return memberMapper.deleteMember(memberDTO) == 1;

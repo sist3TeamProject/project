@@ -42,11 +42,6 @@ public class MemberSuccessHandler implements AuthenticationSuccessHandler {
 		session.setAttribute("memberIdx", memberDTO.getIdx());
 		session.setAttribute("email", memberDTO.getEmail());
 
-		Cookie cookie = new Cookie("memberIdx", java.net.URLEncoder.encode(memberDTO.getIdx().toString(), "UTF-8"));
-		cookie.setMaxAge(60 * 60 * 24 * 7);
-		cookie.setPath("/");
-		response.addCookie(cookie);
-
 		String url = (String) session.getAttribute("prevPage");
 		if (url != null) {
 			session.removeAttribute("prevPage");
@@ -55,6 +50,9 @@ public class MemberSuccessHandler implements AuthenticationSuccessHandler {
 			SavedRequest savedRequest = requestCache.getRequest(request, response);
 			if (savedRequest != null) {
 				url = savedRequest.getRedirectUrl();
+				if (url.contains("member")) {
+					url = request.getContextPath()+"/";
+				}
 			} else {
 				url = request.getContextPath()+"/";
 			}

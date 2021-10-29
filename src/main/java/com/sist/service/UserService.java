@@ -31,7 +31,7 @@ public class UserService implements UserDetailsService {
 		MemberDTO memberDTO = memberMapper.findByEmail(email);
 		if (memberDTO != null) {
 			List<GrantedAuthority> authorities = new ArrayList<>();
-			if (("admin@admin.com").equals(email)) {
+			if (("asd@asd.com").equals(email)) {
 				authorities.add(new SimpleGrantedAuthority(MemberRole.ADMIN.getValue()));
 			} else {
 				authorities.add(new SimpleGrantedAuthority(MemberRole.USER.getValue()));

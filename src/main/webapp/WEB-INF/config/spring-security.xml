@@ -6,16 +6,28 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
 		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	<http>
+	<http pattern="/**/*.js" security="none" />
+	<http pattern="/**/*.css" security="none" />
+	<http pattern="/**/*.jpg" security="none" />
+	<http pattern="/**/*.jpge" security="none" />
+	<http pattern="/**/*.gif" security="none" />
+	<http pattern="/**/*.png" security="none" />
+	<http auto-config="true">
+		<intercept-url pattern="/member/signup.do" access="isAnonymous()" />
+		<intercept-url pattern="/member/login.do" access="isAnonymous()" />
+		<intercept-url pattern="/member/info.do" access="isAuthenticated()" />
+		<intercept-url pattern="/member/logout.do" access="isAuthenticated()" />
+		<intercept-url pattern="/member/delete.do" access="isAuthenticated()" />
 		<intercept-url pattern="/**" access="permitAll()" />
 		<form-login login-page="/member/login.do"
-			login-processing-url="/member/processLogin.do" default-target-url="/top.jsp"
+			login-processing-url="/member/processLogin.do" default-target-url="/"
 			authentication-failure-url="/member/login.do"
 			authentication-success-handler-ref="authenticationSuccessHandler"
 			authentication-failure-handler-ref="authenticationFailureHandler" />
 		<remember-me key="rememberKey" authentication-success-handler-ref="authenticationSuccessHandler" token-validity-seconds="604800"/>
 		<logout logout-url="/member/logout.do" logout-success-url="/member/login.do"
 			invalidate-session="true" />
+		<access-denied-handler error-page="/member/denied.do" />
 		<csrf disabled="true" />
 	</http>
 	<beans:bean id="authenticationSuccessHandler" class="com.sist.authHandler.MemberSuccessHandler"></beans:bean>
