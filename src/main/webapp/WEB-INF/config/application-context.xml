@@ -35,6 +35,9 @@
           p:prefix="/"
           p:suffix=".jsp"
     />
+    
+    <bean id="multipartResolver"
+       class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
     <!-- tiles설정 : order=0 -->
     <!-- 
         return "board/list";   => /board/list.jsp
