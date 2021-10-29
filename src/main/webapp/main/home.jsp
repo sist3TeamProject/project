@@ -278,21 +278,25 @@
           <!-- TABS -->
           <div class="col-md-7 tab-style-1">
             <ul class="nav nav-tabs">
-              <li class="active"><a href="#tab-1" data-toggle="tab">알림, 홍보</a></li>
-              <li><a href="#tab-2" data-toggle="tab">Documented</a></li>
+              <li class="active"><a href="#tab-1" data-toggle="tab">공지사항</a></li>
+              <li><a href="#tab-2" data-toggle="tab">보도자료</a></li>
               <li><a href="#tab-3" data-toggle="tab">Responsive</a></li>
               <li><a href="#tab-4" data-toggle="tab">Clean & Fresh</a></li>
             </ul>
             <div class="tab-content">
               <div class="tab-pane row fade in active" id="tab-1">
-                <div class="col-md-3 col-sm-3">
+                <div class="col-md-9 col-sm-9">
                   <a href="assets/temp/photos/img7.jpg" class="fancybox-button" title="Image Title" data-rel="fancybox-button">
                     <img class="img-responsive" src="../pages/img/photos/img7.jpg" alt="">
                   </a>
                 </div>
                 <div class="col-md-9 col-sm-9">
-                  <p class="margin-bottom-10">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Cosby sweater eu banh mi, qui irure terry richardson ex squid Aliquip placeat salvia cillum iphone.</p>
-                  <p><a class="more" href="javascript:;">Read more <i class="icon-angle-right"></i></a></p>
+                
+                  <a class="margin-bottom-10" href="../notice/notice.jsp"><strong>2021년 10월 응급의료기관 및 응급의료기관 외의 의료기관(응급의료시설) 현황</strong></a>
+                  <a class="margin-bottom-10" href="../notice/notice.jsp"><strong>2021년 9월 응급의료기관 및 응급의료기관 외의 의료기관(응급의료시설) 현황</strong></a>
+                  <a class="margin-bottom-10" href="../notice/notice.jsp"><strong>2021년 8월 응급의료기관 및 응급의료기관 외의 의료기관(응급의료시설) 현황</strong></a>
+                  
+                  <p><a class="more" href="../notice/notice.jsp">더 알아 보기 <i class="icon-angle-right"></i></a></p>
                 </div>
               </div>
               <div class="tab-pane row fade" id="tab-2">
