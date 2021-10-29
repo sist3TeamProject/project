@@ -20,7 +20,7 @@ INCIDENCE_RATE        VARCHAR2(20)
 
 import com.sist.vo.Main_coronaVO;
 public interface Main_coronaMapper {
-    @Select("SELECT city,total_count,total_today,quarantine,quarantine_release,dying "
+    @Select("SELECT city,totalcount,totaltoday,quarantine,quarantinerelease,dying "
     		+ "FROM city_by_infected "
     		+ "WHERE city=#{city}")
     public Main_coronaVO coronaData(String city);

@@ -60,6 +60,9 @@
   margin-left: 160px;
   margin-bottom: 30px; 
 }
+#map_yang > button{
+  display: none;
+}
 </style>
 
 </head>
@@ -83,62 +86,64 @@
                           <div id="wrapper_yang">
                             
                             <div id="map_yang" >
-							        <a href='../bbs/board.php?bo_table=m101&sca=전남' onfocus='this.blur()' onmouseover=mus_on('mus1') onmouseout=mus_off('mus1') onclick=smenu_click('mus1')>
+							        <a href='#' onfocus='this.blur()' onmouseover=mus_on('mus1') onmouseout=mus_off('mus1')  v-on:click="corona_city('전남')">
 								      <img src='../map/m061.gif' alt='' border='0' name='mus1' class='list1' >
 								    </a>
-								    <a href='../bbs/board.php?bo_table=m101&sca=전북' onfocus='this.blur()' onmouseover=mus_on('mus2') onmouseout=mus_off('mus2') onclick=smenu_click('mus2')>
+								    <a href='#' onfocus='this.blur()' onmouseover=mus_on('mus2') onmouseout=mus_off('mus2') v-on:click="corona_city('전북')">
 								      <img src='../map/m063.gif' alt='' border='0' name='mus2' class='list2' >
 								    </a>
-								    <a href='../bbs/board.php?bo_table=m101&sca=경남' onfocus='this.blur()' onmouseover=mus_on('mus3') onmouseout=mus_off('mus3') onclick=smenu_click('mus3')>
+								    <a href='#' onfocus='this.blur()' onmouseover=mus_on('mus3') onmouseout=mus_off('mus3') v-on:click="corona_city('경남')">
 								      <img src='../map/m055.gif' alt='' border='0' name='mus3' class='list3' >
 								    </a>
-								    <a href='../bbs/board.php?bo_table=m101&sca=강원' onfocus='this.blur()' onmouseover=mus_on('mus4') onmouseout=mus_off('mus4') onclick=smenu_click('mus4')>
+								    <a href='#' onfocus='this.blur()' onmouseover=mus_on('mus4') onmouseout=mus_off('mus4') v-on:click="corona_city('강원')">
 								      <img src='../map/m033.gif' alt='' border='0' name='mus4' class='list4' >
 								    </a>
-								    <a href='../bbs/board.php?bo_table=m101&sca=충남' onfocus='this.blur()' onmouseover=mus_on('mus5') onmouseout=mus_off('mus5') onclick=smenu_click('mus5')>
+								    <a href='#' onfocus='this.blur()' onmouseover=mus_on('mus5') onmouseout=mus_off('mus5') v-on:click="corona_city('충남')">
 								      <img src='../map/m041.gif' alt='' border='0' name='mus5' class='list5' >
 								    </a>
-								    <a href='../bbs/board.php?bo_table=m101&sca=경기' onfocus='this.blur()' onmouseover=mus_on('mus6') onmouseout=mus_off('mus6') onclick=smenu_click('mus6')>
+								    <a href='#' onfocus='this.blur()' onmouseover=mus_on('mus6') onmouseout=mus_off('mus6') v-on:click="corona_city('경기')">
 								      <img src='../map/m031.gif' alt='' border='0' name='mus6' class='list6' >
 								    </a>
-								    <a href='../bbs/board.php?bo_table=m101&sca=충북' onfocus='this.blur()' onmouseover=mus_on('mus7') onmouseout=mus_off('mus7') onclick=smenu_click('mus7')>
+								    <a href='#' onfocus='this.blur()' onmouseover=mus_on('mus7') onmouseout=mus_off('mus7') v-on:click="corona_city('충북')">
 								      <img src='../map/m043.gif' alt='' border='0' name='mus7' class='list7' >
 								    </a>
-								    <a href='../bbs/board.php?bo_table=m101&sca=경북' onfocus='this.blur()' onmouseover=mus_on('mus8') onmouseout=mus_off('mus8') onclick=smenu_click('mus8')>
+								    <a href='#' onfocus='this.blur()' onmouseover=mus_on('mus8') onmouseout=mus_off('mus8') v-on:click="corona_city('경북')">
 								      <img src='../map/m054.gif' alt='' border='0' name='mus8' class='list8' >
 								    </a>
-								    <a href='../bbs/board.php?bo_table=m101&sca=제주' onfocus='this.blur()' onmouseover=mus_on('mus9') onmouseout=mus_off('mus9') onclick=smenu_click('mus9')>
+								    <a href='#' onfocus='this.blur()' onmouseover=mus_on('mus9') onmouseout=mus_off('mus9') v-on:click="corona_city('제주')">
 								      <img src='../map/m064.gif' alt='' border='0' name='mus9' class='list9' >
 								    </a>
-								    <a href='../bbs/board.php?bo_table=m101&sca=서울' onfocus='this.blur()' onmouseover=mus_on('mus10') onmouseout=mus_off('mus10') onclick=smenu_click('mus10')>
+								    <a href='#' onfocus='this.blur()' onmouseover=mus_on('mus10') onmouseout=mus_off('mus10') v-on:click="corona_city('서울')">
 								      <img src='../map/m02.gif' alt='' border='0' name='mus10' class='list10' >
 								    </a>
-								    <a href='../bbs/board.php?bo_table=m101&sca=인천' onfocus='this.blur()' onmouseover=mus_on('mus11') onmouseout=mus_off('mus11') onclick=smenu_click('mus11')>
+								    <a href='#' onfocus='this.blur()' onmouseover=mus_on('mus11') onmouseout=mus_off('mus11') v-on:click="corona_city('인천')">
 								      <img src='../map/m032.gif' alt='' border='0' name='mus11' class='list11' >
-								    </a><a href='../bbs/board.php?bo_table=m101&sca=대전' onfocus='this.blur()' onmouseover=mus_on('mus12') onmouseout=mus_off('mus12') onclick=smenu_click('mus12')>
+								    </a>
+								    <a href='#' onfocus='this.blur()' onmouseover=mus_on('mus12') onmouseout=mus_off('mus12') v-on:click="corona_city('대전')">
 								      <img src='../map/m042.gif' alt='' border='0' name='mus12' class='list12' >
 								    </a>
-								    <a href='../bbs/board.php?bo_table=m101&sca=광주' onfocus='this.blur()' onmouseover=mus_on('mus13') onmouseout=mus_off('mus13') onclick=smenu_click('mus13')>
+								    <a href='#' onfocus='this.blur()' onmouseover=mus_on('mus13') onmouseout=mus_off('mus13') v-on:click="corona_city('광주')">
 								      <img src='../map/m062.gif' alt='' border='0' name='mus13' class='list13' >
 								    </a>
-								    <a href='../bbs/board.php?bo_table=m101&sca=대구' onfocus='this.blur()' onmouseover=mus_on('mus14') onmouseout=mus_off('mus14') onclick=smenu_click('mus14')>
+								    <a href='#' onfocus='this.blur()' onmouseover=mus_on('mus14') onmouseout=mus_off('mus14') v-on:click="corona_city('대구')">
 								      <img src='../map/m053.gif' alt='' border='0' name='mus14' class='list14' >
 								    </a>
-								    <a href='../bbs/board.php?bo_table=m101&sca=울산' onfocus='this.blur()' onmouseover=mus_on('mus15') onmouseout=mus_off('mus15') onclick=smenu_click('mus15')>
+								    <a href=#' onfocus='this.blur()' onmouseover=mus_on('mus15') onmouseout=mus_off('mus15') v-on:click="corona_city('울산')">
 								      <img src='../map/m052.gif' alt='' border='0' name='mus15' class='list15' >
 								    </a>
-								    <a href='../bbs/board.php?bo_table=m101&sca=부산' onfocus='this.blur()' onmouseover=mus_on('mus16') onmouseout=mus_off('mus16') onclick=smenu_click('mus16')>
+								    <a href='#' onfocus='this.blur()' onmouseover=mus_on('mus16') onmouseout=mus_off('mus16') v-on:click="corona_city('부산')">
 								      <img src='../map/m051.gif' alt='' border='0' name='mus16' class='list16' >
 								    </a> 
 						    </div>
 						    <div id="content_yang">
 						      <!-- city,total_count,total_today,quarantine,quarantine_release,dying -->
 						      <ul class="nav" >
-						       <li class="carousel-subtitle-v7 margin-bottom-30">누적 확진환자&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{corona.total_count}}명</strong></li>
-						       <li class="carousel-subtitle-v7 margin-bottom-30">전일 대비 증감률&nbsp;&nbsp;&nbsp;&nbsp;<strong>+{{corona.total_today}}명</strong></li>
-						       <li class="carousel-subtitle-v7 margin-bottom-30">격리중&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{corona.quarantine}}명</strong></li>
-						       <li class="carousel-subtitle-v7 margin-bottom-30">누적격리해제&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{corona.quarantine_release}}명</strong></li>
-						       <li class="carousel-subtitle-v7 margin-bottom-30">사망자&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{corona.dying}}명</strong></li>
+						       <li class="carousel-subtitle-v7 " style="margin-bottom: 10px;"><strong>{{corona.city}}</strong></li>
+						       <li class="carousel-subtitle-v7 " style="margin-bottom: 10px;">누적 확진환자&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{corona.totalcount}}명</strong></li>
+						       <li class="carousel-subtitle-v7 " style="margin-bottom: 10px;">전일 대비 증감률&nbsp;&nbsp;&nbsp;&nbsp;<strong>+{{corona.totaltoday}}명</strong></li>
+						       <li class="carousel-subtitle-v7 " style="margin-bottom: 10px;">격리중&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{corona.quarantine}}명</strong></li>
+						       <li class="carousel-subtitle-v7 " style="margin-bottom: 10px;">누적격리해제&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{corona.quarantinerelease}}명</strong></li>
+						       <li class="carousel-subtitle-v7 " style="margin-bottom: 10px;">사망자&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{corona.dying}}명</strong></li>
 						      </ul>
 						      <div class="chart-div">
 						            <canvas id="pieChartCanvas" width="130px" height="130px"></canvas>
@@ -382,7 +387,7 @@
         <!-- BEGIN CLIENTS -->
         <div class="row margin-bottom-40 our-clients">
           <div class="text-center">
-            <h2><a href="javascript:;">응급처치방법</a></h2>
+            <h2>응급처치방법</h2>
            
           </div>
           <div style="transform:scale(0.7)">
@@ -525,8 +530,8 @@ window.onload = function () {
 let pieChartData = {
     
     datasets: [{
-        data: [95, 12, 13, 7, 13, 10],
-        backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)']
+        data: [95, 12, 13, 7, 13],
+        backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)']
     }] 
 };
 
@@ -543,10 +548,11 @@ let pieChartDraw = function () {
 };
 
 new Vue({
-	   el:'#content_yang',
+	   el:'.page-slider',
 	   // 멤버변수 => this.접근 (this.food,this.info,this.cno)
 	   data:{
-		   corona:{}
+		   corona:{},
+	       city:''
 	   },
 	   // 값을 받는다 (요청 / 응답 : axios)
 	   mounted:function(){
@@ -560,7 +566,23 @@ new Vue({
 			  this.corona=res.data;
 		  });
 		 
-	   }
+	   },
+	   methods:{
+   		corona_city:function(city){
+   			console.log(city);
+   			this.city=city;
+			this.isShow=true;
+			axios.get("http://localhost:8080/web/main/corona_city.do",{
+				  params:{
+					  city:this.city
+				  }
+			}).then(response=>{
+				console.log(response.data);
+				this.corona=response.data
+			})
+			
+		}
+	}
 })
 </script>
 </body>
