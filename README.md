@@ -3,6 +3,10 @@
 
 ## jstl 시큐리티 관련 설명
 
+### jsp 위쪽에 추가
+
+	<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+
 ### 게스트
 
 	<sec:authorize access="isAnonymous()">
@@ -29,7 +33,7 @@
 	
 ----------------
 
-### 계정 닉네임이나 정보가 필요한 경우 아래처럼 정보를 가져와 MemberDTO사용
+### 계정 닉네임이나 정보가 필요한 경우 아래처럼 정보를 가져와 사용
 
 	@Autowired
 	private MemberService memberService;
@@ -37,5 +41,6 @@
 	@GetMapping("/test.do")
 	public String test(HttpSession session) {
 		MemberDTO memberDTO = memberService.selectMember((Integer) session.getAttribute("memberIdx"));
+		System.out.println(memberDTO.getNickname());
 	}
 	
