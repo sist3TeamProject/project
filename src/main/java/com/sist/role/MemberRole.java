@@ -1,14 +1,17 @@
 package com.sist.role;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
-@Getter
-@AllArgsConstructor
 public enum MemberRole {
 	
     ADMIN("ROLE_ADMIN"),
     USER("ROLE_USER");
 
+	MemberRole(String value) {
+		this.value = value;
+	}
+	  
+
     private String value;
+    public String getValue() {
+    	return this.value;
+    }
 }
