@@ -275,7 +275,7 @@
           <!-- TABS -->
           <div class="col-md-7 tab-style-1">
             <ul class="nav nav-tabs">
-              <li class="active"><a href="#tab-1" data-toggle="tab">Multipurpose</a></li>
+              <li class="active"><a href="#tab-1" data-toggle="tab">알림, 홍보</a></li>
               <li><a href="#tab-2" data-toggle="tab">Documented</a></li>
               <li><a href="#tab-3" data-toggle="tab">Responsive</a></li>
               <li><a href="#tab-4" data-toggle="tab">Clean & Fresh</a></li>
