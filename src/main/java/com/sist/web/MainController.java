@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainController {
    @RequestMapping("main/main.do")
-   public String main_main(Model model)
+   public String main_main(Model model,String city)
    {
+	   model.addAttribute("city", city);
 	   model.addAttribute("main_jsp", "../main/home.jsp");
 	   return "main/main";
    }
