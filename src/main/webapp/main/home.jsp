@@ -5,6 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
 <style type="text/css">
@@ -129,13 +132,13 @@
 								    </a> 
 						    </div>
 						    <div id="content_yang">
-						      
-						      <ul class="nav">
-						       <li class="carousel-subtitle-v7 margin-bottom-30">누적 확진환자&nbsp;&nbsp;&nbsp;&nbsp;<strong>1명</strong></li>
-						       <li class="carousel-subtitle-v7 margin-bottom-30">전일 대비 증감률&nbsp;&nbsp;&nbsp;&nbsp;<strong>+1명</strong></li>
-						       <li class="carousel-subtitle-v7 margin-bottom-30">격리중&nbsp;&nbsp;&nbsp;&nbsp;<strong>1명</strong></li>
-						       <li class="carousel-subtitle-v7 margin-bottom-30">누적격리해제&nbsp;&nbsp;&nbsp;&nbsp;<strong>1명</strong></li>
-						       <li class="carousel-subtitle-v7 margin-bottom-30">사망자&nbsp;&nbsp;&nbsp;&nbsp;<strong>1명</strong></li>
+						      <!-- city,total_count,total_today,quarantine,quarantine_release,dying -->
+						      <ul class="nav" >
+						       <li class="carousel-subtitle-v7 margin-bottom-30">누적 확진환자&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{corona.total_count}}명</strong></li>
+						       <li class="carousel-subtitle-v7 margin-bottom-30">전일 대비 증감률&nbsp;&nbsp;&nbsp;&nbsp;<strong>+{{corona.total_today}}명</strong></li>
+						       <li class="carousel-subtitle-v7 margin-bottom-30">격리중&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{corona.quarantine}}명</strong></li>
+						       <li class="carousel-subtitle-v7 margin-bottom-30">누적격리해제&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{corona.quarantine_release}}명</strong></li>
+						       <li class="carousel-subtitle-v7 margin-bottom-30">사망자&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{corona.dying}}명</strong></li>
 						      </ul>
 						      <div class="chart-div">
 						            <canvas id="pieChartCanvas" width="130px" height="130px"></canvas>
@@ -522,6 +525,27 @@ let pieChartDraw = function () {
         }
     });
 };
+
+new Vue({
+	   el:'#content_yang',
+	   // 멤버변수 => this.접근 (this.food,this.info,this.cno)
+	   data:{
+		   corona:{}
+	   },
+	   // 값을 받는다 (요청 / 응답 : axios)
+	   mounted:function(){
+		  // 여러개를 동시에 받을 수 있다 
+		  axios.get("http://localhost:8080/web/main/corona_city.do",{
+			  params:{
+				  city:'합계'
+			  }
+		  }).then(res=>{
+			  
+			  this.corona=res.data;
+		  });
+		 
+	   }
+})
 </script>
 </body>
 </html>
