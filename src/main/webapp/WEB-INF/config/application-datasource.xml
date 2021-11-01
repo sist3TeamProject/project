@@ -53,7 +53,7 @@
        p:sqlSessionFactory-ref="ssf"
        p:mapperInterface="com.sist.mapper.MemberMapper"
     /> -->
-	<mybatis-spring:scan base-package="com.sist.mapper" />
+	<mybatis-spring:scan base-package="com.sist.*" />
 </beans>
 
 
