@@ -111,7 +111,7 @@
               </ul>
             </li>
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="../emergency_treat/list.jsp">
+              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="../emergency_treat/list.do">
                응급처치방법
                 
               </a>
