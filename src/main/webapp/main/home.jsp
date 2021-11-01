@@ -372,7 +372,7 @@
           <div style="transform:scale(0.7)">
             <div class="owl-carousel owl-carousel5">
               <div class="client-item" style="margin-right: 20px; ">
-                <a href="javascript:;">
+                <a href="../emergency_treat/treat.do">
                   <img src="../pages/img/main_service1.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service1.png" class="color-img img-responsive" alt="">
                   <h4>응급상황시 대처요령</h4>
@@ -381,28 +381,28 @@
                 
               </div>
               <div class="client-item" style="margin-right: 20px; ">
-                <a href="javascript:;" >
+                <a href="../emergency_treat/treat1.do" >
                   <img src="../pages/img/main_service2.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service2.png" class="color-img img-responsive" alt="">
                   <h4>응급처치 개요</h4>
                 </a>
               </div>
               <div class="client-item" style="margin-right: 20px; ">
-                <a href="javascript:;">
+                <a href="../emergency_treat/treat2.do">
                   <img src="../pages/img/main_service3.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service3.png" class="color-img img-responsive" alt="">
                   <h4>응급상황</h4>
                 </a>
               </div>
               <div class="client-item" style="margin-right: 20px; ">
-                <a href="javascript:;">
+                <a href="../emergency_treat/treat3.do">
                   <img src="../pages/img/main_service4.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service4.png" class="color-img img-responsive" alt="">
                   <h4>기본응급처치</h4>
                 </a>
               </div>
               <div class="client-item" style="margin-right: 20px; ">
-                <a href="javascript:;">
+                <a href="../emergency_treat/treat4.do">
                   <img src="../pages/img/main_service5.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service5.png" class="color-img img-responsive" alt="">
                   <h4>상황별응급처치</h4>

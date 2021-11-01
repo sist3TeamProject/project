@@ -16,10 +16,10 @@ public class TreatController {
 	@Autowired
 	private TreatDAO dao;
 	
-	@GetMapping("list.do")
+	@GetMapping("treat.do")
 	public String treat_list(Model model)
 	{
-		model.addAttribute("main_jsp", "../emergency_treat/list.jsp");
+		model.addAttribute("main_jsp", "../emergency_treat/treat.jsp");
 		return "main/main";
 	}
 

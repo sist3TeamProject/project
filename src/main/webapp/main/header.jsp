@@ -117,11 +117,11 @@
               </a>
                 
               <ul class="dropdown-menu">
-                <li><a href="../emergency_treat/treat.jsp">응급상황시 대처요령</a></li>
-                <li><a href="../emergency_treat/treat1.jsp">응급처치 개요</a></li>
-                <li><a href="../emergency_treat/treat2.jsp">응급상황</a></li>
-                <li><a href="../emergency_treat/treat3.jsp">기본응급처치</a></li>
-                <li><a href="../emergency_treat/treat4.jsp">상황별응급처치</a></li>
+                <li><a href="../emergency_treat/treat.do">응급상황시 대처요령</a></li>
+                <li><a href="../emergency_treat/treat1.do">응급처치 개요</a></li>
+                <li><a href="../emergency_treat/treat2.do">응급상황</a></li>
+                <li><a href="../emergency_treat/treat3.do">기본응급처치</a></li>
+                <li><a href="../emergency_treat/treat4.do">상황별응급처치</a></li>
               </ul>
             </li>
             <li class="dropdown">
