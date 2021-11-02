@@ -11,9 +11,9 @@ public class TreatDAO {
 	@Autowired
 	private TreatMapper mapper;
 	
-	public List<TreatVO> treatListData(Map map)
+	public List<TreatVO> treatListData()
 	{
-		return mapper.treatListData(map);
+		return mapper.treatListData();
 	}
 
 }

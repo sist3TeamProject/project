@@ -28,6 +28,9 @@ public class TreatController {
 	@GetMapping("treat.do")
 	public String treat_treat(Model model)
 	{
+		List<TreatVO> list=dao.treatListData();
+		//model.addAttribute("no", no);
+		model.addAttribute("list", list);
 		model.addAttribute("main_jsp", "../emergency_treat/treat.jsp");
 		return "main/main";
 	}
