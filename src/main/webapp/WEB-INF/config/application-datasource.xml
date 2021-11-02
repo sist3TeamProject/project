@@ -57,8 +57,8 @@
     <bean class="org.mybatis.spring.mapper.MapperFactoryBean"
        p:sqlSessionFactory-ref="ssf"
        p:mapperInterface="com.sist.mapper.TreatMapper"
-    />-->
-     
+    />
+     -->
 	<mybatis-spring:scan base-package="com.sist.mapper" />
 </beans>
 
