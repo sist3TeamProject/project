@@ -105,9 +105,9 @@
               </a>
                 
               <ul class="dropdown-menu">
-                <li><a href="#">자동심장충격기(AED)찾기</a></li>
-                <li><a href="#">자동심장충격기(AED)사용법</a></li>
-                <li><a href="#">자동심장충격기(AED)홍보동영상</a></li>
+                <li><a href="../aed/find.do">자동심장충격기(AED)찾기</a></li>
+                <li><a href="../aed/use.do">자동심장충격기(AED)사용법</a></li>
+                <li><a href="../aed/youtube.do">자동심장충격기(AED)홍보동영상</a></li>
               </ul>
             </li>
             <li class="dropdown">
