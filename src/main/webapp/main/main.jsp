@@ -44,6 +44,43 @@
   <link href="../corporate/css/style-responsive.css" rel="stylesheet">
   <link href="../corporate/css/themes/red.css" rel="stylesheet" id="style-color">
   <link href="../corporate/css/custom.css" rel="stylesheet">
+  <style type="text/css">
+  html {
+
+    position: relative;
+
+    min-height: 100%;
+
+    margin: 0;
+
+   
+
+}
+body {
+
+    min-height: 100%;
+
+}
+.footer {
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 100%;
+
+	padding: 15px 0;
+
+	text-align: center;
+
+	color: white;
+
+	
+
+}
+  </style>
 </head>
 <body>
 

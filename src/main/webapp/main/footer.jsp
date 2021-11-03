@@ -10,7 +10,9 @@
 <!-- BEGIN FOOTER -->
   
     <!-- BEGIN FOOTER -->
-    <div class="footer">
+   
+    
+    <footer class="footer footer-affix affix-item">
       <div class="container">
         <div class="row">
           <!-- BEGIN COPYRIGHT -->
@@ -19,24 +21,16 @@
           </div>
           <!-- END COPYRIGHT -->
           <!-- BEGIN PAYMENTS -->
-          <div class="col-md-4 col-sm-4">
-            <ul class="social-footer list-unstyled list-inline pull-right">
-              <li><a href="javascript:;"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="javascript:;"><i class="fa fa-google-plus"></i></a></li>
-              <li><a href="javascript:;"><i class="fa fa-dribbble"></i></a></li>
-              <li><a href="javascript:;"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="javascript:;"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="javascript:;"><i class="fa fa-skype"></i></a></li>
-              <li><a href="javascript:;"><i class="fa fa-github"></i></a></li>
-              <li><a href="javascript:;"><i class="fa fa-youtube"></i></a></li>
-              <li><a href="javascript:;"><i class="fa fa-dropbox"></i></a></li>
-            </ul>  
+          <br>
+          <div style="flex: right;">
+            쌍용강북센터&nbsp;G강의장&nbsp;3조 프로젝트  
           </div>
           <!— END PAYMENTS —>
          
         </div>
       </div>
-    </div>
+    </footer>
+   
     <!— END FOOTER —>
     
 </body>

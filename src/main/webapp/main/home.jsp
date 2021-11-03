@@ -70,12 +70,7 @@
     <!-- BEGIN SLIDER -->
     <div class="page-slider margin-bottom-40">
         <div id="carousel-example-generic" class="carousel slide carousel-slider">
-            <!-- Indicators -->
-            <ol class="carousel-indicators carousel-indicators-frontend">
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-            </ol>
+           
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
@@ -155,51 +150,11 @@
                     </div>
                 </div>
                 
-                <!-- Second slide -->
-                <div class="item carousel-item-nine">
-                    <div class="container">
-                        <div class="carousel-position-six">
-                            <h2 class="animate-delay carousel-title-v6 text-uppercase" data-animation="animated fadeInDown">
-                                Need a website design?
-                            </h2>
-                            <p class="carousel-subtitle-v6 text-uppercase" data-animation="animated fadeInDown">
-                                This is what you were looking for
-                            </p>
-                            <p class="carousel-subtitle-v7 margin-bottom-30" data-animation="animated fadeInDown">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/>
-                                Sed est nunc, sagittis at consectetur id.
-                            </p>
-                            <a class="carousel-btn-green" href="#" data-animation="animated fadeInUp">Purchase Now!</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Third slide -->
-                <div class="item carousel-item-ten">
-                    <div class="container">
-                        <div class="carousel-position-six">
-                            <h2 class="animate-delay carousel-title-v6 text-uppercase" data-animation="animated fadeInDown">
-                                Powerful &amp; Clean
-                            </h2>
-                            <p class="carousel-subtitle-v6 text-uppercase" data-animation="animated fadeInDown">
-                                Responsive Website &amp; Admin Theme
-                            </p>
-                            <p class="carousel-subtitle-v7 margin-bottom-30" data-animation="animated fadeInDown">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/>
-                                Sed est nunc, sagittis at consectetur id.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
 
             <!-- Controls -->
-            <a class="left carousel-control carousel-control-shop carousel-control-frontend" href="#carousel-example-generic" role="button" data-slide="prev">
-                <i class="fa fa-angle-left" aria-hidden="true"></i>
-            </a>
-            <a class="right carousel-control carousel-control-shop carousel-control-frontend" href="#carousel-example-generic" role="button" data-slide="next">
-                <i class="fa fa-angle-right" aria-hidden="true"></i>
-            </a>
+            
         </div>
     </div>
     <!-- END SLIDER -->
@@ -255,9 +210,9 @@
               <div class="recent-work-item">
                 <em>
                   <img src="../pages/img/works/img4.jpg" class="img-responsive">
-                  <a href="../emergency_treat/list.jsp" class="fancybox-button" title="응급처치방법" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                  <a href="../emergency_treat/list.do" class="fancybox-button" title="응급처치방법" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
-                <a class="recent-work-description" href="../emergency_treat/list.jsp">
+                <a class="recent-work-description" href="../emergency_treat/list.do">
                   <strong>응급처치방법</strong>
                   <b>응급상황일때 대처요령 정보를 확인할 수 있습니다.</b>
                 </a>
@@ -281,12 +236,14 @@
         <!-- BEGIN TABS AND TESTIMONIALS -->
         <div class="row mix-block margin-bottom-40">
           <!-- TABS -->
-          <div class="col-md-7 tab-style-1">
+          <div class="col-md-12 tab-style-1">
             <ul class="nav nav-tabs">
               <li class="active"><a href="#tab-1" data-toggle="tab">공지사항</a></li>
               <li><a href="#tab-2" data-toggle="tab">보도자료</a></li>
+
               <li><a href="#tab-3" data-toggle="tab">홍보동영상&음성</a></li>
               <li><a href="#tab-4" data-toggle="tab">홍보웹툰&이미지</a></li>
+
             </ul>
             <div class="tab-content">
               <div class="tab-pane row fade in active" id="tab-1">
@@ -326,6 +283,7 @@
                   </a>
                 </div>
               </div>
+
               <div class="tab-pane fade" id="tab-3">
                 <ul>
                   <li><a class="margin-bottom-10" href="#"><strong>홍보동영상 - </strong>[2016년 대학생 응급의료 홍보대사] 에디션즈(E.DI.CIANS) 팀_달빛어린이병원</strong></a><br></li>
@@ -345,10 +303,12 @@
                    <p><a class="more" href="#">더 알아 보기 <i class="icon-angle-right"></i></a></p>
                
               </div>
+
             </div>
           </div>
           <!-- END TABS -->
         
+
           <!-- TESTIMONIALS -->
           <div class="col-md-5 testimonials-v1">
             <div id="myCarousel" class="carousel slide">
@@ -358,6 +318,7 @@
             </div>
           </div>
           <!-- END TESTIMONIALS -->
+
         </div>                
         <!-- END TABS AND TESTIMONIALS -->
 
@@ -372,7 +333,7 @@
           <div style="transform:scale(0.7)">
             <div class="owl-carousel owl-carousel5">
               <div class="client-item" style="margin-right: 20px; ">
-                <a href="javascript:;">
+                <a href="../emergency_treat/treat.do">
                   <img src="../pages/img/main_service1.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service1.png" class="color-img img-responsive" alt="">
                   <h4>응급상황시 대처요령</h4>
@@ -381,28 +342,28 @@
                 
               </div>
               <div class="client-item" style="margin-right: 20px; ">
-                <a href="javascript:;" >
+                <a href="../emergency_treat/treat1.do" >
                   <img src="../pages/img/main_service2.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service2.png" class="color-img img-responsive" alt="">
                   <h4>응급처치 개요</h4>
                 </a>
               </div>
               <div class="client-item" style="margin-right: 20px; ">
-                <a href="javascript:;">
+                <a href="../emergency_treat/treat2.do">
                   <img src="../pages/img/main_service3.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service3.png" class="color-img img-responsive" alt="">
                   <h4>응급상황</h4>
                 </a>
               </div>
               <div class="client-item" style="margin-right: 20px; ">
-                <a href="javascript:;">
+                <a href="../emergency_treat/treat3.do">
                   <img src="../pages/img/main_service4.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service4.png" class="color-img img-responsive" alt="">
                   <h4>기본응급처치</h4>
                 </a>
               </div>
               <div class="client-item" style="margin-right: 20px; ">
-                <a href="javascript:;">
+                <a href="../emergency_treat/treat4.do">
                   <img src="../pages/img/main_service5.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service5.png" class="color-img img-responsive" alt="">
                   <h4>상황별응급처치</h4>
