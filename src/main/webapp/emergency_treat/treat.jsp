@@ -11,8 +11,8 @@
 <div class="main">
       <div class="container">
         <ul class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="javascript:;">응급처치방법</a></li>
+            <li><a href="../main/main.do">Home</a></li>
+            <li><a href="../emergency_treat/list.do">응급처치방법</a></li>
             <li class="active">응급상황시 대처요령</li>
         </ul>
         <!-- BEGIN SIDEBAR & CONTENT -->
@@ -33,7 +33,7 @@
                         <img src="${vo.poster }">
                         <blockquote>
 		                  <h3>${vo.title }</h3><br>
-		                  <p>${vo.sub1 }<p><br>
+		                  <p>${vo.sub1 }<p>
 		                  <ul>
 		                   <c:forTokens items="${vo.sub2 }" delims="^" var="sub2">
 		                     <li>${sub2 }</li>
@@ -86,99 +86,53 @@
                   <!-- CATEGORIES START -->
                   <h2 class="no-top-space">Categories</h2>
                   <ul class="nav sidebar-categories margin-bottom-40">
-                    <li><a href="javascript:;">London (18)</a></li>
-                    <li><a href="javascript:;">Moscow (5)</a></li>
-                    <li class="active"><a href="javascript:;">Paris (12)</a></li>
-                    <li><a href="javascript:;">Berlin (7)</a></li>
-                    <li><a href="javascript:;">Istanbul (3)</a></li>
+                    <li><a href="#">응급실</a></li>                    
+                    <li><a href="#">병원&약국</a></li>
+                    <li><a href="#">자동심장충격기(AED)</a></li>
+                    <li><a href="#">알림&소식</a></li>
+                    <li><a href="#">홍보자료</a></li>
                   </ul>
                   <!-- CATEGORIES END -->
 
                   <!-- BEGIN RECENT NEWS -->                            
                   <h2>Recent News</h2>
-                  <div class="recent-news margin-bottom-10">
-                    <div class="row margin-bottom-10">
-                      <div class="col-md-3">
-                        <img class="img-responsive" alt="" src="assets/pages/img/people/img2-large.jpg">                        
-                      </div>
-                      <div class="col-md-9 recent-news-inner">
-                        <h3><a href="javascript:;">Letiusto gnissimos</a></h3>
-                        <p>Decusamus tiusto odiodig nis simos ducimus qui sint</p>
-                      </div>                        
+                  <div class="recent-news" style="width:280px">
+                    <div class="row">
+                      <h3 class="text-center"></h3>
+                      <p class="text-center"><a href="#">2021년 10월 응급의료기관 및 응급의료기관<br>외의 의료기관(응급의료시설) 현황</a></p>                          
                     </div>
-                    <div class="row margin-bottom-10">
-                      <div class="col-md-3">
-                        <img class="img-responsive" alt="" src="assets/pages/img/people/img1-large.jpg">                        
-                      </div>
-                      <div class="col-md-9 recent-news-inner">
-                        <h3><a href="javascript:;">Deiusto anissimos</a></h3>
-                        <p>Decusamus tiusto odiodig nis simos ducimus qui sint</p>
-                      </div>                        
+                    <div class="row">
+                      <h3 class="text-center"></h3>
+                      <p class="text-center"><a href="#">2021년 9월 응급의료기관 및 응급의료기관<br>외의 의료기관(응급의료시설) 현황</a></p>                          
                     </div>
-                    <div class="row margin-bottom-10">
-                      <div class="col-md-3">
-                        <img class="img-responsive" alt="" src="assets/pages/img/people/img3-large.jpg">                        
-                      </div>
-                      <div class="col-md-9 recent-news-inner">
-                        <h3><a href="javascript:;">Tesiusto baissimos</a></h3>
-                        <p>Decusamus tiusto odiodig nis simos ducimus qui sint</p>
-                      </div>                        
+                    <div class="row">
+                      <h3 class="text-center"></h3>
+                      <p class="text-center"><a href="#">2021년 8월 응급의료기관 및 응급의료기관<br>외의 의료기관(응급의료시설) 현황</a></p>                        
                     </div>
                   </div>
                   <!-- END RECENT NEWS -->                            
 
                   <!-- BEGIN BLOG TALKS -->
                   <div class="blog-talks margin-bottom-30">
-                    <h2>Popular Talks</h2>
+                    <h2>Popular Post</h2>
                     <div class="tab-style-1">
                       <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#tab-1">Multipurpose</a></li>
-                        <li><a data-toggle="tab" href="#tab-2">Documented</a></li>
+                        <li class="active"><a data-toggle="tab" href="#tab-1">홍보웹툰</a></li>
+                        <li><a data-toggle="tab" href="#tab-2">홍보동영상</a></li>
                       </ul>
                       <div class="tab-content">
                         <div id="tab-1" class="tab-pane row-fluid fade in active">
-                          <p class="margin-bottom-10">Raw denim you probably haven't heard of them jean shorts Austin. eu banh mi, qui irure terry richardson ex squid Aliquip placeat salvia cillum iphone.</p>
-                          <p><a class="more" href="javascript:;">Read more</a></p>
+                          <p class="margin-bottom-10">[2016년 홍보자료] 미스터나이팅게일</p>
+                          <p><a class="more" href="#">Read more</a></p>
                         </div>
                         <div id="tab-2" class="tab-pane fade">
-                          <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. aliquip jean shorts ullamco ad vinyl aesthetic magna delectus mollit. Keytar helvetica VHS salvia..</p>
+                          <p>[2016년 대학생 응급의료 홍보대사] 스팸(SPEM) 팀_심폐소생술</p>
+                          <p><a class="more" href="#">Read more</a></p>
                         </div>
                       </div>
                     </div>
                   </div>                            
                   <!-- END BLOG TALKS -->
-
-                  <!-- BEGIN BLOG PHOTOS STREAM -->
-                  <div class="blog-photo-stream margin-bottom-20">
-                    <h2>Photos Stream</h2>
-                    <ul class="list-unstyled">
-                      <li><a href="javascript:;"><img alt="" src="assets/pages/img/people/img5-small.jpg"></a></li>
-                      <li><a href="javascript:;"><img alt="" src="assets/pages/img/works/img1.jpg"></a></li>
-                      <li><a href="javascript:;"><img alt="" src="assets/pages/img/people/img4-large.jpg"></a></li>
-                      <li><a href="javascript:;"><img alt="" src="assets/pages/img/works/img6.jpg"></a></li>
-                      <li><a href="javascript:;"><img alt="" src="assets/pages/img/pics/img1-large.jpg"></a></li>
-                      <li><a href="javascript:;"><img alt="" src="assets/pages/img/pics/img2-large.jpg"></a></li>
-                      <li><a href="javascript:;"><img alt="" src="assets/pages/img/works/img3.jpg"></a></li>
-                      <li><a href="javascript:;"><img alt="" src="assets/pages/img/people/img2-large.jpg"></a></li>
-                    </ul>                    
-                  </div>
-                  <!-- END BLOG PHOTOS STREAM -->
-
-                  <!-- BEGIN BLOG TAGS -->
-                  <div class="blog-tags margin-bottom-20">
-                    <h2>Tags</h2>
-                    <ul>
-                      <li><a href="javascript:;"><i class="fa fa-tags"></i>OS</a></li>
-                      <li><a href="javascript:;"><i class="fa fa-tags"></i>Metronic</a></li>
-                      <li><a href="javascript:;"><i class="fa fa-tags"></i>Dell</a></li>
-                      <li><a href="javascript:;"><i class="fa fa-tags"></i>Conquer</a></li>
-                      <li><a href="javascript:;"><i class="fa fa-tags"></i>MS</a></li>
-                      <li><a href="javascript:;"><i class="fa fa-tags"></i>Google</a></li>
-                      <li><a href="javascript:;"><i class="fa fa-tags"></i>Keenthemes</a></li>
-                      <li><a href="javascript:;"><i class="fa fa-tags"></i>Twitter</a></li>
-                    </ul>
-                  </div>
-                  <!-- END BLOG TAGS -->
                 </div>
                 <!-- END RIGHT SIDEBAR -->            
               </div>

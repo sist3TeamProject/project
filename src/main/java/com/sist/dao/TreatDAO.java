@@ -15,5 +15,25 @@ public class TreatDAO {
 	{
 		return mapper.treatListData();
 	}
+	
+	public List<TreatVO> treat1ListData()
+	{
+		return mapper.treat1ListData();
+	}
+	
+	public List<TreatVO> treat2ListData()
+	{
+		return mapper.treat2ListData();
+	}
+	
+	public List<TreatVO> treat3ListData()
+	{
+		return mapper.treat3ListData();
+	}
+	
+	public List<TreatVO> treat4ListData()
+	{
+		return mapper.treat4ListData();
+	}
 
 }
