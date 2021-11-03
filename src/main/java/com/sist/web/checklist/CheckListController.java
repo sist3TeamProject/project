@@ -17,7 +17,7 @@ public class CheckListController {
 
     private final CheckListRepository repository;
 
-    @GetMapping("checklist.do")
+    @GetMapping("checklist/checklist.do")
     public String checklist(Model model, @RequestParam(defaultValue = "1") int page) {
 
         repository.getAllCheckList(page, model);
