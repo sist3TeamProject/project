@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+  <persistence-unit name="jpa">
+    <properties>
+<!--      <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver"/>-->
+<!--      <property name="javax.persistence.jdbc.user" value="hr"/>-->
+<!--      <property name="javax.persistence.jdbc.password" value="happy"/>-->
+<!--      <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@211.238.142.208:1521:XE"/>-->
+<!--      <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@14.42.27.205:1521:XE"/>-->
+
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.format_sql" value="true"/>
+      <property name="hibernate.use_sql_comments" value="true"/>
+      <property name="hibernate.hbm2ddl.auto" value="validate" />
+    </properties>
+  </persistence-unit>
+</persistence>
