@@ -5,15 +5,27 @@
 <html>
 	<head>
 		<title>Loading</title>	
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	</head>
 	<body>
 		<c:if test="${not empty redirectUri}">
-			<form action="<c:url value="${redirectUri}" />" method="${method}" style="display:none">
-				<c:forEach var="key" items="${params}">
-					<input type="hidden" name="${key.key}" value="${key.value}" />
-				</c:forEach>
-			</form>
+			<c:choose>
+				<c:when test="${method == 'get' || method == 'post'}">
+					<form action="<c:url value="${redirectUri}" />" method="${method}" style="display:none">
+						<c:forEach var="key" items="${params}">
+							<input type="hidden" name="${key.key}" value="${key.value}" />
+						</c:forEach>
+					</form>
+				</c:when>
+				<c:otherwise>
+					<form action="<c:url value="${redirectUri}" />" method="post" style="display:none">
+						<input type="hidden" name="_method" value="${method}" />
+						<c:forEach var="key" items="${params}">
+							<input type="hidden" name="${key.key}" value="${key.value}" />
+						</c:forEach>
+					</form>
+				</c:otherwise>
+			</c:choose>
 		</c:if>
 		<c:if test="${empty redirectUri}">
 			<form action="<c:url value="/" />" method="get" style="display:none">

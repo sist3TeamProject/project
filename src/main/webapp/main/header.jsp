@@ -105,23 +105,23 @@
               </a>
                 
               <ul class="dropdown-menu">
-                <li><a href="#">자동심장충격기(AED)찾기</a></li>
-                <li><a href="#">자동심장충격기(AED)사용법</a></li>
-                <li><a href="#">자동심장충격기(AED)홍보동영상</a></li>
+                <li><a href="../aed/find.do">자동심장충격기(AED)찾기</a></li>
+                <li><a href="../aed/use.do">자동심장충격기(AED)사용법</a></li>
+                <li><a href="../aed/youtube.do">자동심장충격기(AED)홍보동영상</a></li>
               </ul>
             </li>
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="../emergency_treat/list.jsp">
+              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="../emergency_treat/list.do">
                응급처치방법
                 
               </a>
                 
               <ul class="dropdown-menu">
-                <li><a href="../emergency_treat/treat.jsp">응급상황시 대처요령</a></li>
-                <li><a href="../emergency_treat/treat1.jsp">응급처치 개요</a></li>
-                <li><a href="../emergency_treat/treat2.jsp">응급상황</a></li>
-                <li><a href="../emergency_treat/treat3.jsp">기본응급처치</a></li>
-                <li><a href="../emergency_treat/treat4.jsp">상황별응급처치</a></li>
+                <li><a href="../emergency_treat/treat.do">응급상황시 대처요령</a></li>
+                <li><a href="../emergency_treat/treat1.do">응급처치 개요</a></li>
+                <li><a href="../emergency_treat/treat2.do">응급상황</a></li>
+                <li><a href="../emergency_treat/treat3.do">기본응급처치</a></li>
+                <li><a href="../emergency_treat/treat4.do">상황별응급처치</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -138,7 +138,7 @@
 
              <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
-               알림&소식
+               홍보자료
                 
               </a>
             <ul class="dropdown-menu">

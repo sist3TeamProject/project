@@ -72,12 +72,8 @@ public class MemberController extends BasicController {
 	}
 
 	@GetMapping("/info.do")
-	public String info(HttpServletRequest request, RedirectAttributes redirectAttributes, Model model) {
-		HttpSession session = request.getSession(false);
-		if (session == null) {
-			return messageRedirect("세션 유지시간이 지났습니다.", "/member/logout", MessageMethod.post, null, redirectAttributes);
-		}
-		MemberDTO memberDTO = memberService.searchMember((Integer) session.getAttribute("memberIdx"));
+	public String info(HttpSession session, RedirectAttributes redirectAttributes, Model model) {
+		MemberDTO memberDTO = memberService.selectMember((Integer) session.getAttribute("memberIdx"));
 		model.addAttribute("memberDTO", memberDTO);
 
 	   model.addAttribute("main_jsp", "/member/info.jsp");
@@ -107,11 +103,7 @@ public class MemberController extends BasicController {
 	}
 
 	@PostMapping("/delete.do")
-	public String delete(HttpServletRequest request, RedirectAttributes redirectAttributes, Model model) {
-		HttpSession session = request.getSession(false);
-		if (session == null) {
-			return messageRedirect("세션 유지시간이 지났습니다.", "/member/logout", MessageMethod.post, null, redirectAttributes);
-		}
+	public String delete(HttpSession session, RedirectAttributes redirectAttributes, Model model) {
 		if (memberService.delete((Integer) session.getAttribute("memberIdx")))
 			return messageRedirect("/member/logout", MessageMethod.post, null, model);
 		else
@@ -134,9 +126,7 @@ public class MemberController extends BasicController {
 	@PostMapping("/checkEmailDuplicate/{email}/exists.do")
 	@ResponseBody
 	public Boolean checkEmailDuplicate(@PathVariable String email) {
-		boolean check = memberService.checkEmailDuplicate(email);
-
-		return check;
+		return memberService.checkEmailDuplicate(email);
 	}
 
 	@PostMapping("/passwordReset.do")

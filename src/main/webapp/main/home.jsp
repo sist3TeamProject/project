@@ -210,9 +210,9 @@
               <div class="recent-work-item">
                 <em>
                   <img src="../pages/img/works/img4.jpg" class="img-responsive">
-                  <a href="../emergency_treat/list.jsp" class="fancybox-button" title="응급처치방법" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                  <a href="../emergency_treat/list.do" class="fancybox-button" title="응급처치방법" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
-                <a class="recent-work-description" href="../emergency_treat/list.jsp">
+                <a class="recent-work-description" href="../emergency_treat/list.do">
                   <strong>응급처치방법</strong>
                   <b>응급상황일때 대처요령 정보를 확인할 수 있습니다.</b>
                 </a>
@@ -240,6 +240,10 @@
             <ul class="nav nav-tabs">
               <li class="active"><a href="#tab-1" data-toggle="tab">공지사항</a></li>
               <li><a href="#tab-2" data-toggle="tab">보도자료</a></li>
+
+              <li><a href="#tab-3" data-toggle="tab">홍보동영상&음성</a></li>
+              <li><a href="#tab-4" data-toggle="tab">홍보웹툰&이미지</a></li>
+
             </ul>
             <div class="tab-content">
               <div class="tab-pane row fade in active" id="tab-1">
@@ -279,12 +283,42 @@
                   </a>
                 </div>
               </div>
-              
+
+              <div class="tab-pane fade" id="tab-3">
+                <ul>
+                  <li><a class="margin-bottom-10" href="#"><strong>홍보동영상 - </strong>[2016년 대학생 응급의료 홍보대사] 에디션즈(E.DI.CIANS) 팀_달빛어린이병원</strong></a><br></li>
+                  <li><a class="margin-bottom-10" href="#"><strong>홍보동영상 - </strong>[2016년 대학생 응급의료 홍보대사] 스팸(SPEM) 팀_심폐소생술</strong></a><br></li>
+                 <li> <a class="margin-bottom-10" href="#"><strong>홍보음성 - </strong>[2016년 홍보자료] 보건복지부_응급실감염예방 라디오 광고</strong></a><br></li>
+                  </ul>
+                   <p><a class="more" href="#">더 알아 보기 <i class="icon-angle-right"></i></a></p>
+               
+              </div>
+              <div class="tab-pane fade" id="tab-4">
+                 <ul>
+                  <li><a class="margin-bottom-10" href="#"><strong>홍보웹툰 - </strong>[2016년 홍보자료] 미스터나이팅게일_8화</strong></a><br></li>
+                  <li><a class="margin-bottom-10" href="#"><strong>홍보웹툰 - </strong>[2016년 홍보자료] 미스터나이팅게일_7화</strong></a><br></li>
+                 <li> <a class="margin-bottom-10" href="#"><strong>홍보이미지 - </strong>외상응급처치) 도와줘요~ 닥터T</strong></a><br></li>
+                  <li> <a class="margin-bottom-10" href="#"><strong>홍보이미지 - </strong>생활 속 거리두기! 1일 1깡? 나는 1일 5수칙</strong></a><br></li>
+                  </ul>
+                   <p><a class="more" href="#">더 알아 보기 <i class="icon-angle-right"></i></a></p>
+               
+              </div>
+
             </div>
           </div>
           <!-- END TABS -->
         
-         
+
+          <!-- TESTIMONIALS -->
+          <div class="col-md-5 testimonials-v1">
+            <div id="myCarousel" class="carousel slide">
+            <iframe width="400" height="200" src="https://www.youtube.com/embed/q7J2T6MFA9g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+              
+            </div>
+          </div>
+          <!-- END TESTIMONIALS -->
+
         </div>                
         <!-- END TABS AND TESTIMONIALS -->
 
@@ -299,7 +333,7 @@
           <div style="transform:scale(0.7)">
             <div class="owl-carousel owl-carousel5">
               <div class="client-item" style="margin-right: 20px; ">
-                <a href="javascript:;">
+                <a href="../emergency_treat/treat.do">
                   <img src="../pages/img/main_service1.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service1.png" class="color-img img-responsive" alt="">
                   <h4>응급상황시 대처요령</h4>
@@ -308,28 +342,28 @@
                 
               </div>
               <div class="client-item" style="margin-right: 20px; ">
-                <a href="javascript:;" >
+                <a href="../emergency_treat/treat1.do" >
                   <img src="../pages/img/main_service2.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service2.png" class="color-img img-responsive" alt="">
                   <h4>응급처치 개요</h4>
                 </a>
               </div>
               <div class="client-item" style="margin-right: 20px; ">
-                <a href="javascript:;">
+                <a href="../emergency_treat/treat2.do">
                   <img src="../pages/img/main_service3.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service3.png" class="color-img img-responsive" alt="">
                   <h4>응급상황</h4>
                 </a>
               </div>
               <div class="client-item" style="margin-right: 20px; ">
-                <a href="javascript:;">
+                <a href="../emergency_treat/treat3.do">
                   <img src="../pages/img/main_service4.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service4.png" class="color-img img-responsive" alt="">
                   <h4>기본응급처치</h4>
                 </a>
               </div>
               <div class="client-item" style="margin-right: 20px; ">
-                <a href="javascript:;">
+                <a href="../emergency_treat/treat4.do">
                   <img src="../pages/img/main_service5.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service5.png" class="color-img img-responsive" alt="">
                   <h4>상황별응급처치</h4>

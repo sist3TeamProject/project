@@ -6,12 +6,6 @@
 	<head>
 		<title>비밀번호 찾기</title>
 		<style>
-			div > img {
-				width: 300px;
-				display: block;
-				margin: 0px auto;
-				cursor: pointer;
-			}
 		</style>
 	</head>
 	<body>
@@ -49,7 +43,7 @@
 					</span>
 				</div>
 			</form>
-			<span id="valid_login" style="color: red">${loginFailMsg}</span>
+			<div class="input-group col-sm-10" id="valid_login" style="color: red; margin:0 auto 100px">${loginFailMsg}</div>
 		</div>
 		<script>
 			const login=()=>{
