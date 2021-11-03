@@ -22,6 +22,14 @@
 		</repository>
 	</repositories>
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.6.1.Final</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
@@ -94,7 +102,8 @@
 		    <scope>system</scope>
 		    <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ojdbc8.jar</systemPath>
 		</dependency>
-		
+
+
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
