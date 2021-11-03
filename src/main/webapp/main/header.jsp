@@ -68,10 +68,10 @@
               </a>
                 
               <ul class="dropdown-menu">
-                <li><a href="#">국내 발생 현황</a></li>
-                <li><a href="#">시도별 발생동향</a></li>
-                <li><a href="#">확진환자 이동경로</a></li>
-                <li><a href="#">백신 예약</a></li>
+                <li><a href="<c:url value="/corona/domestic.do" />">국내 발생 현황</a></li>
+                <li><a href="<c:url value="/corona/city.do" />">시도별 발생동향</a></li>
+                <li><a href="<c:url value="/corona/route.do" />">확진환자 이동경로</a></li>
+                <li><a href="<c:url value="/corona/vaccine.do" />">백신 예약/예약변경</a></li>
               </ul>
             </li>
             <li class="dropdown">
