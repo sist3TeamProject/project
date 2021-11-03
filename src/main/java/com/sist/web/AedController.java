@@ -14,4 +14,18 @@ public class AedController {
 		model.addAttribute("main_jsp","../aed/find.jsp");
 		return "main/main";
 	}
+	
+	@GetMapping("use.do")
+	public String aed_use(Model model) 
+	{
+		model.addAttribute("main_jsp","../aed/use.jsp");
+		return "main/main";
+	}
+	
+	@GetMapping("youtube.do")
+	public String aed_youtube(Model model) 
+	{
+		model.addAttribute("main_jsp","../aed/youtube.jsp");
+		return "main/main";
+	}
 }
