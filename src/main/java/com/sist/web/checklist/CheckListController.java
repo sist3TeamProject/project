@@ -15,10 +15,13 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
-@RequiredArgsConstructor
 public class CheckListController {
 
     private final CheckListRepository repository;
+
+    public CheckListController(CheckListRepository repository) {
+        this.repository = repository;
+    }
 
     @GetMapping("checklist/checklist.do")
     public String checklistAll(Model model, @RequestParam(defaultValue = "1") int page) {
