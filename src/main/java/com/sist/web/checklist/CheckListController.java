@@ -16,10 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class CheckListController {
-
-	public CheckListController(CheckListRepository repository) {
-        this.repository = repository;
-    }
+	
+	private final CheckListRepository repository;
 
     public CheckListController(CheckListRepository repository) {
         this.repository = repository;
