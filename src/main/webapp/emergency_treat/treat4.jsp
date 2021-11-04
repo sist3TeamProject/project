@@ -63,7 +63,7 @@ body {
             <div id="exTab2" class="container">	
 		      <ul class="nav nav-tabs">
 			    <li class="active"><a  href="#1" data-toggle="tab">뱀에게 물렸을때</a></li>
-				<li><a href="#2" data-toggle="tab">성인&소아 기도폐쇄</a></li>
+				<li><a href="#2" data-toggle="tab">성인&소아기도폐쇄</a></li>
 			 </ul>
 			   <div class="tab-content ">
 			     <div class="tab-pane active" id="1">
