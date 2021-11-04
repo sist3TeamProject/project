@@ -10,24 +10,9 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-@Transactional(readOnly = true)
 @RequiredArgsConstructor
+@Transactional(readOnly = true, value = "jpaTransactionManager")
 public class CheckListRepository {
-
-    /*private final ChecklistMapper mapper;
-
-    public void getCheckListData(int page, Model model) {
-
-        int rowSize = 8;
-        int start = (page * rowSize) - (rowSize - 1);
-        int end = page * rowSize;
-
-        List<Checklist> checkListData = mapper.getCheckListData(start, end);
-        int totalPage = mapper.getTotalPage();
-
-        model.addAttribute("checklistData", checkListData);
-        model.addAttribute("totalPage", totalPage);
-    }*/
 
     @PersistenceContext
     private EntityManager em;
@@ -45,9 +30,9 @@ public class CheckListRepository {
         Integer totalList = em.createQuery("select count(c.checklistId) from Checklist c", Long.class)
                 .getSingleResult().intValue();
 
-        int totalPage = (int) Math.ceil(totalList / (double)rowSize);
+        int totalPage = (int) Math.ceil(totalList / (double) rowSize);
 
-        int endPage = ((int)Math.ceil((page / (double)displayNum)) * displayNum);
+        int endPage = ((int) Math.ceil((page / (double) displayNum)) * displayNum);
 
         int startPage = endPage - displayNum + 1;
 
@@ -60,20 +45,22 @@ public class CheckListRepository {
         boolean prev = startPage != 1;   //페이지 감소하는 버튼 출력여부
         boolean next = endPage < totalPage; // 페이지 증가버튼 출력여부
 
-
         model.addAttribute("prev", prev);
         model.addAttribute("next", next);
+        model.addAttribute("curPage", page);
         model.addAttribute("startPage", startPage);
         model.addAttribute("endPage", endPage);
         model.addAttribute("checklistData", list);
     }
 
-    public Checklist getCheckList(int id) {
-
+    @Transactional("jpaTransactionManager")
+    public Checklist getCheckList(int id, boolean firstVisited) {
         Checklist checklist = em.find(Checklist.class, id);
+
+        if (firstVisited)
+            checklist.hitCountUp();
 
         return checklist;
     }
-
 
 }

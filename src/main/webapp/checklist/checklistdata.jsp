@@ -56,7 +56,7 @@
                 </li>
                 </c:if>
                     <c:forEach begin="${startPage}" end="${endPage}" var="pageNum">
-                        <li class="${param.page == pageNum ? 'active' : ''}"><a href="${pageContext.request.contextPath}/checklist/checklist.do?page=${pageNum}">${pageNum}</a></li>
+                        <li class="${curPage == pageNum ? 'active' : ''}"><a href="${pageContext.request.contextPath}/checklist/checklist.do?page=${pageNum}">${pageNum}</a></li>
                     </c:forEach>
                 <c:if test="${((next && (endPage > 0)) == true)}">
                 <li>
