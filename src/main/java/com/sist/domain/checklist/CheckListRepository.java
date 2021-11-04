@@ -10,7 +10,6 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-@RequiredArgsConstructor
 @Transactional(readOnly = true, value = "jpaTransactionManager")
 public class CheckListRepository {
 

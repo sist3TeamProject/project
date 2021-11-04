@@ -21,6 +21,10 @@ public class CheckListController {
         this.repository = repository;
     }
 
+    public CheckListController(CheckListRepository repository) {
+        this.repository = repository;
+    }
+
     @GetMapping("checklist/checklist.do")
     public String checklistAll(Model model, @RequestParam(defaultValue = "1") int page) {
 
