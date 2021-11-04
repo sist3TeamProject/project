@@ -69,8 +69,15 @@ public class TreatController {
 	@GetMapping("treat4.do")
 	public String treat_treat4(Model model)
 	{
-		List<TreatVO> list=dao.treat4ListData();
-		model.addAttribute("list", list);
+		List<TreatVO> list4=dao.treat4ListData();
+		List<TreatVO> list4_sna=dao.treat4ListData_sna();
+		List<TreatVO> list4_bee=dao.treat4ListData_bee();
+		List<TreatVO> list4_spi=dao.treat4ListData_spi();
+		
+		model.addAttribute("list4_sna", list4_sna);
+		model.addAttribute("list4_bee", list4_bee);
+		model.addAttribute("list4_spi", list4_spi);
+		model.addAttribute("list4", list4);
 		model.addAttribute("main_jsp", "../emergency_treat/treat4.jsp");
 		return "main/main";
 	}

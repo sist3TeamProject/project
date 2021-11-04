@@ -35,5 +35,37 @@ public class TreatDAO {
 	{
 		return mapper.treat4ListData();
 	}
+	
+	public List<TreatVO> treat4ListData_sna()
+	{
+		return mapper.treat4ListData_sna();
+	}
+	
+	public List<TreatVO> treat4ListData_bee()
+	{
+		return mapper.treat4ListData_bee();
+	}
+	
+	public List<TreatVO> treat4ListData_spi()
+	{
+		return mapper.treat4ListData_spi();
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
