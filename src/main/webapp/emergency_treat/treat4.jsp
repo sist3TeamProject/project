@@ -67,7 +67,7 @@ body {
 				<li><a href="#3" data-toggle="tab">벌에 쏘였을 때</a></li>
 				<li><a href="#4" data-toggle="tab">벌레에 쏘였을 때</a></li>
 				<li><a href="#5" data-toggle="tab">열/냉에 의한 손상</a></li>
-			 </ul>
+			 </ul> 
 			   <div class="tab-content ">
 			     <div class="tab-pane active" id="1">
 		           <h1>개 등에 물렸을 때 응급처치</h1>
