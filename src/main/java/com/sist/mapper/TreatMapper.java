@@ -48,6 +48,18 @@ public interface TreatMapper {
 			+ "WHERE no>=10 AND no<=11 "
 			+ "ORDER BY no ASC")
 	public List<TreatVO> treat4ListData_spi();
+	
+	@Select("SELECT * "
+			+ "FROM emergency_treat4 "
+			+ "WHERE no>=12 AND no<=15 "
+			+ "ORDER BY no ASC")
+	public List<TreatVO> treat4ListData_ice();
+	
+	@Select("SELECT * "
+			+ "FROM emergency_treat4 "
+			+ "WHERE no>=16 AND no<=19 "
+			+ "ORDER BY no ASC")
+	public List<TreatVO> treat4ListData_ice_1();
 
 }
 

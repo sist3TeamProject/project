@@ -73,10 +73,14 @@ public class TreatController {
 		List<TreatVO> list4_sna=dao.treat4ListData_sna();
 		List<TreatVO> list4_bee=dao.treat4ListData_bee();
 		List<TreatVO> list4_spi=dao.treat4ListData_spi();
+		List<TreatVO> list4_ice=dao.treat4ListData_ice();
+		List<TreatVO> list4_ice_1=dao.treat4ListData_ice_1();
 		
 		model.addAttribute("list4_sna", list4_sna);
 		model.addAttribute("list4_bee", list4_bee);
 		model.addAttribute("list4_spi", list4_spi);
+		model.addAttribute("list4_ice", list4_ice);
+		model.addAttribute("list4_ice_1", list4_ice_1);
 		model.addAttribute("list4", list4);
 		model.addAttribute("main_jsp", "../emergency_treat/treat4.jsp");
 		return "main/main";

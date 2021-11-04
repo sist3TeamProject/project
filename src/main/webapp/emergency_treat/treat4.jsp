@@ -66,6 +66,7 @@ body {
 				<li><a href="#2" data-toggle="tab">뱀에게 물렸을 때</a></li>
 				<li><a href="#3" data-toggle="tab">벌에 쏘였을 때</a></li>
 				<li><a href="#4" data-toggle="tab">벌레에 쏘였을 때</a></li>
+				<li><a href="#5" data-toggle="tab">열/냉에 의한 손상</a></li>
 			 </ul>
 			   <div class="tab-content ">
 			     <div class="tab-pane active" id="1">
@@ -126,6 +127,40 @@ body {
 		           <h1>벌레에 쏘였을 때</h1>
             	   <div class="blog-item-img">
                    	<c:forEach var="vo" items="${list4_spi }">
+                      <div class="item">
+                        <img src="${vo.poster }">
+                        <blockquote>
+		                  <h3>${vo.title }</h3><br>
+		                  <ul>
+		                   <c:forTokens items="${vo.sub1 }" delims="^" var="sub1">
+		                     <li>${sub1 }</li>
+		                   </c:forTokens>
+						  </ul>
+		                </blockquote> 
+                      </div>
+                    </c:forEach>          
+                  </div>
+				 </div>
+				 <div class="tab-pane" id="5">
+		           <h1>동상과 동창의 증상</h1>
+            	   <div class="blog-item-img">
+                   	<c:forEach var="vo" items="${list4_ice }">
+                      <div class="item">
+                        <img src="${vo.poster }">
+                        <blockquote>
+		                  <h3>${vo.title }</h3><br>
+		                  <ul>
+		                   <c:forTokens items="${vo.sub1 }" delims="^" var="sub1">
+		                     <li>${sub1 }</li>
+		                   </c:forTokens>
+						  </ul>
+		                </blockquote> 
+                      </div>
+                    </c:forEach>          
+                  </div>
+                  <h1>동상과 동창의 응급처치</h1>
+            	   <div class="blog-item-img">
+                   	<c:forEach var="vo" items="${list4_ice_1 }">
                       <div class="item">
                         <img src="${vo.poster }">
                         <blockquote>

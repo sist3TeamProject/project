@@ -50,6 +50,16 @@ public class TreatDAO {
 	{
 		return mapper.treat4ListData_spi();
 	}
+	
+	public List<TreatVO> treat4ListData_ice()
+	{
+		return mapper.treat4ListData_ice();
+	}
+	
+	public List<TreatVO> treat4ListData_ice_1()
+	{
+		return mapper.treat4ListData_ice_1();
+	}
 
 }
 
