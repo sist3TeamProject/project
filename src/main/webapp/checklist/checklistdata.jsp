@@ -21,9 +21,9 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1" style="margin-top: 50px">
-            <h3 class="text-center">자가진단 체크리스트</h3>
-            <table class="table table-hover table-bordered" style="margin-top: 70px;">
+        <div class="col-md-10 col-md-offset-1">
+            <h3 class="text-center" style="margin-top: 30px;">자가진단 체크리스트</h3>
+            <table class="table table-hover table-bordered" style="margin-top: 30px;">
                 <thead>
                 <tr>
                     <th class="text-center">제목</th>
@@ -35,7 +35,7 @@
                 <c:forEach items="${checklistData}" var="checklist">
                 <tr>
                     <td class="text-center">
-                        ${checklist.title}
+                        <a style="color: #000000" href="${pageContext.request.contextPath}/${checklist.checklistId}/checklist.do">${checklist.title}</a>
                     </td>
                     <td class="text-center">
                         ${checklist.department}
@@ -47,22 +47,24 @@
                 </c:forEach>
                 </tbody>
             </table>
-            <ul class="pagination">
+            <ul class="pagination pull-right">
+                <c:if test="${prev == true}">
                 <li class="">
-                    <a href="#" aria-label="Previous">
+                    <a href="${pageContext.request.contextPath}/checklist/checklist.do?page=${startPage - 1}" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                <li><a href="#">1</a></li>
-                <li class="active"><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
+                </c:if>
+                    <c:forEach begin="${startPage}" end="${endPage}" var="pageNum">
+                        <li class="${param.page == pageNum ? 'active' : ''}"><a href="${pageContext.request.contextPath}/checklist/checklist.do?page=${pageNum}">${pageNum}</a></li>
+                    </c:forEach>
+                <c:if test="${((next && (endPage > 0)) == true)}">
                 <li>
-                    <a href="#" aria-label="Next">
+                    <a href="${pageContext.request.contextPath}/checklist/checklist.do?page=${endPage + 1}" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
+                </c:if>
             </ul>
         </div>
     </div>

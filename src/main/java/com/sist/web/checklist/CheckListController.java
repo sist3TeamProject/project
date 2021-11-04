@@ -18,14 +18,22 @@ public class CheckListController {
     private final CheckListRepository repository;
 
     @GetMapping("checklist/checklist.do")
-    public String checklist(Model model, @RequestParam(defaultValue = "1") int page) {
+    public String checklistAll(Model model, @RequestParam(defaultValue = "1") int page) {
 
         repository.getAllCheckList(page, model);
 
-        model.addAttribute("test", "test");
 
         model.addAttribute("main_jsp", "../checklist/checklistdata.jsp");
         return "main/main";
+    }
 
+    @GetMapping("/{id}/checklist.do")
+    public String checklist(@PathVariable int id, Model model) {
+
+        Checklist checkList = repository.getCheckList(id);
+        model.addAttribute(checkList);
+
+        model.addAttribute("main_jsp", "../checklist/checklist.jsp");
+        return "main/main";
     }
 }

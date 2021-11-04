@@ -220,7 +220,7 @@
               <div class="recent-work-item">
                 <em>
                     <img src="../pages/img/works/img5.jpg" class="img-responsive">
-                    <a href="../pages/img/works/health-check.png" class="fancybox-button" title="자가 진단" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                    <a href="../checklist/checklist.do" class="fancybox-button" title="자가 진단" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
                 <a class="recent-work-description" href="javascript:;">
                     <strong>자가 진단</strong>

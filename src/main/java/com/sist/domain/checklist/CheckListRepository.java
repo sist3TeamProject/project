@@ -33,8 +33,9 @@ public class CheckListRepository {
     private EntityManager em;
 
     public void getAllCheckList(int page, Model model) {
-        int rowSize = 10;
+        int rowSize = 7;
         int start = (page * rowSize) - (rowSize - 1);
+        int displayNum = 5;
 
         List<Checklist> list = em.createQuery("select c from Checklist c order by c.checklistId", Checklist.class)
                 .setFirstResult(start)
@@ -44,22 +45,34 @@ public class CheckListRepository {
         Integer totalList = em.createQuery("select count(c.checklistId) from Checklist c", Long.class)
                 .getSingleResult().intValue();
 
-        int totalPage = (int) Math.ceil(totalList / 10.0);
+        int totalPage = (int) Math.ceil(totalList / (double)rowSize);
 
-        boolean prev = page > 1;   //페이지 감소하는 버튼 출력여부
-        boolean next = page < totalPage; // 페이지 증가버튼 출력여부
+        int endPage = ((int)Math.ceil((page / (double)displayNum)) * displayNum);
 
-        int endPage = page + 2;
-        if (endPage >= totalPage)
+        int startPage = endPage - displayNum + 1;
+
+        if (endPage > totalPage)
             endPage = totalPage;
 
-        int startPage = endPage - 4;
-        if (startPage < 1)
+        if (startPage < 0)
             startPage = 1;
+
+        boolean prev = startPage != 1;   //페이지 감소하는 버튼 출력여부
+        boolean next = endPage < totalPage; // 페이지 증가버튼 출력여부
+
 
         model.addAttribute("prev", prev);
         model.addAttribute("next", next);
+        model.addAttribute("startPage", startPage);
+        model.addAttribute("endPage", endPage);
         model.addAttribute("checklistData", list);
+    }
+
+    public Checklist getCheckList(int id) {
+
+        Checklist checklist = em.find(Checklist.class, id);
+
+        return checklist;
     }
 
 
