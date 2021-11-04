@@ -37,15 +37,14 @@ public class CheckListController {
         if (visited == null) { // 첫방문 쿠키 없을때
             firstVisit = true;
             cookie = new Cookie("visited", "(" + id + ")");
-            cookie.setMaxAge(1 * 24 * 60 * 60);  // day * hour * minute * second
-            ;
         } else if(!visited.contains("(" + id +")")){ // 쿠키 있지만 첫방문
             firstVisit = true;
             cookie = new Cookie("visited", visited + "_(" + id + ")");
-            cookie.setMaxAge(1 * 24 * 60 * 60);
         } else {
             cookie = new Cookie("visited", visited);
         }
+
+        cookie.setMaxAge(1 * 24 * 60 * 60);
         response.addCookie(cookie);
 
         Checklist checkList = repository.getCheckList(id, firstVisit);
