@@ -29,7 +29,6 @@ public class TreatController {
 	public String treat_treat(Model model)
 	{
 		List<TreatVO> list=dao.treatListData();
-		//model.addAttribute("no", no);
 		model.addAttribute("list", list);
 		model.addAttribute("main_jsp", "../emergency_treat/treat.jsp");
 		return "main/main";
@@ -39,6 +38,8 @@ public class TreatController {
 	@GetMapping("treat1.do")
 	public String treat_treat1(Model model)
 	{
+		List<TreatVO> list=dao.treat1ListData();
+		model.addAttribute("list", list);
 		model.addAttribute("main_jsp", "../emergency_treat/treat1.jsp");
 		return "main/main";
 	}
@@ -47,6 +48,7 @@ public class TreatController {
 	@GetMapping("treat2.do")
 	public String treat_treat2(Model model)
 	{
+		
 		model.addAttribute("main_jsp", "../emergency_treat/treat2.jsp");
 		return "main/main";
 	}
@@ -55,6 +57,10 @@ public class TreatController {
 	@GetMapping("treat3.do")
 	public String treat_treat3(Model model)
 	{
+		List<TreatVO> list2=dao.treat2ListData();
+		model.addAttribute("list2", list2);
+		List<TreatVO> list3=dao.treat3ListData();
+		model.addAttribute("list3", list3);
 		model.addAttribute("main_jsp", "../emergency_treat/treat3.jsp");
 		return "main/main";
 	}
@@ -63,6 +69,19 @@ public class TreatController {
 	@GetMapping("treat4.do")
 	public String treat_treat4(Model model)
 	{
+		List<TreatVO> list4=dao.treat4ListData();
+		List<TreatVO> list4_sna=dao.treat4ListData_sna();
+		List<TreatVO> list4_bee=dao.treat4ListData_bee();
+		List<TreatVO> list4_spi=dao.treat4ListData_spi();
+		List<TreatVO> list4_ice=dao.treat4ListData_ice();
+		List<TreatVO> list4_ice_1=dao.treat4ListData_ice_1();
+		
+		model.addAttribute("list4_sna", list4_sna);
+		model.addAttribute("list4_bee", list4_bee);
+		model.addAttribute("list4_spi", list4_spi);
+		model.addAttribute("list4_ice", list4_ice);
+		model.addAttribute("list4_ice_1", list4_ice_1);
+		model.addAttribute("list4", list4);
 		model.addAttribute("main_jsp", "../emergency_treat/treat4.jsp");
 		return "main/main";
 	}
