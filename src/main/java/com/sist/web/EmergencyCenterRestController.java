@@ -32,6 +32,8 @@ public class EmergencyCenterRestController {
 				obj.put("hpid", vo.getHpid());
 				obj.put("name", vo.getName());
 				obj.put("distance", vo.getDistance());
+				obj.put("lat", vo.getLat());
+				obj.put("lon", vo.getLon());
 				arr.add(obj);
 			}
 			json=arr.toJSONString();
