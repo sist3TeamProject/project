@@ -8,8 +8,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+.hover:hover{
+	cursor: pointer;
+	background-color: #EFEFEF;
+	font-weight: bold;
+}
+</style>
 </head>
 <body>
+  <div class="container">
 	<div class="putLatLon">
 		<h2>응급실 찾기</h2>
 		<p>응급실 정보 검색 서비스입니다.</p>
@@ -20,12 +29,14 @@
 			<input type="text" v-model="findAddr">
 			<input type="button" value="근처 응급실 찾기" v-on:click="findBtn">
 			<div class="printHpid" v-for="vo in hpidList">
-				<p>{{vo.hpid}}</p>
-				<p>{{vo.name}}</p>
-				<p>{{vo.distance}}km</p>
-				<p v-model="lat">위도 : {{vo.lat}}</p>
-				<p v-model="lon">경도 : {{vo.lon}}</p>
-				<hr>
+				<div class="hover" v-on:click="goDetail(vo.hpid)">
+					<p>{{vo.hpid}}</p>
+					<p>{{vo.name}}</p>
+					<p>{{vo.distance}}km</p>
+					<p v-model="lat">위도 : {{vo.lat}}</p>
+					<p v-model="lon">경도 : {{vo.lon}}</p>
+					<hr>
+				</div>
 			</div>
 		</div>
 		<script>
@@ -33,8 +44,8 @@
 			el:'.putLatLon',
 			data:{
 				hpidList:[],
-				baseLat:37.6453,
-				baseLon:126.792204040477,
+				baseLat:37.642201088897444,
+				baseLon:126.83219640795551,
 				lat:this.lat,
 				lon:this.lon,
 				findAddr:this.findAddr
@@ -120,6 +131,7 @@
 				        "http://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=be0965f85428a75d750a50fe123d2748&libraries=services";
 				      document.head.appendChild(script);
 				    },
+				    
 				    initMap() {
 				      var container = document.getElementById("map"); //지도를 담을 영역의 DOM 레퍼런스
 				      var options = {
@@ -136,7 +148,7 @@
 				      
 		    		for( var i = 0 ; i < this.hpidList.length ; i++ ) {
 		    			positions.push({ title : this.hpidList[i].name, latlng : new kakao.maps.LatLng(this.hpidList[i].lat,this.hpidList[i].lon) });
-		    		}
+		    			}
 				    	// 마커 이미지의 이미지 주소입니다
 				    	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
 				    	    
@@ -157,11 +169,15 @@
 				    	}
 				    	
 				    	
+				    },
+				    goDetail(hpid){
+				    	location.href="detail.do?hpid="+hpid;
 				    }
 				  }
 		})
 		</script>
 		
 	</div>
+  </div>
 </body>
 </html>

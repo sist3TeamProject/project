@@ -17,4 +17,11 @@ public class EmergencyCenterController {
 		model.addAttribute("main_jsp", "../emergency_center/find.jsp");
 		return "main/main";
 	}
+	
+	@GetMapping("emergency_center/detail.do")
+	public String emergency_center_detail(String hpid,Model model) {
+		model.addAttribute("hpid", hpid);
+		model.addAttribute("main_jsp", "../emergency_center/detail.jsp");
+		return "main/main";
+	}
 }
