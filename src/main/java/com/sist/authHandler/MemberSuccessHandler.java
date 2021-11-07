@@ -3,13 +3,11 @@ package com.sist.authHandler;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.security.authentication.LockedException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
@@ -29,12 +27,6 @@ public class MemberSuccessHandler implements AuthenticationSuccessHandler {
 		MemberService memberService = (MemberService)context.getBean("memberService");
 		
 		MemberDTO memberDTO = (MemberDTO) request.getAttribute("memberDTO");
-		if (memberDTO.getDeleteCheck().equals("Y")) {
-			throw new LockedException("탈퇴한 계정입니다. 관리자에게 문의하세요.");
-		}
-		if (memberDTO.getLockCount() >= 3) {
-			throw new LockedException("비밀번호 횟수 초과하였습니다. 비밀번호 찾기를 진행해주세요.");
-		}
 		memberService.lockReset(memberDTO.getEmail());
 
 		HttpSession session = request.getSession();

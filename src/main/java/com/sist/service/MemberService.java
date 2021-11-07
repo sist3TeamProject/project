@@ -55,7 +55,7 @@ public class MemberService {
 	public boolean delete(Integer idx) {
 		MemberDTO memberDTO = selectMember(idx);
 		if (memberDTO != null) {
-
+			memberDTO.setDeleteCheck("Y");
 			return memberMapper.deleteMember(memberDTO) == 1;
 		}
 

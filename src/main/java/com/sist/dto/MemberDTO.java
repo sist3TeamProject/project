@@ -22,7 +22,7 @@ public class MemberDTO {
 	@Pattern(regexp = "(?=.*[0-9a-zA-Z])(?=.*\\W)(?=\\S+$).{8,20}", message = "비밀번호는 특수기호가 적어도 1개 이상 포함된 8자 ~ 20자의 비밀번호여야 합니다.")
 	private String password;
 	@NotBlank(message = "전화번호는 필수 입력 값입니다.")
-	@Pattern(regexp = "^01(?:0|1|[6-9])[.-]?(\\d{3}|\\d{4})[.-]?(\\d{4})$", message = "올바르지 않는 형식입니다.")
+	@Pattern(regexp = "^01(?:0|1|[6-9])[.,-]?(\\d{3}|\\d{4})[.,-]?(\\d{4})$", message = "올바르지 않는 형식입니다.")
 	private String phoneNumber;
 	@NotBlank(message = "주소는 필수 입력 값입니다.")
 	private String postcode;
@@ -30,6 +30,7 @@ public class MemberDTO {
 	private String detailAddress;
 	private String extraAddress;
 	private String deleteCheck;
+	private String adminCheck;
 	private Integer lockCount;
 	private LocalDateTime insertTime;
 	private LocalDateTime deleteTime;
@@ -93,6 +94,12 @@ public class MemberDTO {
 	}
 	public void setDeleteCheck(String deleteCheck) {
 		this.deleteCheck = deleteCheck;
+	}
+	public String getAdminCheck() {
+		return adminCheck;
+	}
+	public void setAdminCheck(String adminCheck) {
+		this.adminCheck = adminCheck;
 	}
 	public Integer getLockCount() {
 		return lockCount;
