@@ -1,7 +1,7 @@
 # 웹사이트
 [웹사이트 바로가기](http:localhost:8080/web/ "팀 프로젝트")
 
-## jstl 시큐리티 관련 설명
+## jsp 시큐리티 관련 설명
 
 ### jsp 위쪽에 추가
 
@@ -44,3 +44,12 @@
 		System.out.println(memberDTO.getNickname());
 	}
 	
+----------------
+
+> 관리자
+> > email : qwe@qwe.qwe
+> > password : qweqweqwe@
+> 
+> 일반
+> > email : asd@asd.asd
+> > password : asdasdasd@

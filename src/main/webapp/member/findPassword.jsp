@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8" errorPage="/error"%>
+	pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>비밀번호 찾기</title>
-		<style>
-		</style>
+		<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 	</head>
 	<body>
 		<div id="checkModal" class="modal fade" tabindex = "-1" role = "dialog">
@@ -30,7 +29,7 @@
 		</div>
 		<div class="clearfix">
 			<form onsubmit="return login()">
-				<div class="input-group col-sm-10" style="margin:0px auto">
+				<div class="input-group">
 					<span class="input-group-addon">
 						<label style="margin:0px" for="username">
 							<i class="glyphicon glyphicon-envelope"></i>

@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8" errorPage="/error"%>
+	pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>로그인</title>
+		<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 		<style>
 			/* 영역 선택 차단 */
 			label {
@@ -14,6 +15,12 @@
 			   -webkit-user-select: none;
 			   user-select: none;
 			 }
+			 
+			@media ( max-width : 767px) {
+				.input-group.col-sm-10 {
+					width:100%;
+				}
+			}
 		</style>
 	</head>
 	<body>

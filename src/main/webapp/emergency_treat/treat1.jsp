@@ -40,41 +40,6 @@
 		                </blockquote> 
                       </div>
                     </c:forEach>          
-                  </div>
-                  
-                  <hr>
-
-                  <h2>Comments</h2>
-                  <div class="comments">
-                  
-                    <div class="media">
-                      <div class="media-body">
-                        <h4 class="media-heading">이름 <span>날짜 / <a href="javascript:;">Reply</a></span></h4>
-                        <p>댓글 </p>
-                      </div>
-                    </div>
-
-                  </div>
-
-                  <div class="post-comment padding-top-40">
-                    <h3>Leave a Comment</h3>
-                    <form role="form">
-                      <div class="form-group">
-                        <label>Name</label>
-                        <input class="form-control" type="text">
-                      </div>
-
-                      <div class="form-group">
-                        <label>Email <span class="color-red">*</span></label>
-                        <input class="form-control" type="text">
-                      </div>
-
-                      <div class="form-group">
-                        <label>Message</label>
-                        <textarea class="form-control" rows="8"></textarea>
-                      </div>
-                      <p><button class="btn btn-primary" type="submit">Post a Comment</button></p>
-                    </form>
                   </div>                      
                 </div>
                 <!-- END LEFT SIDEBAR -->
@@ -84,10 +49,10 @@
                   <!-- CATEGORIES START -->
                   <h2 class="no-top-space">Categories</h2>
                   <ul class="nav sidebar-categories margin-bottom-40">
-                    <li><a href="#">응급실</a></li>                    
-                    <li><a href="#">병원&약국</a></li>
-                    <li><a href="#">자동심장충격기(AED)</a></li>
-                    <li><a href="#">알림&소식</a></li>
+                    <li><a href="../emergency_center/find.do">응급실</a></li>                    
+                    <li><a href="../findhopital/find.do">병원&약국</a></li>
+                    <li><a href="../aed/find.do">자동심장충격기(AED)</a></li>
+                    <li><a href="../notice/notice.do">알림&소식</a></li>
                     <li><a href="#">홍보자료</a></li>
                   </ul>
                   <!-- CATEGORIES END -->
@@ -97,15 +62,15 @@
                   <div class="recent-news" style="width:280px">
                     <div class="row">
                       <h3 class="text-center"></h3>
-                      <p class="text-center"><a href="#">2021년 10월 응급의료기관 및 응급의료기관<br>외의 의료기관(응급의료시설) 현황</a></p>                          
+                      <p class="text-center"><a href="../notice/notice.do">2021년 10월 응급의료기관 및 응급의료기관<br>외의 의료기관(응급의료시설) 현황</a></p>                          
                     </div>
                     <div class="row">
                       <h3 class="text-center"></h3>
-                      <p class="text-center"><a href="#">2021년 9월 응급의료기관 및 응급의료기관<br>외의 의료기관(응급의료시설) 현황</a></p>                          
+                      <p class="text-center"><a href="../notice/notice.do">2021년 9월 응급의료기관 및 응급의료기관<br>외의 의료기관(응급의료시설) 현황</a></p>                          
                     </div>
                     <div class="row">
                       <h3 class="text-center"></h3>
-                      <p class="text-center"><a href="#">2021년 8월 응급의료기관 및 응급의료기관<br>외의 의료기관(응급의료시설) 현황</a></p>                        
+                      <p class="text-center"><a href="../notice/notice.do">2021년 8월 응급의료기관 및 응급의료기관<br>외의 의료기관(응급의료시설) 현황</a></p>                        
                     </div>
                   </div>
                   <!-- END RECENT NEWS -->                            

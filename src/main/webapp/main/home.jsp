@@ -210,9 +210,9 @@
               <div class="recent-work-item">
                 <em>
                   <img src="../pages/img/works/img4.jpg" class="img-responsive">
-                  <a href="../emergency_treat/list.do" class="fancybox-button" title="응급처치방법" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                  <a href="../emergency_treat/treat.do" class="fancybox-button" title="응급처치방법" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
-                <a class="recent-work-description" href="../emergency_treat/list.do">
+                <a class="recent-work-description" href="../emergency_treat/treat.do">
                   <strong>응급처치방법</strong>
                   <b>응급상황일때 대처요령 정보를 확인할 수 있습니다.</b>
                 </a>
@@ -336,7 +336,7 @@
                 <a href="../emergency_treat/treat.do">
                   <img src="../pages/img/main_service1.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service1.png" class="color-img img-responsive" alt="">
-                  <h4>응급상황시 대처요령</h4>
+                  <h4 class="text-center">응급상황시 대처요령</h4>
                   
                 </a>
                 
@@ -345,28 +345,28 @@
                 <a href="../emergency_treat/treat1.do" >
                   <img src="../pages/img/main_service2.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service2.png" class="color-img img-responsive" alt="">
-                  <h4>응급처치 개요</h4>
+                  <h4 class="text-center">응급처치 개요</h4>
                 </a>
               </div>
               <div class="client-item" style="margin-right: 20px; ">
                 <a href="../emergency_treat/treat2.do">
                   <img src="../pages/img/main_service3.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service3.png" class="color-img img-responsive" alt="">
-                  <h4>응급상황</h4>
+                  <h4 class="text-center">응급상황</h4>
                 </a>
               </div>
               <div class="client-item" style="margin-right: 20px; ">
                 <a href="../emergency_treat/treat3.do">
                   <img src="../pages/img/main_service4.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service4.png" class="color-img img-responsive" alt="">
-                  <h4>기본응급처치</h4>
+                  <h4 class="text-center">기본응급처치</h4>
                 </a>
               </div>
               <div class="client-item" style="margin-right: 20px; ">
                 <a href="../emergency_treat/treat4.do">
                   <img src="../pages/img/main_service5.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service5.png" class="color-img img-responsive" alt="">
-                  <h4>상황별응급처치</h4>
+                  <h4 class="text-center">상황별응급처치</h4>
                 </a>
               </div>                
             </div>

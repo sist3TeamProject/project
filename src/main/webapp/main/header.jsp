@@ -38,12 +38,16 @@
                     <sec:authorize access="isAuthenticated()">
 						<ul class="list-unstyled list-inline pull-right">
 							<li>
-								<a href="<c:url value="/member/info.do" />" class="button asset fit">내 정보</a></li>
+								<a href="javascript:void(0)" onclick="reservation()" class="button asset fit">예약 테스트</a>
+							</li>
 							<li>
-								<a href="javascript:void(0)" onclick="deleteMember()" class="button asset fit">회원탈퇴</a>
+								<a href="<c:url value="/member/info.do" />" class="button asset fit">내 정보</a>
 							</li>
 							<li>
 								<a href="javascript:void(0)" onclick="logout()" class="button asset primary fit">로그아웃</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" onclick="deleteMember()" class="button asset fit">회원탈퇴</a>
 							</li>
 	                    </ul>
 	                </sec:authorize>
@@ -71,7 +75,8 @@
                 <li><a href="<c:url value="/corona/domestic.do" />">국내 발생 현황</a></li>
                 <li><a href="<c:url value="/corona/city.do" />">시도별 발생동향</a></li>
                 <li><a href="<c:url value="/corona/route.do" />">확진환자 이동경로</a></li>
-                <li><a href="<c:url value="/corona/vaccine.do" />">백신 예약/예약변경</a></li>
+                <li><a href="<c:url value="../corona/primary.do" />">백신 예약</a></li>
+                <li><a href="<c:url value="../corona/user_check.do" />">예약변경/취소</a></li>
               </ul>
             </li>
             <li class="dropdown">

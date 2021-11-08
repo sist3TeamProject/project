@@ -16,14 +16,6 @@ public class TreatController {
 	@Autowired
 	private TreatDAO dao;
 	
-	// 리스트
-	@GetMapping("list.do")
-	public String treat_list(Model model)
-	{
-		model.addAttribute("main_jsp", "../emergency_treat/list.jsp");
-		return "main/main";
-	}
-	
 	// 응급상황시 대처요령
 	@GetMapping("treat.do")
 	public String treat_treat(Model model)
