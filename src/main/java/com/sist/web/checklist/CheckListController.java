@@ -1,8 +1,8 @@
 package com.sist.web.checklist;
 
 import com.sist.domain.checklist.CheckListRepository;
+import com.sist.domain.checklist.CheckListSearch;
 import com.sist.domain.checklist.Checklist;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -10,24 +10,28 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class CheckListController {
-	
-	private final CheckListRepository repository;
+
+    private final CheckListRepository repository;
 
     public CheckListController(CheckListRepository repository) {
         this.repository = repository;
     }
 
     @GetMapping("checklist/checklist.do")
-    public String checklistAll(Model model, @RequestParam(defaultValue = "1") int page) {
+    public String checklistAll(Model model, @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "title") String sort,
+                               @RequestParam(required = false) String type,
+                               @RequestParam(required = false) String keyword) {
 
-        repository.getAllCheckList(page, model);
+        CheckListSearch checkListSearch = new CheckListSearch(type, keyword);
 
+        repository.getAllCheckList(page, sort, model, checkListSearch);
+
+        model.addAttribute("sort", sort);
         model.addAttribute("main_jsp", "../checklist/checklistdata.jsp");
         return "main/main";
     }
@@ -41,7 +45,7 @@ public class CheckListController {
         if (visited == null) { // 첫방문 쿠키 없을때
             firstVisit = true;
             cookie = new Cookie("visited", "(" + id + ")");
-        } else if(!visited.contains("(" + id +")")){ // 쿠키 있지만 첫방문
+        } else if (!visited.contains("(" + id + ")")) { // 쿠키 있지만 첫방문
             firstVisit = true;
             cookie = new Cookie("visited", visited + "_(" + id + ")");
         } else {
