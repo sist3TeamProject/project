@@ -39,7 +39,6 @@ public class EmergencyCenterRestController {
 				arr.add(obj);
 			}
 			json=arr.toJSONString();
-			System.out.println(json);
 		}catch (Exception e) {}
 		return json;
 	}

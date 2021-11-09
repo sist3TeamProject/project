@@ -61,11 +61,11 @@
 						
 					<div class="searchMap">
 						<div class="searchAddr">
-							<input type="text" v-model="targetAddr">
+							<input type="text" v-model="targetAddr" placeholder="지명을 입력하세요" onclick="javascript:this.value='';">
 							<input type="button" value="근처 응급실 찾기" v-on:click="findEMC">
 						</div>
 						<div class="col-sm-8 mapDiv">
-							<div id="map" style="width:100%;height:100%;"></div>
+							<div id="map" style="width:100%;height:700px;"></div>
 						</div>
 						
 						<div class="col-sm-4 emcList">
@@ -93,6 +93,7 @@
 		</div>
 	</div>
 </div>
+<div style="height: 200px;"></div>
 <script>
 new Vue({
 	el:'.vue',

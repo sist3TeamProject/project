@@ -6,7 +6,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class EmergencyCenterVO {
+	//응급실 기본 정보
 	private int no;
-	private String hpid,name,addr,tel,emgcTel,monday,tuesday,wednesday,thursday,friday,saturday,sunday,holiday,lat,lon;
+	private String hpid,name,addr,tel,lat,lon;
 	private Double distance;
 }
