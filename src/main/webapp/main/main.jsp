@@ -134,6 +134,18 @@ body {
 				form.submit();
 			}
 		}
+		
+		const reservation=()=>{
+			let uri = contextRoot+"/reservation/write.do";
+			let form = $("<form></form>");
+			form.attr("action", uri);
+			form.attr("method", "post");
+			form.appendTo("body");
+			form.append("<input type='hidden' name='targetIdx' value='1' />");
+			form.append("<input type='hidden' name='targetType' value='hospital' />");
+			form.append("<input type='hidden' name='title' value='테스트' />");
+			form.submit();
+		}
 	</script>
 </body>
 </html>

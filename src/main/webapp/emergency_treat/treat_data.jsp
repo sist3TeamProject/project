@@ -11,36 +11,54 @@
 <div class="main">
       <div class="container">
         <ul class="breadcrumb">
-            <li><a href="../main/main.do">Home</a></li>
-            <li><a href="../emergency_treat/list.do">응급처치방법</a></li>
-            <li class="active">응급처치 개요</li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="javascript:;">응급처치방법</a></li>
+            <li class="active">응급처치자료실</li>
         </ul>
         <!-- BEGIN SIDEBAR & CONTENT -->
         <div class="row margin-bottom-40">
           <!-- BEGIN CONTENT -->
           <div class="col-md-12 col-sm-12">
-            <h1>응급처치 개요</h1>
-            <h4>응급상황시 행동원칙과 의료체계에 대한 정보를 확인하실 수 있습니다.</h4>
+            <h1>응급처치 자료실</h1>
             <div class="content-page">
-              <div class="row">
                 <!-- BEGIN LEFT SIDEBAR -->            
-                <div class="col-md-9 col-sm-9 blog-item">
-                  <div class="blog-item-img">
-                   	<c:forEach var="vo" items="${list }">
-                      <div class="item">
-                        <%-- <img src="${vo.poster }"> --%>
-                        <blockquote>
-		                  <h3>${vo.title }</h3><br>
-		                  <p>${vo.sub1 }</p>
-		                  <ul>
-		                   <c:forTokens items="${vo.sub2 }" delims="^" var="sub2">
-		                     <li>${sub2 }</li>
-		                   </c:forTokens>
-						  </ul>
-		                </blockquote> 
-                      </div>
-                    </c:forEach>          
-                  </div>                      
+                <div class="col-md-9 col-sm-9 blog-posts">
+                  <c:forEach var="vo" items="${list }">
+                  <hr class="blog-post-sep">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4">
+                      <img class="img-responsive" alt="" src="assets/pages/img/works/img4.jpg">
+                    </div>
+                    <div class="col-md-8 col-sm-8">
+                      <h2><a href="blog-item.html">${vo.title }</a></h2>
+                      <ul class="blog-info">
+                        <li><i class="fa fa-calendar"></i>${vo.regdate }</li>
+                        <li><i class="fa fa-comments"></i>${vo.hit }</li>
+                        <li><i class="fa fa-tags"></i>${vo.name }</li>
+                      </ul>
+                      <p>${vo.content }</p>
+                      <a href="#" class="more">Read more <i class="icon-angle-right"></i></a>
+                    </div>
+                  </div>
+                  </c:forEach>
+                  <hr class="blog-post-sep">
+                  <ul class="pagination">
+                    <c:if test="${startPage>1 }">
+			          <li><a href="../emergency_treat/treat_data.do?page=${startPage-1 }">&laquo; Previous</a></li>
+			        </c:if>
+			        <c:forEach var="i" begin="${startPage }" end="${endPage }">
+			          <c:if test="${i==curpage }">
+			            <li class="active"><a href="../emergency_treat/treat_data.do?page=${i }">${i }</a></li>
+			          </c:if>
+			          <c:if test="${i!=curpage }">
+			            <li><a href="../emergency_treat/treat_data.do?page=${i }">${i }</a></li>
+			          </c:if>
+			        </c:forEach>
+			        <c:if test="${endPage<totalpage }">
+			          <li><a href="../emergency_treat/treat_data.do?page=${endPage+1 }">Next &raquo;</a></li>
+			        </c:if>
+                  </ul>         
+                  <div style="height: 40px"></div>    
                 </div>
                 <!-- END LEFT SIDEBAR -->
 

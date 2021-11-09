@@ -1,5 +1,7 @@
 package com.sist.controller;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -20,9 +23,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.sist.dto.ReservationDTO;
 import com.sist.dto.MemberDTO;
+import com.sist.role.MemberRole;
 import com.sist.role.MessageMethod;
 import com.sist.service.MemberService;
+import com.sist.service.ReservationService;
 import com.sist.utils.ValidUtils;
 
 @Controller
@@ -31,6 +37,8 @@ public class MemberController extends BasicController {
 
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private ReservationService reservationService;
 
 	@GetMapping("/login.do")
 	public String login(HttpServletRequest request, Model model) {
@@ -46,42 +54,99 @@ public class MemberController extends BasicController {
 			model.addAttribute("loginFailMsg", loginFailMsg);
 		}
 
-	   model.addAttribute("main_jsp", "/member/login.jsp");
-	   return "main/main";
+		model.addAttribute("main_jsp", "/member/login.jsp");
+		return "main/main";
 	}
 
 	@GetMapping("/findPassword.do")
 	public String findPassword(Model model) {
 
-	   model.addAttribute("main_jsp", "/member/findPassword.jsp");
-	   return "main/main";
+		model.addAttribute("main_jsp", "/member/findPassword.jsp");
+		return "main/main";
 	}
 
 	@GetMapping("/signup.do")
 	public String singup(@ModelAttribute final MemberDTO memberDTO, Model model) {
 
-	   model.addAttribute("main_jsp", "/member/signup.jsp");
-	   return "main/main";
+		model.addAttribute("main_jsp", "/member/signup.jsp");
+		return "main/main";
 	}
 
 	@GetMapping("/denied.do")
 	public String denied(Model model) {
 
-	   model.addAttribute("main_jsp", "/member/denied.jsp");
-	   return "main/main";
+		model.addAttribute("main_jsp", "/member/denied.jsp");
+		return "main/main";
 	}
 
 	@GetMapping("/info.do")
-	public String info(HttpSession session, RedirectAttributes redirectAttributes, Model model) {
-		MemberDTO memberDTO = memberService.selectMember((Integer) session.getAttribute("memberIdx"));
-		model.addAttribute("memberDTO", memberDTO);
+	public String info(@RequestParam(value = "type", required = false) Integer type, HttpSession session,
+			Authentication authentication, Model model) {
+		if (type == null) {
+			type = 0;
+		}
+		String path;
+		switch (type) {
+		case 1:
+		case 2:
+			path = "/member/info/reservation.jsp";
+			model.addAttribute("type", type);
+			List<ReservationDTO> reservationList;
+			Map<String, Object> reservationMap = new HashMap<String, Object>();
+			if (type == 1) {
+				reservationMap.put("targetType", "hospital");
+			} else {
+				reservationMap.put("targetType", "corona");
+			}
+			String authorities = "";
+			if (authentication != null && authentication.isAuthenticated()) {
+				authorities = ((List<?>) authentication.getAuthorities()).get(0).toString();
+			}
+			if (authorities.equals(MemberRole.ADMIN.getValue())) {
+				reservationList = reservationService.searchReservationAdmin(reservationMap);
+			} else {
+				reservationMap.put("memberIdx", (Integer) session.getAttribute("memberIdx"));
+				reservationList = reservationService.searchReservation(reservationMap);
+			}
+			model.addAttribute("reservationList", reservationList);
+			break;
+		default:
+			path = "/member/info/basic.jsp";
+			type = 0;
+			MemberDTO memberDTO = memberService.selectMember((Integer) session.getAttribute("memberIdx"));
+			model.addAttribute("memberDTO", memberDTO);
+			String[] phoneNumber = new String[3];
+			switch (memberDTO.getPhoneNumber().length()) {
+			case 9: {
+				phoneNumber[0] = memberDTO.getPhoneNumber().substring(0, 2);
+				phoneNumber[1] = memberDTO.getPhoneNumber().substring(2, 5);
+				phoneNumber[2] = memberDTO.getPhoneNumber().substring(5, 9);
+				break;
+			}
+			case 10: {
+				phoneNumber[0] = memberDTO.getPhoneNumber().substring(0, 3);
+				phoneNumber[1] = memberDTO.getPhoneNumber().substring(3, 6);
+				phoneNumber[2] = memberDTO.getPhoneNumber().substring(6, 10);
+				break;
+			}
+			case 11: {
+				phoneNumber[0] = memberDTO.getPhoneNumber().substring(0, 3);
+				phoneNumber[1] = memberDTO.getPhoneNumber().substring(3, 7);
+				phoneNumber[2] = memberDTO.getPhoneNumber().substring(7, 11);
+				break;
+			}
+			}
+			model.addAttribute("phoneNumber", phoneNumber);
+			model.addAttribute("type", type);
+		}
+		model.addAttribute("main_jsp", path);
 
-	   model.addAttribute("main_jsp", "/member/info.jsp");
-	   return "main/main";
+		return "main/main";
 	}
 
 	@PostMapping("/signup.do")
 	public String signup(final MemberDTO memberDTO, RedirectAttributes redirectAttributes) {
+		memberDTO.setPhoneNumber(memberDTO.getPhoneNumber().replace(",", ""));
 		if (memberService.signup(memberDTO))
 			return messageRedirect("회원가입을 성공하셨습니다.", "/member/login.do", MessageMethod.get, null, redirectAttributes);
 		else
@@ -91,9 +156,10 @@ public class MemberController extends BasicController {
 	@PostMapping("/update.do")
 	public String update(final MemberDTO memberDTO, RedirectAttributes redirectAttributes) {
 		boolean check;
-		if(memberDTO.getPassword().isEmpty()) {
+		memberDTO.setPhoneNumber(memberDTO.getPhoneNumber().replace(",", ""));
+		if (memberDTO.getPassword().isEmpty()) {
 			check = memberService.update(memberDTO);
-		}else {
+		} else {
 			check = memberService.updateAll(memberDTO);
 		}
 		if (check)
@@ -105,7 +171,8 @@ public class MemberController extends BasicController {
 	@PostMapping("/delete.do")
 	public String delete(HttpSession session, RedirectAttributes redirectAttributes, Model model) {
 		if (memberService.delete((Integer) session.getAttribute("memberIdx")))
-			return messageRedirect("/member/logout", MessageMethod.post, null, model);
+			return messageRedirect("탈퇴를 완료하셨습니다.", "/member/logout.do", MessageMethod.post, null, redirectAttributes);
+				//return messageRedirect("/member/logout.do", MessageMethod.post, null, model);
 		else
 			return messageRedirect("탈퇴를 실패하셨습니다.", "/", MessageMethod.get, null, redirectAttributes);
 	}
@@ -114,8 +181,8 @@ public class MemberController extends BasicController {
 	@ResponseBody
 	public Map<String, String> checkValidation(String updateCheck, @Valid final MemberDTO memberDTO, Errors errors) {
 		Map<String, String> validatorResult = ValidUtils.validateHandling(errors);
-		if(updateCheck != null) {
-			if(memberDTO.getPassword().isEmpty()) {
+		if (updateCheck != null) {
+			if (memberDTO.getPassword().isEmpty()) {
 				validatorResult.remove("valid_password");
 			}
 		}
@@ -142,6 +209,7 @@ public class MemberController extends BasicController {
 
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setEmail(email);
+		memberDTO.setPassword(password);
 		memberService.updatePassword(memberDTO);
 
 		return password;
