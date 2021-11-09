@@ -128,6 +128,7 @@
                 <li><a href="../emergency_treat/treat2.do">응급상황</a></li>
                 <li><a href="../emergency_treat/treat3.do">기본응급처치</a></li>
                 <li><a href="../emergency_treat/treat4.do">상황별응급처치</a></li>
+                <li><a href="../emergency_treat/treat_data.do">응급처치자료실</a></li>
               </ul>
             </li>
             <li class="dropdown">

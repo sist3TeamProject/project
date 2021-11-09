@@ -331,15 +331,13 @@
            
           </div>
           <div style="transform:scale(0.7)">
-            <div class="owl-carousel owl-carousel5">
+            <div class="owl-carousel owl-carousel6">
               <div class="client-item" style="margin-right: 20px; ">
                 <a href="../emergency_treat/treat.do">
                   <img src="../pages/img/main_service1.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service1.png" class="color-img img-responsive" alt="">
                   <h4 class="text-center">응급상황시 대처요령</h4>
-                  
                 </a>
-                
               </div>
               <div class="client-item" style="margin-right: 20px; ">
                 <a href="../emergency_treat/treat1.do" >
@@ -368,9 +366,17 @@
                   <img src="../pages/img/main_service5.png" class="color-img img-responsive" alt="">
                   <h4 class="text-center">상황별응급처치</h4>
                 </a>
-              </div>                
+              </div>       
+              <div class="client-item" style="margin-right: 20px; ">
+                <a href="../emergency_treat/treat_data.do">
+                  <img src="../pages/img/main_service6.png" class="img-responsive" alt="">
+                  <img src="../pages/img/main_service6.png" class="color-img img-responsive" alt="">
+                  <h4 class="text-center">응급처치자료실</h4>
+                </a>
+              </div>          
             </div>
-          </div>          
+          </div>   
+          <div style="height: 300px"></div>   
         </div>
         <!-- END CLIENTS -->
       </div>
