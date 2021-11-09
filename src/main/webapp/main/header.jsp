@@ -81,15 +81,13 @@
               </ul>
             </li>
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+              <a class="dropdown-toggle" data-toggle="dropdown" data-target="../emergency_center/find.do" href="javascript:;">
                 응급실
                 
               </a>
                 
               <ul class="dropdown-menu">
-                <li><a href="#">응급실찾기</a></li>
-                <li><a href="#">종합상황판</a></li>
-                <li><a href="#">민간구급차 검색</a></li>
+                <li><a href="../emergency_center/find.do">응급실찾기</a></li>
               </ul>
             </li>
          

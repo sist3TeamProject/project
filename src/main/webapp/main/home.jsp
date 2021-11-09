@@ -180,9 +180,9 @@
                 <em>
                   <img src="../pages/img/works/img1.jpg" class="img-responsive">
                   <!-- <a href="portfolio-item.html"><i class="fa fa-link"></i></a> -->
-                  <a href="../emergency_center/find.jsp" class="fancybox-button" title="응급실 찾기" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                  <a href="../emergency_center/find.do" class="fancybox-button" title="응급실 찾기" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
-                <a class="recent-work-description" href="../emergency_center/find.jsp">
+                <a class="recent-work-description" href="../emergency_center/find.do">
                   <strong>응급실 찾기</strong>
                   <b>주변에 위치한 응급실 정보를 알려드립니다.</b>
                 </a>
