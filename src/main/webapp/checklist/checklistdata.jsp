@@ -16,6 +16,10 @@
         tr {
             font-size: 15px;
         }
+
+        .input-error {
+            border-color: tomato !important;
+        }
     </style>
 </head>
 <body>
@@ -89,28 +93,48 @@
                 <div class="col-md-2">
                     <select class="form-control" id="type">
                         <option value="title" ${checklistSearch.type == 'title' ? 'selected' : ''}>제목</option>
-                        <option value="department" ${checklistSearch.type == 'department' ? 'selected' : ''}>진료과</option>
+                        <option value="department" ${checklistSearch.type == 'department' ? 'selected' : ''}>진료과
+                        </option>
                     </select>
                 </div>
                 <div class="col-md-4">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="검색어" id="keyword" value="${checklistSearch.keyword}">
+                        <input type="text" class="form-control" placeholder="검색어" id="keyword"
+                               value="${checklistSearch.keyword}">
                         <span class="input-group-btn">
                         <button onclick="searchBtnHandler()" class="btn btn-default" type="button">검색하기</button>
                       </span>
                     </div>
+                </div>
+                <div class="col-md-1">
+                    <a href="../checklist/checklist.do" class="btn btn-info">초기화</a>
                 </div>
             </div>
         </div>
     </div>
     <script>
         function searchBtnHandler() {
-            const type = document.querySelector('#type').value;
-            const keyword = document.querySelector('#keyword').value;
+            const input = document.querySelector('#keyword');
 
-            const href = `../checklist/checklist.do?page=${curPage}&sort=${sort}&keyword=\${keyword}&type=\${type}`;
+            if (inputCheck(input)) {
+                const type = document.querySelector('#type').value;
+                const keyword = input.value;
 
-            location.href = href;
+                const href = `../checklist/checklist.do?page=1&sort=${sort}&keyword=\${keyword}&type=\${type}`;
+
+                location.href = href;
+            }
+        }
+
+        function inputCheck(input) {
+            if (input.value.trim() === '') {
+
+                input.classList.add('input-error');
+                input.placeholder = "공백으로 검색이 불가합니다";
+                input.focus();
+                return false;
+            }
+            return true;
         }
     </script>
 </div>
