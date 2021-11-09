@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=be0965f85428a75d750a50fe123d2748&libraries=services"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style type="text/css">
@@ -30,28 +31,63 @@
 	margin-left: 10px;
 	margin-right: 10px;
 }
+.mapDiv, .emcList{
+	margin-top: 20px;
+	border: 1px solid;
+	height: 700px;
+}
+.emcList{
+	overflow:scroll;
+}
 </style>
 </head>
 <body>
 <div class="vue">
 	<div class="container">
-		<h2>응급실 찾기</h2>
-		<p>응급실 정보 검색 서비스입니다.</p>
-		<div id="map" style="width:500px;height:500px;"></div>
-		<div>
-			<input type="hidden" v-model="baseLat">
-			<input type="hidden" v-model="baseLon">
-			<br>
-			<input type="text" v-model="targetAddr">
-			<input type="button" value="근처 응급실 찾기" v-on:click="findEMC">
-			<div class="printHpid" v-for="vo,index in hpidList">
-				<div class="hover" v-on:click="goDetail(vo.hpid)">
-					<p>{{vo.hpid}}</p>
-					<p>{{vo.name}}</p>
-					<p>{{vo.distance}}km</p>
-					<p>위도 : {{vo.lat}}</p>
-					<p>경도 : {{vo.lon}}</p>
-					<hr>
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<h2>응급실 찾기</h2>
+				<p>응급실 정보 검색 서비스입니다.</p>
+				
+				<div class="content-page">
+					<table class="table">
+						<!-- <tr>
+            			<td class="text-center inline" width="100%">
+            				<span class="on" id="id_class"><input type="button" class="btn" name=map id=mapBtn value="지도" v-on:click="map()"></span>
+            				<span class="" id="gen_class"><input type="button" class="btn" name=general id=generalBtn value="일반" v-on:click="gen()"></span>
+            			</td>
+            		</tr> -->
+					</table>
+						
+					<div class="searchMap">
+						<div class="searchAddr">
+							<input type="text" v-model="targetAddr">
+							<input type="button" value="근처 응급실 찾기" v-on:click="findEMC">
+						</div>
+						<div class="col-sm-8 mapDiv">
+							<div id="map" style="width:100%;height:100%;"></div>
+						</div>
+						
+						<div class="col-sm-4 emcList">
+							<!-- <div id="menu_wrap" class="bg_white">
+						        <ul id="placesList"></ul>
+						        <div id="pagination"></div>
+						    </div> -->
+							<input type="hidden" v-model="baseLat">
+							<input type="hidden" v-model="baseLon">
+							<ul id="placesList" v-for="vo,index in hpidList" style="margin: 0px;padding: 0px;">
+								<li class="hover" v-on:click="goDetail(vo.hpid)" style="list-style: none;">
+									<h5>{{index+1}} . {{vo.name}}</h5>
+									<div class="voInfo" style="margin: 10px;">
+										<p style="font-size: small;">{{vo.distance}}km</p>
+										<p>{{vo.addr}}</p>
+										<p>{{vo.tel}}</p>
+									</div>
+									<hr>
+								</li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -136,6 +172,32 @@ new Vue({
 
 			var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 			
+			//************************* 원 *************************
+			// 지도에 표시할 원을 생성합니다
+			var circle = new kakao.maps.Circle({
+			    center : new kakao.maps.LatLng(this.baseLat, this.baseLon),  // 원의 중심좌표 입니다 
+			    radius: 3000, // 미터 단위의 원의 반지름입니다 
+			    strokeWeight: 5, // 선의 두께입니다 
+			    strokeColor: '#75B8FA', // 선의 색깔입니다
+			    strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+			    strokeStyle: 'dashed', // 선의 스타일 입니다
+			    fillColor: '#CFE7FF', // 채우기 색깔입니다
+			    fillOpacity: 0.7  // 채우기 불투명도 입니다   
+			}); 
+
+			// 지도에 원을 표시합니다 
+			circle.setMap(map); 
+			
+			//************************* 목록 *************************
+			/* var listEl = document.getElementById('placesList'), 
+			    menuEl = document.getElementById('menu_wrap'),
+			    fragment = document.createDocumentFragment();
+			
+			while (listEl.hasChildNodes()) {
+				listEl.removeChild (listEl.lastChild);
+		    } */
+			//*************************/목록 *************************
+			
 			//************************* 마커 *************************
 			// 마커를 표시할 위치와 title 객체 배열입니다
 			var positions = [];
@@ -152,7 +214,39 @@ new Vue({
 						
 					}
 				);
+				//목록
+				/*
+				var content = document.createElement('div');
+				content.className = 'overlaybox';
+				
+				var store = document.createElement('h3');
+				store.className = 'popup-name';
+				store.appendChild(document.createTextNode(pos.title));
+				title.appendChild(store);
+				content.appendChild(title);
+				*/
+				
+				/* var el = document.createElement('li'),
+				itemStr = '<span class="markerbg marker_' + (i+1) + '"></span>' +
+			                '<div class="info hover" ref="click">' +
+			                '   <h5>' + this.hpidList[i].name + '</h5>';
+
+		        itemStr += '    <span>' + this.hpidList[i].addr + '</span>';
+			                 
+				itemStr += '  <span class="tel">' + this.hpidList[i].tel + '</span>' +
+							'</div>';           
+
+			    el.innerHTML = itemStr;
+			    el.className = 'item';
+			    
+				fragment.appendChild(el); */
+				//
 			}
+			
+			//
+			/* listEl.appendChild(fragment);
+			menuEl.scrollTop = 0; */
+			//
 			var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png", // 마커이미지의 주소입니다
 		    imageSize = new kakao.maps.Size(24, 35), // 마커이미지의 크기입니다
 		    imageOption = { offset: new kakao.maps.Point(20, 35) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
@@ -222,7 +316,7 @@ new Vue({
 				
 				var selectBtn = document.createElement('button');
 				selectBtn.className = 'popup-button';
-				selectBtn.appendChild(document.createTextNode('선택'));
+				selectBtn.appendChild(document.createTextNode('상세보기'));
 				selectBtn.onclick = function() {
 					window.location.href='detail.do?hpid='+pos.hpid;
 					console.log(pos.hpid);
@@ -236,7 +330,7 @@ new Vue({
 				kakao.maps.event.addListener(marker, 'click', function() {
 				  customOverlay.setMap(map);
 				});
-				
+
 				customOverlay.setContent(content);
 			});
 	    	//************************* /마커 *************************
@@ -249,3 +343,18 @@ new Vue({
 </script>
 </body>
 </html>
+<!-- <div class="filter-area">
+				<select name="sidoCode" id="sidoCode" title="시도 선택"></select>
+				<select name="gugunCode" id="gugunCode" title="구군 선택"></select>
+				<select name="dongCode" id="dongCode" title="동 선택"></select>
+				
+				<select v-model="selectedOne" @change="loadData">
+					<option v-for="select in selectedOne">{{ select.name }}</option>
+				</select>
+				
+				<div v-if="selectedOne && !selected2.length">
+					<i>Loading</i>
+				</div>
+				
+				<select v-if="selected2.length"> <option v-for="item in selected2">{{ item.label }}</option> </select>
+			</div> -->
