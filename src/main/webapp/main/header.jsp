@@ -81,7 +81,7 @@
               </ul>
             </li>
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" data-target="../emergency_center/find.do" href="javascript:;">
+              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
                 응급실
                 
               </a>
