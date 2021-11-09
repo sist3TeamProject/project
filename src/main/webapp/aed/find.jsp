@@ -14,6 +14,9 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=97f2ee7c718dbf621d02d84d93a458e2"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js" type="application/javascript"></script>
+<script type="application/javascript" src="https://zelkun.tistory.com/attachment/cfile8.uf@99BB7A3D5D45C065343307.js"></script>
 <style type="text/css">
 span .btn{
 	padding: 10px 250px;
@@ -160,7 +163,7 @@ $(function(){
 			</div>
 			
 			<div v-show="isShow2">
-				<table class="table">
+				<table class="table" style="background-color:#FAF7EE">
 					<tr>
 						<td align="right">
 							<input type="button" class="btn" size=50 value="검색결과 다운로드">
@@ -168,75 +171,21 @@ $(function(){
 					</tr>
 					<tr>
 						<td>
-							<select id="sido" name="sido" title="시도선택">
-								<option>시도선택</option>
-								<option value="서울특별시">서울특별시</option>
-								<option value="부산광역시">부산광역시</option>
-								<option value="대구광역시">대구광역시</option>
-								<option value="인천광역시">인천광역시</option>
-								<option value="광주광역시">광주광역시</option>
-								<option value="대전광역시">대전광역시</option>
-								<option value="울산광역시">울산광역시</option>
-								<option value="세종특별자치시">세종특별자치시</option>
-								<option value="경기도">경기도</option>
-								<option value="강원도">강원도</option>
-								<option value="충청북도">충청북도</option>
-								<option value="충청남도">충청남도</option>
-								<option value="전라북도">전라북도</option>
-								<option value="전라남도">전라남도</option>
-								<option value="경상북도">경상북도</option>
-								<option value="경상남도">경상남도</option>
-								<option value="제주특별자치도">제주특별자치도</option>
-							</select>
-							<select id="gugun" name="gugun" title="구군선택">
-								<option>구군선택</option>
-								<option value="서울특별시">강동구</option>
-								<option value="부산광역시">강북구</option>
-								<option value="대구광역시">강서구</option>
-								<option value="인천광역시">관악구</option>
-								<option value="광주광역시">광진구</option>
-								<option value="대전광역시">구로구</option>
-								<option value="울산광역시">금천구</option>
-								<option value="세종특별자치시">노원구</option>
-								<option value="경기도">도봉구</option>
-								<option value="강원도">동대문구</option>
-								<option value="충청북도">동작구</option>
-								<option value="충청남도">마포구</option>
-								<option value="전라북도">서대문구</option>
-								<option value="전라남도">서초구</option>
-								<option value="경상북도">성동구</option>
-								<option value="경상남도">성북구</option>
-								<option value="제주특별자치도">양천구</option>
-								<option value="제주특별자치도">영등포구</option>
-								<option value="제주특별자치도">용산구</option>
-								<option value="제주특별자치도">은평구</option>
-								<option value="제주특별자치도">종로구</option>
-								<option value="제주특별자치도">중구</option>
-								<option value="제주특별자치도">중랑구</option>
-							</select>
-							<select id="sido" name="sido" title="시도선택">
-								<option>시도선택</option>
-								<option value="서울특별시">서울특별시</option>
-								<option value="부산광역시">부산광역시</option>
-								<option value="대구광역시">대구광역시</option>
-								<option value="인천광역시">인천광역시</option>
-								<option value="광주광역시">광주광역시</option>
-								<option value="대전광역시">대전광역시</option>
-								<option value="울산광역시">울산광역시</option>
-								<option value="세종특별자치시">세종특별자치시</option>
-								<option value="경기도">경기도</option>
-								<option value="강원도">강원도</option>
-								<option value="충청북도">충청북도</option>
-								<option value="충청남도">충청남도</option>
-								<option value="전라북도">전라북도</option>
-								<option value="전라남도">전라남도</option>
-								<option value="경상북도">경상북도</option>
-								<option value="경상남도">경상남도</option>
-								<option value="제주특별자치도">제주특별자치도</option>
-							</select>
+							<select id="sido" style="width:300px;">
+						      <option value="">선택</option>
+						    </select>
+						    <select id="sigugun" style="width:300px;">
+						      <option value="">선택</option>
+						    </select>
+						    <select id="dong" style="width:300px;">
+						      <option value="">선택</option>
+						    </select>
+						<h5 style="color:red;margin-top:-5px" align="left">동 검색 시 비슷한 이름이 들어 갈 경우 AED가 중복으로 검색될 수 있습니다.</h5>
+						<input type="button" value="검색" style="background-color:black;border:none;color:white;font-weight:bold;margin-top:5px;">
 						</td>
 					</tr>
 				</table>
+				
 			</div>
 
             </div>
@@ -262,10 +211,72 @@ new Vue({
 			this.isShow2=true;
 			this.isShow1=false;
 		}
+<<<<<<< HEAD
 	}
 })
 </script> -->
+=======
+	})
+</script>
+<script>
+jQuery(document).ready(function(){
+	  //sido option 추가
+	  jQuery.each(hangjungdong.sido, function(idx, code){
+	    //append를 이용하여 option 하위에 붙여넣음
+	    jQuery('#sido').append(fn_option(code.sido, code.codeNm));
+	  });
+>>>>>>> branch 'master' of https://github.com/sist3TeamProject/project.git
 
+	  //sido 변경시 시군구 option 추가
+	  jQuery('#sido').change(function(){
+	    jQuery('#sigugun').show();
+	    jQuery('#sigugun').empty();
+	    jQuery('#sigugun').append(fn_option('','선택')); //
+	    jQuery.each(hangjungdong.sigugun, function(idx, code){
+	      if(jQuery('#sido > option:selected').val() == code.sido)
+	        jQuery('#sigugun').append(fn_option(code.sigugun, code.codeNm));
+	    });
+
+	    //세종특별자치시 예외처리
+	    //옵션값을 읽어 비교
+	    if(jQuery('#sido option:selected').val() == '36'){
+	      jQuery('#sigugun').hide();
+	      //index를 이용해서 selected 속성(attr)추가
+	      //기본 선택 옵션이 최상위로 index 0을 가짐
+	      jQuery('#sigugun option:eq(1)').attr('selected', 'selected');
+	      //trigger를 이용해 change 실행
+	      jQuery('#sigugun').trigger('change');
+	    }
+	  });
+
+	  //시군구 변경시 행정동 옵션추가
+	  jQuery('#sigugun').change(function(){
+	    //option 제거
+	    jQuery('#dong').empty();
+	    jQuery.each(hangjungdong.dong, function(idx, code){
+	      if(jQuery('#sido > option:selected').val() == code.sido && jQuery('#sigugun > option:selected').val() == code.sigugun)
+	        jQuery('#dong').append(fn_option(code.dong, code.codeNm));
+	    });
+	    //option의 맨앞에 추가
+	    jQuery('#dong').prepend(fn_option('','선택'));
+	    //option중 선택을 기본으로 선택
+	    jQuery('#dong option:eq("")').attr('selected', 'selected');
+
+	  });
+
+	  jQuery('#dong').change(function(){
+	    var sido = jQuery('#sido option:selected').val();
+	    var sigugun = jQuery('#sigugun option:selected').val();
+	    var dong = jQuery('#dong option:selected').val();
+	    var dongCode = sido + sigugun + dong + '00';
+
+	  });
+	});
+
+	function fn_option(code, name){
+	  return '<option value="' + code +'">' + name +'</option>';
+	}
+</script>
 
 </body>
 </html>
