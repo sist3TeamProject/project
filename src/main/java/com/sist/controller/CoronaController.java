@@ -1,6 +1,12 @@
 package com.sist.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sist.dao.CoronaDAO;
+import com.sist.dto.MemberDTO;
+import com.sist.service.MemberService;
 import com.sist.vo.*;
 
 @Controller
@@ -18,14 +26,20 @@ public class CoronaController {
 	@Autowired
 	private CoronaDAO dao;
 	
+	@Autowired
+	private MemberService memberService;
+	
     @GetMapping("corona/domestic.do")
     public String corona_domestic(Model model,String domestic)
     {
+    	
+
     	
     	domestic="1,440";
     	
     	Corona_domesticVO vo=dao.domesticData(domestic);
     	List<Corona_ageVO> aList=dao.ageData();
+    	
     	
     	model.addAttribute("vo",vo);
     	model.addAttribute("aList",aList);
@@ -35,20 +49,89 @@ public class CoronaController {
     }
     
     @GetMapping("corona/city.do")
-    public String corona_city(Model model)
+    public String corona_city(Model model) throws ParseException
     {
+    	
+    	
+    	// 1. 날짜 표시 format
+
+    	SimpleDateFormat  formatter = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");    
+
+    	// 2. 오늘날짜 Data 클래스로 구하기(기준날짜가 오늘이 아니면 생략가능)
+
+    	Date today = new Date();
+
+    	// 3. 오늘날짜 format에 맞춰서 String 으로 변경(기준날짜가 오늘이 아니면 생략가능)
+
+    	String date =  formatter.format(today);
+
+    	// 4. 기준이 되는 날짜(format에 맞춘)
+
+    	Date setDate = formatter.parse(date);
+
+    	// 5. 한국 날짜 기준 Calendar 클래스 선언
+
+    	Calendar cal = new GregorianCalendar(Locale.KOREA);
+
+    	// 6. 선언된 Calendar 클래스에 기준 날짜 설정
+
+    	cal.setTime(setDate);
+
+    	// 7. 하루전으로 날짜 설정
+
+    	cal.add(Calendar.DATE, -1);
+
+    	// 8. 하루전으로 설정된 날짜를 설정된 format으로 String 타입 변경
+
+    	String y_date = formatter.format(cal.getTime());
+    	
     	List<Main_coronaVO> list=dao.cityListData();
     	
+    	
+    	model.addAttribute("y_date",y_date);
     	model.addAttribute("list",list);
     	model.addAttribute("main_jsp","/corona/city.jsp");
     	return "main/main";
     }
     
     @GetMapping("corona/route.do")
-    public String corona_route(Model model)
+    public String corona_route(Model model) throws ParseException
     {
+    	// 1. 날짜 표시 format
+
+    	SimpleDateFormat  formatter = new SimpleDateFormat("yyyy년 MM월 dd일 HH시");    
+
+    	// 2. 오늘날짜 Data 클래스로 구하기(기준날짜가 오늘이 아니면 생략가능)
+
+    	Date today = new Date();
+
+    	// 3. 오늘날짜 format에 맞춰서 String 으로 변경(기준날짜가 오늘이 아니면 생략가능)
+
+    	String date =  formatter.format(today);
+
+    	// 4. 기준이 되는 날짜(format에 맞춘)
+
+    	Date setDate = formatter.parse(date);
+
+    	// 5. 한국 날짜 기준 Calendar 클래스 선언
+
+    	Calendar cal = new GregorianCalendar(Locale.KOREA);
+
+    	// 6. 선언된 Calendar 클래스에 기준 날짜 설정
+
+    	cal.setTime(setDate);
+
+    	// 7. 하루전으로 날짜 설정
+
+    	cal.add(Calendar.DATE, -1);
+
+    	// 8. 하루전으로 설정된 날짜를 설정된 format으로 String 타입 변경
+
+    	String y_date = formatter.format(cal.getTime());
+    	
     	List<Corona_routeVO> list=dao.routeListData();
     	
+    	model.addAttribute("y_date",y_date);
     	model.addAttribute("list",list);
     	model.addAttribute("main_jsp","/corona/route.jsp");
     	return "main/main";
@@ -286,4 +369,68 @@ public class CoronaController {
     	return "redirect:../main/main.do";
     }
     
+    @GetMapping("corona/reply.do")
+    public String corona_reply(Model model,Map map,String page,HttpSession session)
+    {
+    	MemberDTO memberDTO = memberService.selectMember((Integer) session.getAttribute("memberIdx"));
+    	String id=memberDTO.getNickname();
+    	if(page==null)
+    		page="1";
+    	int curpage=Integer.parseInt(page);
+    	int rowSize =10;
+    	int start =(rowSize*curpage)-(rowSize-1);
+    	int end = rowSize*curpage;
+    	map.put("start", start);
+    	map.put("end", end);
+    	
+    	final int BLOCK =5; 
+    	int startPage=((curpage-1)/BLOCK*BLOCK)+1;
+    	int endPage=((curpage-1)/BLOCK*BLOCK)+BLOCK;
+    	int totalpage=dao.replyTotalPage();
+    	List<ReplyVO> list=dao.replyListData(map);
+    	if(endPage>totalpage)
+ 		   endPage=totalpage;
+    	
+    	
+    	model.addAttribute("id",id);
+    	model.addAttribute("curpage", curpage);
+ 	    model.addAttribute("totalpage", totalpage);
+ 	    model.addAttribute("startPage", startPage);
+ 	    model.addAttribute("endPage", endPage);
+ 	    model.addAttribute("BLOCK", BLOCK);
+    	model.addAttribute("list",list);
+    	model.addAttribute("main_jsp","../corona/reply.jsp");
+    	return "main/main";
+    }
+    
+    @RequestMapping("corona/insert.do")
+    public String reply_insert(ReplyVO vo,HttpSession session,String vaccine,String msg,int page)
+    {
+    	MemberDTO memberDTO = memberService.selectMember((Integer) session.getAttribute("memberIdx"));
+    	String id=memberDTO.getNickname();
+    	int vaccine1=Integer.parseInt(vaccine);
+    	vo.setId(id);
+    	vo.setVaccine(vaccine1);
+    	vo.setMsg(msg);
+    	
+    	// http://localhost:8080/web/seoul/location_detail.do?no=1 => tno=1
+    	// http://localhost:8080/web/seoul/hotel_detail.do?no=1 => tno=2
+    	dao.replyInsert(vo);
+    	
+    	return "redirect:../corona/reply.do?page="+page; 
+    }
+    
+    @RequestMapping("corona/reply_delete.do")
+    public String corona_reply_delete(int no,int page)
+    {
+    	dao.replyDelete(no);
+    	return "redirect:../corona/reply.do?page="+page;
+    }
+    
+    @RequestMapping("corona/reply_update.do")
+    public String corona_reply_update(ReplyVO vo)
+    {
+    	dao.replyUpdate(vo);
+    	return "redirect:../corona/reply.do";
+    }
 }

@@ -77,6 +77,7 @@
                 <li><a href="<c:url value="/corona/route.do" />">확진환자 이동경로</a></li>
                 <li><a href="<c:url value="../corona/primary.do" />">백신 예약</a></li>
                 <li><a href="<c:url value="../corona/user_check.do" />">예약변경/취소</a></li>
+                <li><a href="<c:url value="../corona/reply.do" />">백신 리뷰</a></li>
               </ul>
             </li>
             <li class="dropdown">

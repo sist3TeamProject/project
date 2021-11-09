@@ -11,6 +11,25 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
 <link rel="stylesheet" href="../corona/coronacss.css">
+<style type="text/css">
+.list0 { clear:both; position: relative; z-index: 1; top: -35px; left: -5px; } 
+.list1 { clear:both; position: absolute; z-index: 1; top: 260px; left: 20px; }
+.list2 { clear:both; position: absolute; z-index: 2; top: 215px; left: 52px; } 
+.list3 { clear:both; position: absolute; z-index: 3; top: 232px; left: 115px; } 
+.list4 { clear:both; position: absolute; z-index: 4; top: 050px; left: 88px; } 
+.list5 { clear:both; position: absolute; z-index: 5; top: 154px; left: 35px; } 
+.list6 { clear:both; position: absolute; z-index: 6; top: 074px; left: 63px; } 
+.list7 { clear:both; position: absolute; z-index: 7; top: 143px; left: 98px; } 
+.list8 { clear:both; position: absolute; z-index: 8; top: 147px; left: 128px; } 
+.list9 { clear:both; position: absolute; z-index: 9; top: 368px; left: 40px; } 
+.list10 { clear:both; position: absolute; z-index: 10; top: 112px; left: 72px; } 
+.list11 { clear:both; position: absolute; z-index: 11; top: 101px; left: 39px; } 
+.list12 { clear:both; position: absolute; z-index: 12; top: 192px; left: 96px; } 
+.list13 { clear:both; position: absolute; z-index: 13; top: 275px; left: 62px; } 
+.list14 { clear:both; position: absolute; z-index: 14; top: 223px; left: 157px; } 
+.list15 { clear:both; position: absolute; z-index: 15; top: 242px; left: 189px; } 
+.list16 { clear:both; position: absolute; z-index: 16; top: 263px; left: 179px; }
+</style>
 </head>
 <body>
 <div class="container">
@@ -24,9 +43,9 @@
     <hr style="border: 2px solid ;">
   </div>
   <div class="row" style="border: 1px solid; height: 60px; margin-bottom: 20px; ">
-   <h3 class="text-center">시간 기준</h3>
+   <h3 class="text-center">${y_date } 기준</h3>
   </div>
-  <div class="row bottom-term">
+  <div class="row bottom-term" id="map">
                             <div class ="size60_yang">
                               <div id="map_yang" class=" top-color">
 							        <a href='#' onfocus='this.blur()' onmouseover=mus_on('mus1') onmouseout=mus_off('mus1')  v-on:click="corona_city('전남')">
@@ -89,9 +108,7 @@
 						         <li class="carousel-subtitle-v7 " style="margin-bottom: 10px;">누적격리해제&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{corona.quarantinerelease}}명</strong></li>
 						         <li class="carousel-subtitle-v7 " style="margin-bottom: 10px;">사망자&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{corona.dying}}명</strong></li>
 						        </ul>
-						      <div class="chart-div">
-						            <canvas id="pieChartCanvas" width="130px" height="130px"></canvas>
-						      </div>      
+    
 						      </div>
 						    
 					     
@@ -218,6 +235,45 @@ function smenu_click(musName){
      cMuName=musName;
      document [musName].src = eval(musName + 'on.src');
 }
+ new Vue({
+  	   el:'#map',
+  	   // 멤버변수 => this.접근 (this.food,this.info,this.cno)
+  	   data:{
+  		   corona:{},
+  	       city:''
+  	   },
+  	   // 값을 받는다 (요청 / 응답 : axios)
+  	   mounted:function(){
+  		  // 여러개를 동시에 받을 수 있다 
+  		  axios.get("http://localhost:8080/web/main/corona_city.do",{
+  			  params:{
+  				  city:'합계'
+  			  }
+  		  }).then(res=>{
+  			  
+  			  this.corona=res.data;
+  			console.log(this.corona);
+  		  });
+  		 
+  	   },
+  	   methods:{
+     		corona_city:function(city){
+     			console.log(city);
+     			this.city=city;
+  			this.isShow=true;
+  			axios.get("http://localhost:8080/web/main/corona_city.do",{
+  				  params:{
+  					  city:this.city
+  				  }
+  			}).then(response=>{
+  				console.log(response.data);
+  				this.corona=response.data
+  			})
+  			
+  		}
+    }
+ })
+
 </script>
 </body>
 </html>
