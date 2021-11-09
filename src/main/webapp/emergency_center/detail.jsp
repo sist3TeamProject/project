@@ -9,10 +9,6 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style type="text/css">
-.container{
-	padding: 0px 15px;
-	margin: 0px 82.5px;
-}
 .row{
 	margin: 0px;
 }
