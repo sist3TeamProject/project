@@ -372,8 +372,12 @@ public class CoronaController {
     @GetMapping("corona/reply.do")
     public String corona_reply(Model model,Map map,String page,HttpSession session)
     {
-    	MemberDTO memberDTO = memberService.selectMember((Integer) session.getAttribute("memberIdx"));
-    	String id=memberDTO.getNickname();
+    	String id="";
+    	if(session.getAttribute("memberIdx")!=null)
+    	{
+    		MemberDTO memberDTO = memberService.selectMember((Integer) session.getAttribute("memberIdx"));
+        	id =memberDTO.getNickname();
+    	}
     	if(page==null)
     		page="1";
     	int curpage=Integer.parseInt(page);

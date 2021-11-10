@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.NoticeMapper">
+	
+<select id="getList" resultType="com.sist.vo.NoticeVO">
+SELECT * FROM egen_nnotice WHERE nnno > 0
+</select>
+
+<insert id="insert">
+INSERT INTO egen_nnotice (nno, title, content, writer, regdate, hit) VALUES(#{nno}, #{title},#{content},#{writer},#{regdate},#{hit})
+</insert>
+
+<insert id="insertSelectKey">
+	<selectKey keyProperty="nnno" order="BEFORE" 
+	resultType="int">
+	select nnno from dual
+	</selectKey>
+	
+INSERT INTO egen_nnotice (nno, title, content, writer, regdate, hit) VALUES(#{nno}, #{title},#{content},#{writer},#{regdate},#{hit})
+</insert>
+
+<select id="read" resultType="com.sist.vo.NoticeVO">
+SELECT * FROM egen_table WHERE nno=#{nno}
+</select>
+
+<delete id="delete">
+DELETE * FROM egen_table WHERE nno=#{nno}
+</delete>
+
+<update id="update">
+UPDATE egen_table
+SET title=#{title},
+content=#{content},
+writer=#{writer},
+regdate=sysdate
+WHERE nno=#{nno}
+</update>
+
+
+</mapper>

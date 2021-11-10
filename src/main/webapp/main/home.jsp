@@ -8,8 +8,6 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
 <style type="text/css">
 .list0 { clear:both; position: relative; z-index: 1; top: -35px; left: -5px; } 
 .list1 { clear:both; position: absolute; z-index: 1; top: 260px; left: 20px; }
@@ -468,29 +466,7 @@ function smenu_click(musName){
 }
 
 //-----------------------------------------------------------------------------------------
-window.onload = function () {
-    pieChartDraw();
-}
 
-let pieChartData = {
-    
-    datasets: [{
-        data: [95, 12, 13, 7, 13],
-        backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)']
-    }] 
-};
-
-let pieChartDraw = function () {
-    let ctx = document.getElementById('pieChartCanvas').getContext('2d');
-    
-    window.pieChart = new Chart(ctx, {
-        type: 'pie',
-        data: pieChartData,
-        options: {
-            responsive: false
-        }
-    });
-};
 
 new Vue({
 	   el:'.page-slider',
@@ -498,6 +474,7 @@ new Vue({
 	   data:{
 		   corona:{},
 	       city:''
+	       
 	   },
 	   // 값을 받는다 (요청 / 응답 : axios)
 	   mounted:function(){
