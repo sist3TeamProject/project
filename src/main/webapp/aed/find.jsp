@@ -14,6 +14,8 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=97f2ee7c718dbf621d02d84d93a458e2"></script>
 <script src="https://code.jquery.com/jquery-latest.min.js" type="application/javascript"></script>
 <script type="application/javascript" src="https://zelkun.tistory.com/attachment/cfile8.uf@99BB7A3D5D45C065343307.js"></script>
@@ -49,6 +51,15 @@ $(function(){
 		$('#gen_class').attr('class','on')
 		$('#id_class').attr('class','');
 	})
+	if (navigator.geolocation) {
+        //위치 정보를 얻기
+        navigator.geolocation.getCurrentPosition (function(pos) {
+            $('#lat_div').attr('value',pos.coords.latitude);     // 위도
+            $('#lon_div').attr('value',pos.coords.longitude); // 경도
+        });
+    } else {
+        alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
+    }
 })
 </script>
 </head>
@@ -96,70 +107,37 @@ $(function(){
             	</table>
             	
             	<br>
-            	<div class="row">
-			      Search:<input type=text name=ss size=25 class="input-sm">
-			      <button class="btn btn-sm btn-primary">검색</button>
-			    </div>
-				<div id="map" style="width:100%;height:350px;"></div>
-				<c:forEach items="${list}" var="vo">
-				
-				<tr>
-				<td>${vo.place }</td>
-				<td>${vo.lat }</td>
-				<td>${vo.lon}</td>
-				<tr>
-				<br>
-				
-				</c:forEach>
-	
-	      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f327ff259f684cbacea42ee49e7f9326&libraries=services"></script>
-	      <script>
-			var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-			    mapOption = { 
-			        center: new kakao.maps.LatLng(37.5674232, 127.0037142), // 지도의 중심좌표  37.5674232,127.0037142
-			        level: 3 // 지도의 확대 레벨
-			    };
-			
-			var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-			 
-			// 마커를 표시할 위치와 title 객체 배열입니다 
-			
-			var positions = [
+            	<table class="table">
+            		<tr>
+            			<td>
+            				<select id="sido" style="width:100px;">
+						      <option value="">선택</option>
+						    </select>
+						    <select id="sigugun" style="width:100px;">
+						      <option value="">선택</option>
+						    </select>
+						    <select id="dong" style="width:100px;">
+						      <option value="">선택</option>
+						    </select>
+						    
 
-				 <c:forEach items="${list}" var="vo">
-			    {
-			        title: '${vo.place}', 
-			        latlng: new kakao.maps.LatLng(${vo.lat},${vo.lon})
-			    },
-			
-			    </c:forEach> 
-			/*     {
-			        title: '롯데캐슬블루오션아파트',
-			        latlng: new kakao.maps.LatLng(35.07284629, 129.073734)
-			    } */
-			
-			];
-			console.log(positions);
-			// 마커 이미지의 이미지 주소입니다
-			var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+						    <select id="radius" v-on:change="change()">
+						    	<option value="1000">1km</option>
+						    	<option value="2000">2km</option>
+						    </select>
+
+            			</td>
+            		</tr>
+            		<tr>
+            			<td>
+            			
+            				<div id="map" style="width:100%;height:350px;margin-bottom:50px;"></div>
+            			</td>
+            		</tr>
+            	</table>
+
 			    
-			for (var i = 0; i < positions.length; i ++) {
-			    
-			    // 마커 이미지의 이미지 크기 입니다
-			    var imageSize = new kakao.maps.Size(24, 35); 
-			    
-			    // 마커 이미지를 생성합니다    
-			    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-			    
-			    // 마커를 생성합니다
-			    var marker = new kakao.maps.Marker({
-			        map: map, // 마커를 표시할 지도
-			        position: positions[i].latlng, // 마커를 표시할 위치
-			        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-			        image : markerImage // 마커 이미지 
-			    });
-			}
-			</script>
+
 			</div>
 			
 			<div v-show="isShow2">
@@ -194,12 +172,12 @@ $(function(){
       </div>
 </div>            
 
-<!-- <script>
+<script>
 new Vue({
 	el:'.main',
 	data:{
 		isShow1:true,
-		isShow2:false
+		isShow2:false,
 	},mounted:function(){
 		
 	},methods:{
@@ -211,13 +189,117 @@ new Vue({
 			this.isShow2=true;
 			this.isShow1=false;
 		}
-<<<<<<< HEAD
+		
+		}
+
 	}
 })
-</script> -->
-=======
-	})
 </script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f327ff259f684cbacea42ee49e7f9326&libraries=services"></script>
+	      <script>
+			var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+			    mapOption = { 
+			        center: new kakao.maps.LatLng(37.5674232, 127.0037142), // 지도의 중심좌표  37.5674232,127.0037142
+			        level: 3 // 지도의 확대 레벨
+			    };
+			
+			var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+			var radius = 3000;  
+			// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+			if (navigator.geolocation) {
+			    
+			    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+			    navigator.geolocation.getCurrentPosition(function(position) {
+			        
+			        var lat = position.coords.latitude, // 위도
+			            lon = position.coords.longitude; // 경도
+			        
+			        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+			            message = '<div style="padding:5px;">여기에 계신가요?!</div>'; // 인포윈도우에 표시될 내용입니다
+			        
+			        // 마커와 인포윈도우를 표시합니다
+			        displayMarker(locPosition, message);
+			            
+			      });
+			    
+			} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+			    
+			    var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
+			        message = 'geolocation을 사용할수 없어요..'
+			        
+			    displayMarker(locPosition, message);
+			}
+
+			// 지도에 마커와 인포윈도우를 표시하는 함수입니다
+			function displayMarker(locPosition, message) {
+				var circle = new daum.maps.Circle({
+				    map: map,
+				    center : locPosition,
+				    radius: radius,
+				    strokeWeight: 2,
+				    strokeColor: '#FF00FF',
+				    strokeOpacity: 0.8,
+				    strokeStyle: 'dashed',
+				    fillColor: '#D3D5BF',
+				    fillOpacity: 0.5
+				});
+
+				
+			    // 마커를 생성합니다
+			    var marker = new kakao.maps.Marker({  
+			        map: map, 
+			        position: locPosition
+			    }); 
+			    
+			    var iwContent = message, // 인포윈도우에 표시할 내용
+			        iwRemoveable = true;
+
+			    // 인포윈도우를 생성합니다
+			    var infowindow = new kakao.maps.InfoWindow({
+			        content : iwContent,
+			        removable : iwRemoveable
+			    });
+			    
+			    
+			    // 지도 중심좌표를 접속위치로 변경합니다
+			    map.setCenter(locPosition);      
+			}    
+			
+			
+			// 마커를 표시할 위치와 title 객체 배열입니다 
+			
+			var positions = [
+				  <c:forEach items="${list}" var="vo">
+			    {
+			    	
+			        title: '${vo.title}', 
+			        latlng: new kakao.maps.LatLng(${vo.lat},${vo.lon})
+			    },
+			
+			    </c:forEach>  
+			
+			];
+			console.log(positions);
+			// 마커 이미지의 이미지 주소입니다
+			var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+			    
+			for (var i = 0; i < positions.length; i ++) {
+			    
+			    // 마커 이미지의 이미지 크기 입니다
+			    var imageSize = new kakao.maps.Size(24, 35); 
+			    
+			    // 마커 이미지를 생성합니다    
+			    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+			    
+			    // 마커를 생성합니다
+			    var marker = new kakao.maps.Marker({
+			        map: map, // 마커를 표시할 지도
+			        position: positions[i].latlng, // 마커를 표시할 위치
+			        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+			        image : markerImage // 마커 이미지 
+			    });
+			}
+			</script>
 <script>
 jQuery(document).ready(function(){
 	  //sido option 추가
@@ -225,7 +307,6 @@ jQuery(document).ready(function(){
 	    //append를 이용하여 option 하위에 붙여넣음
 	    jQuery('#sido').append(fn_option(code.sido, code.codeNm));
 	  });
->>>>>>> branch 'master' of https://github.com/sist3TeamProject/project.git
 
 	  //sido 변경시 시군구 option 추가
 	  jQuery('#sido').change(function(){
