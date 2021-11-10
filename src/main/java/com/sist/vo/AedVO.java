@@ -1,8 +1,15 @@
 package com.sist.vo;
 
 public class AedVO {
-	private String addr1,add2,title,place;
+	private String addr1,add2,title,place,org;
 	private String lat,lon;
+	
+	public String getOrg() {
+		return org;
+	}
+	public void setOrg(String org) {
+		this.org = org;
+	}
 	public String getAddr1() {
 		return addr1;
 	}

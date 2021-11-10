@@ -1,11 +1,18 @@
 package com.sist.web;
 import com.sist.vo.*;
 import java.util.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sist.dao.AedDAO;
 import com.sist.manager.AedManager;
@@ -13,22 +20,34 @@ import com.sist.manager.AedManager;
 @Controller
 @RequestMapping("aed/")
 public class AedController {
-	@Autowired
-	AedDAO dao;
 	
-	@GetMapping("find.do")
-	public String aed_find(Model model,String ss,String title) 
+	/*
+	 * @Autowired private AedManager mng;
+	 */
+	
+	@Autowired
+	private AedDAO dao;
+	
+	@RequestMapping("find.do")
+	public String aed_find(Model model,HttpServletRequest request) 
 	{
-		if(ss==null)
-			ss="을지로";
-		
-		List<AedVO> list=dao.aedListData(ss);
-		
-		model.addAttribute("ss",ss);
-		model.addAttribute("list", list);
+		String radius= request.getParameter("radius");
+		String lat= request.getParameter("lat");
+		String lon= request.getParameter("lon");
+		//List<AedVO> list = mng.aed_map();
+		System.out.println(radius);
+		System.out.println(lat);
+		System.out.println(lon);
+		//Map map = new HashMap();
+		//map.put("radius", (Integer.parseInt(radius)/1000));
+		//map.put("lat", lat);
+		//map.put("lon",lon);
+		List<AedVO> list = dao.aedDataList();
+		model.addAttribute("list",list);
 		model.addAttribute("main_jsp","../aed/find.jsp");
 		return "main/main";
 	}
+	
 	
 	@GetMapping("use.do")
 	public String aed_use(Model model) 

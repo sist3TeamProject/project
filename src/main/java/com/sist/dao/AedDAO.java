@@ -1,20 +1,19 @@
 package com.sist.dao;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sist.mapper.AedMapper;
 import com.sist.vo.AedVO;
 
+import java.util.*;
+
 @Repository
 public class AedDAO {
 	@Autowired
-	AedMapper mapper;
-	
-	public List<AedVO> aedListData(String addr)
+	private AedMapper mapper;
+	public List<AedVO> aedDataList()
 	{
-		return mapper.aedListData(addr);
+		return mapper.aedDataList();
 	}
 }
