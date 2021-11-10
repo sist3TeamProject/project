@@ -180,9 +180,9 @@
                 <em>
                   <img src="../pages/img/works/img1.jpg" class="img-responsive">
                   <!-- <a href="portfolio-item.html"><i class="fa fa-link"></i></a> -->
-                  <a href="../emergency_center/find.jsp" class="fancybox-button" title="응급실 찾기" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                  <a href="../emergency_center/find.do" class="fancybox-button" title="응급실 찾기" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
-                <a class="recent-work-description" href="../emergency_center/find.jsp">
+                <a class="recent-work-description" href="../emergency_center/find.do">
                   <strong>응급실 찾기</strong>
                   <b>주변에 위치한 응급실 정보를 알려드립니다.</b>
                 </a>
@@ -331,15 +331,13 @@
            
           </div>
           <div style="transform:scale(0.7)">
-            <div class="owl-carousel owl-carousel5">
+            <div class="owl-carousel owl-carousel6">
               <div class="client-item" style="margin-right: 20px; ">
                 <a href="../emergency_treat/treat.do">
                   <img src="../pages/img/main_service1.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service1.png" class="color-img img-responsive" alt="">
                   <h4 class="text-center">응급상황시 대처요령</h4>
-                  
                 </a>
-                
               </div>
               <div class="client-item" style="margin-right: 20px; ">
                 <a href="../emergency_treat/treat1.do" >
@@ -368,9 +366,17 @@
                   <img src="../pages/img/main_service5.png" class="color-img img-responsive" alt="">
                   <h4 class="text-center">상황별응급처치</h4>
                 </a>
-              </div>                
+              </div>       
+              <div class="client-item" style="margin-right: 20px; ">
+                <a href="../emergency_treat/treat_data.do">
+                  <img src="../pages/img/main_service6.png" class="img-responsive" alt="">
+                  <img src="../pages/img/main_service6.png" class="color-img img-responsive" alt="">
+                  <h4 class="text-center">응급처치자료실</h4>
+                </a>
+              </div>          
             </div>
-          </div>          
+          </div>   
+          <div style="height: 300px"></div>   
         </div>
         <!-- END CLIENTS -->
       </div>

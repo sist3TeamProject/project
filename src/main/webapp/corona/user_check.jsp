@@ -11,7 +11,7 @@
     <ul class="breadcrumb">
      <li><a href="../main/main.do">Home</a></li>
      <li><a href="javascript:;">코로나</a></li>
-     <li class="active">백신 예약/예약변경</li>
+     <li class="active">예약변경/취소</li>
     </ul>
     <div class="row" >
    

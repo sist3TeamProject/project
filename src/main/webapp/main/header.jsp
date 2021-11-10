@@ -77,6 +77,7 @@
                 <li><a href="<c:url value="/corona/route.do" />">확진환자 이동경로</a></li>
                 <li><a href="<c:url value="../corona/primary.do" />">백신 예약</a></li>
                 <li><a href="<c:url value="../corona/user_check.do" />">예약변경/취소</a></li>
+                <li><a href="<c:url value="../corona/reply.do" />">백신 리뷰</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -86,9 +87,7 @@
               </a>
                 
               <ul class="dropdown-menu">
-                <li><a href="#">응급실찾기</a></li>
-                <li><a href="#">종합상황판</a></li>
-                <li><a href="#">민간구급차 검색</a></li>
+                <li><a href="../emergency_center/find.do">응급실찾기</a></li>
               </ul>
             </li>
          
@@ -127,6 +126,7 @@
                 <li><a href="../emergency_treat/treat2.do">응급상황</a></li>
                 <li><a href="../emergency_treat/treat3.do">기본응급처치</a></li>
                 <li><a href="../emergency_treat/treat4.do">상황별응급처치</a></li>
+                <li><a href="../emergency_treat/treat_data.do">응급처치자료실</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -147,10 +147,10 @@
                 
               </a>
             <ul class="dropdown-menu">
-                <li><a href="#">홍보동영상</a></li>
-                <li><a href="#">홍보음성</a></li>
-                <li><a href="#">홍보웹툰</a></li>
-                <li><a href="#">홍보이미지</a></li>
+                <li><a href="../promotion_video/list.do">홍보동영상</a></li>
+                <li><a href="../promotion_audio/list.do">홍보음성</a></li>
+                <li><a href="../promotion_webtoon/list.do">홍보웹툰</a></li>
+                <li><a href="../promotion_image/list.do">홍보이미지</a></li>
               </ul>
             </li>   
             

@@ -60,6 +60,15 @@ public interface TreatMapper {
 			+ "WHERE no>=16 AND no<=19 "
 			+ "ORDER BY no ASC")
 	public List<TreatVO> treat4ListData_ice_1();
+	
+	@Select("SELECT no,title,content,regdate,name,hit,num "
+			+ "FROM (SELECT /*+ INDEX_ASC(emergency_treat_data etd_no_pk) */no,title,content,regdate,name,hit,rownum as num "
+			+ "FROM emergency_treat_data) "
+			+ "WHERE num BETWEEN #{start} AND #{end}")
+	public List<Treat_DataVO> tDataListData(Map map);
+	
+	@Select("SELECT CEIL(COUNT(*)/5.0) FROM emergency_treat_data")
+	public int tDataTotalPage();
 
 }
 

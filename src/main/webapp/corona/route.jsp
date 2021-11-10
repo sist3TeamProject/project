@@ -25,7 +25,7 @@
       <ul>
        <li>"확진환자의 이동경로 등 정보공개 지침(1판)(10.7) 및 감염병예방법 제34조의 2(9.29) 근거"에 따라 확진자가 마지막 접촉자와 접촉한 날로부터 14일 경과 시, 이동경로에 대한 부분은 공개되지 않음을 알려드립니다.</li>
       </ul>
-      <h4 style="text-align: center; background-color: #90d5eb;padding: 10px;">※ 집단발생 관련 반복대량 노출장소 현황 (2021년 10월 29일 17시 기준)</h4>
+      <h4 style="text-align: center; background-color: #90d5eb;padding: 10px;">※ 집단발생 관련 반복대량 노출장소 현황 (${y_date } 기준)</h4>
       <h5>해당 시간대에 아래 시설을 방문하신 분은 증상이 없어도 진단검사를 꼭 받아주세요.</h5>
       <table class="table" border="1">
         <tr>
