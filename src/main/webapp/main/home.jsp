@@ -331,7 +331,7 @@
            
           </div>
           <div style="transform:scale(0.7)">
-            <div class="owl-carousel owl-carousel6">
+            <div class="owl-carousel6-brands">
               <div class="client-item" style="margin-right: 20px; ">
                 <a href="../emergency_treat/treat.do">
                   <img src="../pages/img/main_service1.png" class="img-responsive" alt="">
@@ -375,8 +375,7 @@
                 </a>
               </div>          
             </div>
-          </div>   
-          <div style="height: 300px"></div>   
+          </div>      
         </div>
         <!-- END CLIENTS -->
       </div>
