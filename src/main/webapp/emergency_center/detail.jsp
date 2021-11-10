@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=be0965f85428a75d750a50fe123d2748"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style type="text/css">
 .row{
@@ -51,8 +52,10 @@ th{
 		<h2>응급실 찾기</h2>
 		<p>응급실 정보 검색 서비스입니다.</p>
 		<h3>${vo.name }</h3>
-		<div style="height: 200px;">
-			<div class="col-sm-5"></div>
+		<div style="height: 300px;">
+			<div class="col-sm-5">
+				<div id="map" style="width: 100%; height: 300px;"></div>
+			</div>
 			<div class="col-sm-7">
 				<table class="table">
 					<tr>
@@ -200,5 +203,26 @@ th{
 	</div>
 </div>
 <div style="height: 200px;"></div>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new kakao.maps.LatLng(${vo.lat }, ${vo.lon }), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+var map = new kakao.maps.Map(mapContainer, mapOption);
+
+//마커가 표시될 위치입니다
+var markerPosition  = new kakao.maps.LatLng(${vo.lat }, ${vo.lon }); 
+
+//마커를 생성합니다
+var marker = new kakao.maps.Marker({
+ position: markerPosition
+});
+
+//마커가 지도 위에 표시되도록 설정합니다
+marker.setMap(map);
+</script>
 </body>
 </html>
