@@ -142,7 +142,7 @@ th{
 					</li>
 					<li class="col-sm-3">
 						CT
-						<c:if test="${vo.hvctayn == 'N' }">
+						<c:if test="${vo.hvctayn == 'N' || vo.hvctayn == null }">
 							<span class="disable">[이용불가]</span>
 						</c:if>
 						<c:if test="${vo.hvctayn == 'Y' }">
@@ -151,7 +151,7 @@ th{
 					</li>
 					<li class="col-sm-3">
 						MRI
-						<c:if test="${vo.hvmriayn == 'N' }">
+						<c:if test="${vo.hvmriayn == 'N' || vo.hvmriayn == null }">
 							<span class="disable">[이용불가]</span>
 						</c:if>
 						<c:if test="${vo.hvmriayn == 'Y' }">
@@ -160,7 +160,7 @@ th{
 					</li>
 					<li class="col-sm-3">
 						조영촬영기
-						<c:if test="${vo.hvangioayn == 'N' }">
+						<c:if test="${vo.hvangioayn == 'N' || vo.hvangioayn == null }">
 							<span class="disable">[이용불가]</span>
 						</c:if>
 						<c:if test="${vo.hvangioayn == 'Y' }">
@@ -169,7 +169,7 @@ th{
 					</li>
 					<li class="col-sm-3">
 						인공호흡기
-						<c:if test="${vo.hvventiayn == 'N' }">
+						<c:if test="${vo.hvventiayn == 'N' || vo.hvventiayn == null }">
 							<span class="disable">[이용불가]</span>
 						</c:if>
 						<c:if test="${vo.hvventiayn == 'Y' }">
@@ -178,7 +178,7 @@ th{
 					</li>
 					<li class="col-sm-3">
 						구급차
-						<c:if test="${vo.hvamyn == 'N'}">
+						<c:if test="${vo.hvamyn == 'N' || vo.hvamyn == null }">
 							<span class="disable">[이용불가]</span>
 						</c:if>
 						<c:if test="${vo.hvamyn == 'Y' }">
@@ -187,7 +187,7 @@ th{
 					</li>
 					<li class="col-sm-3">
 						인큐베이터
-						<c:if test="${vo.hv11 == 'N' }">
+						<c:if test="${vo.hv11 == 'N' || vo.hv11 == null }">
 							<span class="disable">[이용불가]</span>
 						</c:if>
 						<c:if test="${vo.hv11 == 'Y' }">
