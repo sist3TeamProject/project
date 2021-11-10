@@ -5,6 +5,8 @@ import com.sist.vo.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public class TreatDAO {
@@ -69,6 +71,65 @@ public class TreatDAO {
 	public int tDataTotalPage()
 	{
 		return mapper.tDataTotalPage();
+	}
+	
+	public Treat_DataVO tDataDetail(int no)
+	{
+		return mapper.tDataDetail(no);
+	}
+	
+	public void insertData(Treat_DataVO vo)
+	{
+		mapper.insertData(vo);
+	}
+	
+	public boolean dataUpdate(Treat_DataVO vo)
+	{
+		boolean bCheck=false;
+		
+		String db_pwd=mapper.dataGetPassword(vo.getNo());
+		
+		if(db_pwd.equals(vo.getPwd()))
+		{
+			bCheck=true;
+			mapper.dataUpdate(vo);
+		}
+		else
+		{
+			bCheck=false;
+		}
+		
+		return bCheck;
+	}
+	
+	@Transactional(propagation=Propagation.REQUIRED,rollbackFor=Exception.class)
+	public boolean dataDelete(int no,String pwd)
+	{
+		boolean bCheck=false;
+		
+		String db_pwd=mapper.dataGetPassword(no);
+		
+		if(db_pwd.equals(pwd))
+		{
+			bCheck=true;
+			mapper.dataDelete(no);
+		}
+		else
+		{
+			bCheck=false;
+		}
+		
+		return bCheck;
+	}
+	
+	public List<Treat_DataVO> dataFindData(Map map)
+	{
+		return mapper.dataFindData(map);
+	}
+	
+	public int dataFindTotalPage(String title)
+	{
+		return mapper.dataFindTotalPage(title);
 	}
 
 }

@@ -371,7 +371,7 @@
                 <a href="../emergency_treat/treat_data.do">
                   <img src="../pages/img/main_service6.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service6.png" class="color-img img-responsive" alt="">
-                  <h4 class="text-center">응급처치자료실</h4>
+                  <h4 class="text-center">응급의료자료실</h4>
                 </a>
               </div>          
             </div>
