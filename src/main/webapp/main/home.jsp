@@ -8,8 +8,6 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
 <style type="text/css">
 .list0 { clear:both; position: relative; z-index: 1; top: -35px; left: -5px; } 
 .list1 { clear:both; position: absolute; z-index: 1; top: 260px; left: 20px; }
@@ -180,9 +178,9 @@
                 <em>
                   <img src="../pages/img/works/img1.jpg" class="img-responsive">
                   <!-- <a href="portfolio-item.html"><i class="fa fa-link"></i></a> -->
-                  <a href="../emergency_center/find.jsp" class="fancybox-button" title="응급실 찾기" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                  <a href="../emergency_center/find.do" class="fancybox-button" title="응급실 찾기" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
-                <a class="recent-work-description" href="../emergency_center/find.jsp">
+                <a class="recent-work-description" href="../emergency_center/find.do">
                   <strong>응급실 찾기</strong>
                   <b>주변에 위치한 응급실 정보를 알려드립니다.</b>
                 </a>
@@ -210,9 +208,9 @@
               <div class="recent-work-item">
                 <em>
                   <img src="../pages/img/works/img4.jpg" class="img-responsive">
-                  <a href="../emergency_treat/list.do" class="fancybox-button" title="응급처치방법" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                  <a href="../emergency_treat/treat.do" class="fancybox-button" title="응급처치방법" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
-                <a class="recent-work-description" href="../emergency_treat/list.do">
+                <a class="recent-work-description" href="../emergency_treat/treat.do">
                   <strong>응급처치방법</strong>
                   <b>응급상황일때 대처요령 정보를 확인할 수 있습니다.</b>
                 </a>
@@ -331,46 +329,52 @@
            
           </div>
           <div style="transform:scale(0.7)">
-            <div class="owl-carousel owl-carousel5">
+            <div class="owl-carousel owl-carousel6">
               <div class="client-item" style="margin-right: 20px; ">
                 <a href="../emergency_treat/treat.do">
                   <img src="../pages/img/main_service1.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service1.png" class="color-img img-responsive" alt="">
-                  <h4>응급상황시 대처요령</h4>
-                  
+                  <h4 class="text-center">응급상황시 대처요령</h4>
                 </a>
-                
               </div>
               <div class="client-item" style="margin-right: 20px; ">
                 <a href="../emergency_treat/treat1.do" >
                   <img src="../pages/img/main_service2.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service2.png" class="color-img img-responsive" alt="">
-                  <h4>응급처치 개요</h4>
+                  <h4 class="text-center">응급처치 개요</h4>
                 </a>
               </div>
               <div class="client-item" style="margin-right: 20px; ">
                 <a href="../emergency_treat/treat2.do">
                   <img src="../pages/img/main_service3.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service3.png" class="color-img img-responsive" alt="">
-                  <h4>응급상황</h4>
+                  <h4 class="text-center">응급상황</h4>
                 </a>
               </div>
               <div class="client-item" style="margin-right: 20px; ">
                 <a href="../emergency_treat/treat3.do">
                   <img src="../pages/img/main_service4.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service4.png" class="color-img img-responsive" alt="">
-                  <h4>기본응급처치</h4>
+                  <h4 class="text-center">기본응급처치</h4>
                 </a>
               </div>
               <div class="client-item" style="margin-right: 20px; ">
                 <a href="../emergency_treat/treat4.do">
                   <img src="../pages/img/main_service5.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service5.png" class="color-img img-responsive" alt="">
-                  <h4>상황별응급처치</h4>
+                  <h4 class="text-center">상황별응급처치</h4>
                 </a>
-              </div>                
+              </div>       
+              <div class="client-item" style="margin-right: 20px; ">
+                <a href="../emergency_treat/treat_data.do">
+                  <img src="../pages/img/main_service6.png" class="img-responsive" alt="">
+                  <img src="../pages/img/main_service6.png" class="color-img img-responsive" alt="">
+                  <h4 class="text-center">응급처치자료실</h4>
+                </a>
+              </div>          
             </div>
-          </div>          
+          </div>   
+          <div style="height: 300px"></div>   
         </div>
         <!-- END CLIENTS -->
       </div>
@@ -463,29 +467,7 @@ function smenu_click(musName){
 }
 
 //-----------------------------------------------------------------------------------------
-window.onload = function () {
-    pieChartDraw();
-}
 
-let pieChartData = {
-    
-    datasets: [{
-        data: [95, 12, 13, 7, 13],
-        backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)']
-    }] 
-};
-
-let pieChartDraw = function () {
-    let ctx = document.getElementById('pieChartCanvas').getContext('2d');
-    
-    window.pieChart = new Chart(ctx, {
-        type: 'pie',
-        data: pieChartData,
-        options: {
-            responsive: false
-        }
-    });
-};
 
 new Vue({
 	   el:'.page-slider',
@@ -493,6 +475,7 @@ new Vue({
 	   data:{
 		   corona:{},
 	       city:''
+	       
 	   },
 	   // 값을 받는다 (요청 / 응답 : axios)
 	   mounted:function(){

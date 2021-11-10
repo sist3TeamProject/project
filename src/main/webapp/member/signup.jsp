@@ -1,11 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8" errorPage="/error"%>
+	pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>회원가입</title>
+		<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+		<style>
+			div.input-group.col-sm-10{
+				margin: 0px auto;
+			}
+			@media ( max-width : 767px) {
+				.input-group.col-sm-10.valid {
+					margin-left: 0px;
+				}
+			}
+		</style>
 	</head>
 	<body>
 		<div id="checkModal" class="modal fade" tabindex = "-1" role = "dialog">
@@ -30,7 +41,7 @@
 		<div class="clearfix">
 			<form id="form" action="<c:url value="/member/signup.do" />"
 				method="post">
-				<div class="input-group col-sm-10" style="margin:0px auto">
+				<div class="input-group col-sm-10">
 					<span class="input-group-addon">
 						<label style="margin:0px" for="email">
 							<i class="glyphicon glyphicon-envelope"></i>
@@ -38,11 +49,11 @@
 					</span>
 					<input type="text" class="form-control" id="email" name="email" maxlength="30" placeholder="이메일을 입력해주세요." oninput="noSpaceForm(this)">
 				</div>
-				<div class="input-group col-sm-10" style="margin:0px auto">
+				<div class="input-group col-sm-10 valid">
 					<span id="valid_email"></span>
 				</div>
 				
-				<div class="input-group col-sm-10" style="margin:0px auto">
+				<div class="input-group col-sm-10">
 					<span class="input-group-addon">
 						<label style="margin:0px" for="password">
 							<i class="glyphicon glyphicon-lock"></i>
@@ -50,11 +61,11 @@
 					</span>
 					<input type="password" class="form-control" id="password" name="password" maxlength="20" placeholder="비밀번호를 입력해주세요." oninput="noSpaceForm(this)">
 				</div>
-				<div class="input-group col-sm-10" style="margin:0px auto">
+				<div class="input-group col-sm-10 valid">
 					<span id="valid_password"></span>
 				</div>
 				
-				<div class="input-group col-sm-10" style="margin:0px auto">
+				<div class="input-group col-sm-10">
 					<span class="input-group-addon">
 						<label style="margin:0px" for="nickname">
 							<i class="glyphicon glyphicon-user"></i>
@@ -62,24 +73,28 @@
 					</span>
 					<input type="text" class="form-control" id="nickname" name="nickname" maxlength="10" placeholder="닉네임을 입력해주세요." oninput="noSpaceForm(this)">
 				</div>
-				<div class="input-group col-sm-10" style="margin:0px auto">
+				<div class="input-group col-sm-10 valid">
 					<span id="valid_nickname"></span>
 				</div>
-				
-				<div class="input-group col-sm-10" style="margin:0px auto">
+			
+			<div class="input-group col-sm-10">
 					<span class="input-group-addon">
 						<label style="margin:0px" for="phoneNumber">
 							<i class="glyphicon glyphicon-earphone"></i>
 						</label>
 					</span>
-					<input type="text" class="form-control" id="phoneNumber" name="phoneNumber" maxlength="11" placeholder="전화번호를 입력해주세요" oninput="numberForm(this)" data-format="ddd-dddd-dddd">
+					<input type="text" style="text-align:center; width: calc(25% - 20px)" class="form-control phoneNumber" id="phoneNumber" name="phoneNumber" value="${memberDTO.phoneNumber[0]}" maxlength="3" placeholder="010" oninput="numberForm(this)">
+					<div style="float:left; text-align:center; font-size:22px; width:20px">-</div>
+					<input type="text" style="text-align:center; width: calc(37.5% - 10px)" class="form-control phoneNumber" name="phoneNumber" value="${memberDTO.phoneNumber[1]}" maxlength="4" placeholder="1234" oninput="numberForm(this)">
+					<div style="float:left; text-align:center; font-size:22px; width:20px">-</div>
+					<input type="text" style="text-align:center; width: calc(37.5% - 10px)" class="form-control phoneNumber" name="phoneNumber" value="${memberDTO.phoneNumber[2]}" maxlength="4" placeholder="56789" oninput="numberForm(this)">
 				</div>
-				<div class="input-group col-sm-10" style="margin:0px auto">
+				<div class="input-group col-sm-10 valid">
 					<span id="valid_phoneNumber"></span>
 				</div>
 				
 				<div style="margin-top:30px">
-					<div class="input-group col-sm-10" style="margin:0px auto">
+					<div class="input-group col-sm-10">
 						<span class="input-group-addon">
 							<label style="margin:0px" for="find">
 								<i class="glyphicon glyphicon-home"></i>
@@ -94,7 +109,7 @@
 						<input type="text" class="form-control" style="width:50%" id="detailAddress" name="detailAddress" maxlength="20" placeholder="상세주소">
 						<input type="text" class="form-control" style="width:50%" id="extraAddress" name="extraAddress" maxlength="20" placeholder="참고항목">
 					</div>
-					<div class="input-group col-sm-10" style="margin:0px auto">
+					<div class="input-group col-sm-10 valid">
 						<span id="valid_postcode"></span>
 					</div>
 				</div>
@@ -237,6 +252,12 @@
 				
 				return value;
 			}
+			
+            $("#form input").keydown(function(key) {
+                if (key.keyCode == 13) {
+                	checkConditions();
+                }
+            });
             
             $("#checkModal input").keydown(function(key) {
                 if (key.keyCode == 13) {

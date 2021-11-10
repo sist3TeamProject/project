@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.security.authentication.LockedException;
+import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
@@ -21,13 +21,12 @@ public class MemberFailureHandler implements AuthenticationFailureHandler {
 			AuthenticationException exception) throws IOException, ServletException {
 		ApplicationContext context = ApplicationContextProvider.getApplicationContext();
 		MemberService memberService = (MemberService)context.getBean("memberService");
-		
+
 		String loginFailMsg;
-		if (exception instanceof LockedException) {
+		if (exception instanceof InternalAuthenticationServiceException) {
 			loginFailMsg = exception.getMessage();
 		} else {
 			String email = request.getParameter("username");
-
 			if (memberService.lockCount(email)) {
 				int lockCount = memberService.searchLock(email);
 				if (lockCount >= 3) {

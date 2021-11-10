@@ -1,17 +1,27 @@
 package com.sist.web;
 
+import java.util.*;
+
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sist.dao.CoronaDAO;
 import com.sist.dao.Main_conronaDAO;
+import com.sist.vo.Corona_privacyVO;
 import com.sist.vo.Main_coronaVO;
+import com.sist.vo.ReplyVO;
 
 @RestController
 public class CoronaRestController {
     @Autowired
     private Main_conronaDAO dao;
+    
+    @Autowired
+	private CoronaDAO cdao;
     
     @GetMapping(value="main/corona_city.do",produces="text/plain;charset=UTF-8")
     public String main_corona_city(String city)
@@ -43,4 +53,5 @@ public class CoronaRestController {
  	   }catch(Exception ex){ex.printStackTrace();}
  	   return json;
     }
+    
 }

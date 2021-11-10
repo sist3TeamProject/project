@@ -60,6 +60,16 @@ public class TreatDAO {
 	{
 		return mapper.treat4ListData_ice_1();
 	}
+	
+	public List<Treat_DataVO> tDataListData(Map map)
+	{
+		return mapper.tDataListData(map);
+	}
+	
+	public int tDataTotalPage()
+	{
+		return mapper.tDataTotalPage();
+	}
 
 }
 

@@ -1,8 +1,15 @@
 package com.sist.vo;
 
 public class AedVO {
-	private String addr1,add2,title;
-	private double lat,lon;
+	private String addr1,add2,title,place,org;
+	private String lat,lon;
+	
+	public String getOrg() {
+		return org;
+	}
+	public void setOrg(String org) {
+		this.org = org;
+	}
 	public String getAddr1() {
 		return addr1;
 	}
@@ -21,18 +28,27 @@ public class AedVO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public double getLat() {
+	public String getPlace() {
+		return place;
+	}
+	public void setPlace(String place) {
+		this.place = place;
+	}
+	public String getLat() {
 		return lat;
 	}
-	public void setLat(double lat) {
+	public void setLat(String lat) {
 		this.lat = lat;
 	}
-	public double getLon() {
+	public String getLon() {
 		return lon;
 	}
-	public void setLon(double lon) {
+	public void setLon(String lon) {
 		this.lon = lon;
 	}
+	
+	
+	
 	
 	
 }

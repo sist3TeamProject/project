@@ -12,7 +12,7 @@
 	<http pattern="/**/*.jpge" security="none" />
 	<http pattern="/**/*.gif" security="none" />
 	<http pattern="/**/*.png" security="none" />
-	<http auto-config="true">
+	<http auto-config="true" use-expressions="true">
 		<intercept-url pattern="/member/signup.do" access="isAnonymous()" />
 		<intercept-url pattern="/member/login.do" access="isAnonymous()" />
 		<intercept-url pattern="/member/info.do" access="isAuthenticated()" />
@@ -25,7 +25,7 @@
 			authentication-success-handler-ref="authenticationSuccessHandler"
 			authentication-failure-handler-ref="authenticationFailureHandler" />
 		<remember-me key="rememberKey" authentication-success-handler-ref="authenticationSuccessHandler" token-validity-seconds="604800"/>
-		<logout logout-url="/member/logout.do" logout-success-url="/member/login.do"
+		<logout logout-url="/member/logout.do" logout-success-url="/"
 			invalidate-session="true" />
 		<access-denied-handler error-page="/member/denied.do" />
 		<csrf disabled="true" />
