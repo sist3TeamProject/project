@@ -13,7 +13,6 @@ let u=0;// 전역변수
 $(function(){
 	$('.updates').click(function(){
 		$('.up').hide();// 출력된 수정창을 닫는다
-		$('.reply').hide();
 		let no=$(this).attr("data-value"); // 출력할 위치를 확인 (어떤것이 수정할 지 확인 )
 		if(u==0) // 열고
 		{
@@ -108,11 +107,13 @@ ul{
 	                  </c:if>
 	                  
 	                  <p>${vo.msg }</p>
-	                  <div style="float: right; position: relative; bottom: 30px;"> 
-	                    <c:if test="${id eq vo.id}">
+	                  <div style="float: right; position: relative; bottom: 30px;">
+	                   <c:if test="${id ne null }"> 
+	                    <c:if test="${vo.id eq id}">
 			              <span class="btn btn-xs updates underbar" style="color:black;" data-value="${vo.no }">수정</span>
 			              <a href="../corona/reply_delete.do?no=${vo.no }&page=${curpage}" class="btn btn-xs underbar" style="color:black;">삭제</a>
 			            </c:if>
+			           </c:if>
 			          </div>
 	                  </blockquote>
 	                </div>
@@ -121,55 +122,7 @@ ul{
               </div>
             </article>
             
-            <article>
-              <c:if test="${vo.group_tab > 0}">
-              <div class="col-md-10 testimonials-v1">
-                <div id="myCarousel" class="carousel slide">
-	              <div class="carousel-inner">
-	                <div class="active item">
-		              <blockquote>
-		              <header>
-		                <address>
-		                 <a href="#">${vo.id }</a>&nbsp;&nbsp;&nbsp;&nbsp;<time datetime="2045-04-06T08:15+00:00">${vo.dbday }</time>
-		                </address>
-		                
-		                <table class="table up" style="display:none" id="u${vo.no }">
-					       <tr>
-					        <td class="inline">
-					         <form method="post" action="../corona/reply_update.do">
-					         <input type=hidden name="no" value="${vo.no }">
-					         <textarea rows="5" cols="50" name="msg" style="float: left">${vo.msg }</textarea>
-					           <input type=submit value="댓글수정" style="height: 105px;float: left" class="btn btn-danger">
-					        </form>
-					        </td>
-					       </tr>
-					   </table>
-		              </header>
-              
-	                  <c:if test="${vo.vaccine eq 1 }">
-	                    <p style="font-weight: bold; color: #8d192b; border: 1px solid; width: 46px;">화이자</p>
-	                  </c:if>
-	                  <c:if test="${vo.vaccine eq 2 }">
-	                    <p  style="font-weight: bold; color: #8d192b; border: 1px solid; width: 46px;">모더나</p>
-	                  </c:if>
-	                  <c:if test="${vo.vaccine eq 3 }">
-	                    <p  style="font-weight: bold; color: #8d192b; border: 1px solid; width: 105px;">아스트라제네카</p>
-	                  </c:if>
-	                  
-	                  <p>${vo.msg }</p>
-	                  <c:if test="${id eq vo.id}">
-		                <div style="float: right; position: relative; bottom: 30px;">
-			              <span class="btn btn-xs updates underbar" style="color:black;" data-value="${vo.no }">수정</span>
-			              <a href="../corona/reply_delete.do?no=${vo.no }&page=${curpage}" class="btn btn-xs underbar" style="color:black;">삭제</a>
-			            </div>
-			          </c:if>
-	                  </blockquote>
-	                </div>
-	              </div>
-                </div>
-              </div>
-              </c:if>
-            </article>
+           
           </li>
          </c:forEach> 
         </ul>
