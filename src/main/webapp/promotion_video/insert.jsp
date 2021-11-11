@@ -52,26 +52,26 @@ $(function(){
       <form method="post" action="insert_ok.do" enctype="multipart/form-data">
       <table class="table">
        <tr>
-         <th width=25% class="text-right danger">이름</th>
+         <th width=25% class="text-center info">이름</th>
          <td width=75%>
           <input type=text name=name size=15 class="input-sm">
          </td> 
        </tr>
        <tr>
-         <th width=25% class="text-right danger">제목</th>
+         <th width=25% class="text-center info">제목</th>
          <td width=75%>
           <input type=text name=subject size=55 class="input-sm">
          </td> 
        </tr>
        <tr>
-         <th width=25% class="text-right danger">내용</th>
+         <th width=25% class="text-center info">내용</th>
          <td width=75%>
           <textarea rows="10" cols="55" name="content"></textarea>
           
          </td> 
        </tr>
        <tr>
-         <th width=25% class="text-right danger">첨부파일</th>
+         <th width=25% class="text-center info">첨부파일</th>
          <td width=75%>
           <table class="table">
            <tr>
@@ -87,7 +87,7 @@ $(function(){
          </td>
        </tr>
        <tr>
-         <th width=25% class="text-right danger">비밀번호</th>
+         <th width=25% class="text-center info">비밀번호</th>
          <td width=75%>
           <input type="password" name=pwd size=10 class="input-sm">
          

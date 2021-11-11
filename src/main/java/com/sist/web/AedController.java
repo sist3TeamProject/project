@@ -31,19 +31,6 @@ public class AedController {
 	@RequestMapping("find.do")
 	public String aed_find(Model model,HttpServletRequest request) 
 	{
-		String radius= request.getParameter("radius");
-		String lat= request.getParameter("lat");
-		String lon= request.getParameter("lon");
-		//List<AedVO> list = mng.aed_map();
-		System.out.println(radius);
-		System.out.println(lat);
-		System.out.println(lon);
-		//Map map = new HashMap();
-		//map.put("radius", (Integer.parseInt(radius)/1000));
-		//map.put("lat", lat);
-		//map.put("lon",lon);
-		List<AedVO> list = dao.aedDataList();
-		model.addAttribute("list",list);
 		model.addAttribute("main_jsp","../aed/find.jsp");
 		return "main/main";
 	}

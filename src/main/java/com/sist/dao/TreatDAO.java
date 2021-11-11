@@ -5,6 +5,8 @@ import com.sist.vo.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public class TreatDAO {
@@ -70,6 +72,68 @@ public class TreatDAO {
 	{
 		return mapper.tDataTotalPage();
 	}
+	
+	public Treat_DataVO tDataDetail(int no)
+	{
+		mapper.tDataHitIncreement(no);
+		return mapper.tDataDetail(no);
+	}
+	
+	public void insertData(Treat_DataVO vo)
+	{
+		mapper.insertData(vo);
+	}
+	
+	public Treat_DataVO tDataFileInfoData(int no)
+	{
+		return mapper.tDataFileInfoData(no);
+	}
+	
+	public Treat_DataVO tDataUpdateData(int no)
+	{
+		return mapper.tDataDetail(no);
+	}
+	
+	public boolean dataUpdate(Treat_DataVO vo)
+	{
+		boolean bCheck=false;
+		
+		String db_pwd=mapper.tDataGetPassword(vo.getNo());
+		
+		if(db_pwd.equals(vo.getPwd()))
+		{
+			bCheck=true;
+			mapper.dataUpdate(vo);
+		}
+		
+		return bCheck;
+	}
+	
+	public boolean dataDelete(int no,String pwd)
+	{
+		boolean bCheck=false;
+		
+		String db_pwd=mapper.tDataGetPassword(no);
+		
+		if(db_pwd.equals(pwd))
+		{
+			bCheck=true;
+			mapper.dataDelete(no);
+		}
+		
+		return bCheck;
+	}
+	
+	public List<Treat_DataVO> tDataFindData(Map map)
+	{
+		return mapper.tDataFindData(map);
+	}
+	
+	public int tDataFindTotalPage(String ss)
+	{
+		return mapper.tDataFindTotalPage(ss);
+	}
+	
 
 }
 

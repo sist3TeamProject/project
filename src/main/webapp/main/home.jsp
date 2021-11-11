@@ -198,9 +198,9 @@
               <div class="recent-work-item">
                 <em>
                   <img src="../pages/img/works/img3.jpg" class="img-responsive">
-                  <a href="../pages/img/works/AED.jpg" class="fancybox-button" title="자동 심장충격기" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                  <a href="../aed/find.do" class="fancybox-button" title="자동 심장충격기" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
-                <a class="recent-work-description" href="../pages/img/works/AED.jpg">
+                <a class="recent-work-description" href="../aed/find.do">
                   <strong>자동 심장충격기</strong>
                   <b>주변에 위치한 자동 심장충격기 정보를 알려드립니다. </b>
                 </a>
@@ -329,7 +329,7 @@
            
           </div>
           <div style="transform:scale(0.7)">
-            <div class="owl-carousel owl-carousel6">
+            <div class="owl-carousel6-brands">
               <div class="client-item" style="margin-right: 20px; ">
                 <a href="../emergency_treat/treat.do">
                   <img src="../pages/img/main_service1.png" class="img-responsive" alt="">
@@ -369,12 +369,11 @@
                 <a href="../emergency_treat/treat_data.do">
                   <img src="../pages/img/main_service6.png" class="img-responsive" alt="">
                   <img src="../pages/img/main_service6.png" class="color-img img-responsive" alt="">
-                  <h4 class="text-center">응급처치자료실</h4>
+                  <h4 class="text-center">응급의료자료실</h4>
                 </a>
               </div>          
             </div>
-          </div>   
-          <div style="height: 300px"></div>   
+          </div>      
         </div>
         <!-- END CLIENTS -->
       </div>

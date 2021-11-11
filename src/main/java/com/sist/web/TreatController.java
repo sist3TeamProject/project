@@ -1,11 +1,20 @@
 package com.sist.web;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.net.URLEncoder;
 import java.util.*;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.sist.vo.*;
 import com.sist.dao.*;
@@ -113,6 +122,181 @@ public class TreatController {
 		return "main/main";
 	}
 	
+	@GetMapping("data_detail.do")
+	public String data_detail(int no,Model model,int page)
+	{
+		Treat_DataVO vo=dao.tDataDetail(no);
+		
+		if(vo.getFilecount()>0)
+	   	{
+		    	List<String> fList=new ArrayList<String>();
+		    	List<String> sList=new ArrayList<String>();
+		    	
+		    	StringTokenizer st1=new StringTokenizer(vo.getFilename(),",");
+		    	while(st1.hasMoreTokens())
+		    	{
+		    		fList.add(st1.nextToken());
+		    	}
+		    	
+		    	st1=new StringTokenizer(vo.getFilesize(),",");
+		    	while(st1.hasMoreTokens())
+		    	{
+		    		sList.add(st1.nextToken());
+		    	}
+		    	model.addAttribute("fList", fList);
+		    	model.addAttribute("sList", sList);
+	   	}
+		
+		model.addAttribute("page", page);
+		model.addAttribute("vo", vo);
+		model.addAttribute("main_jsp", "../emergency_treat/data_detail.jsp");
+		return "main/main";
+	}
+	
+	@GetMapping("data_insert.do")
+	public String freeboard_insert(Model model)
+	{
+		model.addAttribute("main_jsp", "../emergency_treat/data_insert.jsp");
+		return "main/main";
+	}
+	
+	@PostMapping("data_insert_ok.do")
+	public String data_insert_ok(Treat_DataVO vo) throws Exception
+	{
+		File dir=new File("c:\\download");
+		if(!dir.exists())
+		{
+			dir.mkdir();
+		}
+
+		List<MultipartFile> list=vo.getFiles(); 
+		String files="";
+		String sizes="";
+
+		if(list!=null && list.size()>0)
+		{
+			for(MultipartFile mf:list)
+			{
+				String fn=mf.getOriginalFilename();
+				File file=new File("c:\\download\\"+fn);
+				mf.transferTo(file);
+				files+=fn+",";
+				sizes+=file.length()+",";
+			}
+			vo.setFilename(files.substring(0,files.lastIndexOf(",")));
+			vo.setFilesize(sizes.substring(0,sizes.lastIndexOf(",")));
+			vo.setFilecount(list.size());
+		}
+		else
+		{
+			vo.setFilename("");
+			vo.setFilesize("");
+			vo.setFilecount(0);
+		}
+		dao.insertData(vo);
+		return "redirect:../emergency_treat/treat_data.do";
+	}
+
+	@GetMapping("data_download.do")
+	public void data_download(String fn,HttpServletResponse response)
+	{
+		try
+		{
+			String path="c:\\download";
+
+			File file=new File(path+"\\"+fn);
+			response.setContentLength((int)file.length());
+			response.setHeader("Content-Disposition", "attachment;filename="
+					+ URLEncoder.encode(fn,"UTF-8"));
+
+			BufferedInputStream bis=new BufferedInputStream(new FileInputStream(file));
+			BufferedOutputStream bos=new BufferedOutputStream(response.getOutputStream());
+			
+			byte[] buffer=new byte[1024];
+			int i=0;
+			while((i=bis.read(buffer,0,1024))!=-1)
+			{
+				bos.write(buffer,0,i);
+			}
+			bis.close();
+			bos.close();
+			
+		}catch(Exception ex) {}
+	}
+	
+	@GetMapping("data_update.do")
+	public String data_update(int no,int page,Model model)
+	{
+		Treat_DataVO vo=dao.tDataUpdateData(no);
+		
+		model.addAttribute("vo", vo);
+		model.addAttribute("page", page);
+		model.addAttribute("main_jsp", "../emergency_treat/data_update.jsp");
+		return "main/main";
+	}
+	
+	@PostMapping("data_update_ok.do")
+	public String board_update_ok(int page,Treat_DataVO vo,Model model)
+	{
+		boolean bCheck=dao.dataUpdate(vo);
+		
+		model.addAttribute("page" , page);
+		model.addAttribute("bCheck" , bCheck);
+		model.addAttribute("no" , vo.getNo());
+		return "emergency_treat/data_update_ok";
+	}
+	
+	@GetMapping("data_delete.do")
+	public String data_delete(int no,int page,Model model)
+	{
+		model.addAttribute("no", no);
+		model.addAttribute("page", page);
+		model.addAttribute("main_jsp", "../emergency_treat/data_delete.jsp");
+		return "main/main";
+	}
+	
+	@PostMapping("data_delete_ok.do")
+	public String data_delete_ok(int no,int page,String pwd,Model model)
+	{
+		Treat_DataVO vo=dao.tDataFileInfoData(no);
+		boolean bCheck=dao.dataDelete(no, pwd);
+		
+		if(bCheck==true)
+    	{
+    		try
+    		{
+    			if(vo.getFilecount()>0)
+    			{
+    				StringTokenizer st=new StringTokenizer(vo.getFilename(),",");
+    				while(st.hasMoreTokens())
+    				{
+    					File file=new File("c:\\download\\"+st.nextToken());
+    					file.delete();
+    				}
+    			}
+    		}catch(Exception ex){}
+    		model.addAttribute("page", page);
+    	}
+    	model.addAttribute("bCheck", bCheck);
+    	
+    	return "emergency_treat/data_delete_ok";
+	}
+	
+	@GetMapping("data_find.do")
+	public String data_find(Model model)
+	{
+		model.addAttribute("main_jsp", "../emergency_treat/data_find.jsp");
+		return "main/main";
+	}
+	
+	
 	
 
 }
+
+
+
+
+
+
+

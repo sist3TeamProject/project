@@ -1,26 +1,39 @@
 package com.sist.vo;
 
 public class AedVO {
-	private String addr1,add2,title,place,org;
+	private String addr,title,place,org,managertel,sido,gugun;
 	private String lat,lon;
 	
+	
+	public String getManagertel() {
+		return managertel;
+	}
+	public void setManagertel(String managertel) {
+		this.managertel = managertel;
+	}
+	public String getSido() {
+		return sido;
+	}
+	public void setSido(String sido) {
+		this.sido = sido;
+	}
+	public String getGugun() {
+		return gugun;
+	}
+	public void setGugun(String gugun) {
+		this.gugun = gugun;
+	}
 	public String getOrg() {
 		return org;
 	}
 	public void setOrg(String org) {
 		this.org = org;
 	}
-	public String getAddr1() {
-		return addr1;
+	public String getAddr() {
+		return addr;
 	}
-	public void setAddr1(String addr1) {
-		this.addr1 = addr1;
-	}
-	public String getAdd2() {
-		return add2;
-	}
-	public void setAdd2(String add2) {
-		this.add2 = add2;
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 	public String getTitle() {
 		return title;

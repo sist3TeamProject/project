@@ -3,9 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%><!-- 날짜변환 (오라클/자바) -->
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%--
-    <spring:~> <form: ~ 에러 처리> 검증 (유효성 검사)
- --%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,21 +30,21 @@ h1,h2{
 </head>
 <body>
    <div class="container1">
-    <%-- <spring:message code="list.title"> 주로 사용처 (메뉴) , 한글/영문
-          title=자료실
-          title_en=Title
-    --%>
+   
     <h2>홍보 이미지</h2>
     <div class="row">
       <table class="table">
        <tr>
          <td>
+        <!-- 관리자만 새 글 버튼 보임 -->
+         <sec:authorize access="hasRole('ROLE_ADMIN')">
           <a href="insert.do" class="btn btn-sm btn-danger">새글</a>
+          </sec:authorize>
          </td>
        </tr>
       </table>
       <table class="table">
-        <tr class="success">
+        <tr class="info">
           <th class="text-center" width=10%>번호</th>
           <th class="text-center" width=45%>제목</th><%-- 댓글 갯수 --%>
           <th class="text-center" width=15%>이름</th>
@@ -107,3 +106,4 @@ h1,h2{
    </div>
 </body>
 </html>
+
