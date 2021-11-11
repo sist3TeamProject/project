@@ -35,24 +35,24 @@ h1,h3{
   <div class="row"><%-- 내용출력 --%>
      <table class="table" >
       <tr>
-        <th width=20% class="success text-center">번호</th>
+        <th width=20% class="info text-center">번호</th>
         <td width=30% class="text-center">${vo.no }</td> 
-        <th width=20% class="success text-center">작성일</th>
+        <th width=20% class="info text-center">작성일</th>
         <td width=30% class="text-center"><fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd"/></td> 
       </tr>
       <tr>
-        <th width=20% class="success text-center">이름</th>
+        <th width=20% class="info text-center">이름</th>
         <td width=30% class="text-center">${vo.name }</td> 
-        <th width=20% class="success text-center">조회수</th>
+        <th width=20% class="info text-center">조회수</th>
         <td width=30% class="text-center">${vo.hit }</td> 
       </tr>
       <tr>
-        <th width=20% class="success text-center">제목</th>
+        <th width=20% class="info text-center">제목</th>
         <td colspan="3" class="text-left">${vo.subject }</td> 
       </tr>
       <c:if test="${vo.filecount>0 }"><%-- 업로드된 파일이 존재하면 --%>
 	      <tr>
-	        <th width=20% class="success text-center">첨부파일</th>
+	        <th width=20% class="info text-center">첨부파일</th>
 	        <td colspan="3" class="text-left">
 	          <ul>
 	           <c:forEach var="fn" items="${fList }" varStatus="s">
@@ -83,7 +83,7 @@ h1,h3{
         <td colspan="4" class="text-right">
          <a href="update.do?no=${vo.no }&page=${page}" class="btn btn-xs btn-danger">수정</a>
          <a href="delete.do?no=${vo.no }&page=${page}" class="btn btn-xs btn-primary">삭제</a>
-         <a href="list.do?page=${page }" class="btn btn-xs btn-info">목록</a>
+         <a href="list.do?page=${page }" class="btn btn-xs btn-warning">목록</a>
         </td>
       </tr>
      </table>

@@ -50,7 +50,7 @@ h1,h2{
        </tr>
       </table>
       <table class="table">
-        <tr class="success">
+        <tr class="info">
           <th class="text-center" width=10%>번호</th>
           <th class="text-center" width=45%>제목</th><%-- 댓글 갯수 --%>
           <th class="text-center" width=15%>이름</th>
