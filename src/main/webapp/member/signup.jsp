@@ -15,7 +15,9 @@
 				.input-group.col-sm-10.valid {
 					margin-left: 0px;
 				}
-			}
+			}span[id^="valid_"] {
+	color: red;
+}
 		</style>
 	</head>
 	<body>
