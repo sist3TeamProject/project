@@ -34,9 +34,14 @@ public class AedRestController {
 			for(AedVO vo : list)
 			{
 				JSONObject obj = new JSONObject();
+				String realAddr=vo.getSido()+" "+vo.getGugun()+" "+vo.getAddr();
 				obj.put("title", vo.getOrg());
 				obj.put("lat", vo.getLat());
 				obj.put("lon", vo.getLon());
+				obj.put("place", vo.getPlace()); 
+				obj.put("tel", vo.getManagertel()); 
+				obj.put("addr",realAddr);
+	 
 				arr.add(obj);
 			}
 			json=arr.toJSONString();

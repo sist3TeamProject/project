@@ -137,6 +137,19 @@ $(function(){
 								<ul v-for="vo in aedList">
 								</ul>
 						</div>
+						<div class="col-sm-4" style="width:300px; height:700px;overflow:auto">
+							<table class="table" v-for="vo,index in aedList">
+								<tr>
+									<td>{{index+1.}}&nbsp;{{vo.title}}</td>
+								</tr>
+								<tr>
+									<td>{{vo.tel}}</td>
+								</tr>
+								<tr>
+									<td>{{vo.addr}}</td>
+								</tr>
+							</table>
+						</div>
             			</td>
             		</tr>
             	</table>
@@ -173,15 +186,26 @@ $(function(){
 		                       <option value='경상남도'>경상남도</option>
 		                       <option value='제주특별자치도'>제주도</option>
 						    </select>
-						    <select id="gen_gugun" style="width:100px;" v-model="gen_addr2">
+						    <select id="gen_gugun" style="width:100px;" v-model="gen_addr2" v-on:click="getData()">
 						      <option value="">선택</option>
 						    </select>
 						    
 						<h5 style="color:red;margin-top:-5px" align="left">동 검색 시 비슷한 이름이 들어 갈 경우 AED가 중복으로 검색될 수 있습니다.</h5>
-						<input type="button" value="검색" style="background-color:black;border:none;color:white;font-weight:bold;margin-top:5px;">
+						<input type="button" value="검색" style="background-color:black;border:none;color:white;font-weight:bold;margin-top:5px;" v>
 						</td>
 					</tr>
 				</table>
+				<table class="table" v-for="vo,index in aedList">
+								<tr>
+									<td>{{index+1.}}&nbsp;{{vo.title}}</td>
+								</tr>
+								<tr>
+									<td>{{vo.tel}}</td>
+								</tr>
+								<tr>
+									<td>{{vo.addr}}</td>
+								</tr>
+							</table>
 				
 			</div>
 
@@ -204,7 +228,8 @@ new Vue({
 		addr1:"",
 		addr2:"",
 		gen_addr1:"",
-		gen_addr2:""
+		gen_addr2:"",
+		index:0
 		
 	},
 	mounted:function(){
@@ -213,6 +238,10 @@ new Vue({
 		this.initMap();
 	},
 	methods:{
+		getData:function(){
+			this.targetAddr= this.gen_addr1+" "+this.gen_addr2;
+			this.findAED();
+		},
 		addAddr:function(){
 			this.targetAddr= this.addr1+" "+this.addr2;
 			this.findAED();
