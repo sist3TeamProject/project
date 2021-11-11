@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,25 +33,29 @@
               <hr class="hr1">
               <table class="table" style="background-color: #D3D3D3">
                 <tr>
-                  <td><h5>${vo.title }</h5></td>
+                  <td><h5>${vo.subject }</h5></td>
                 </tr>
 		      </table>
 			  <table class="table">
-                <tr>
-                  <td>${vo.regdate }  |  ${vo.hit } | ${vo.name }</td>
-                </tr>
+			   <tr>
+                <ul class="blog-info">
+                  <li><i class="fa fa-calendar"></i>작성일 : ${vo.regdate }</li>
+                  <li><i class="fa fa-comments"></i>조회수 : ${vo.hit }</li>
+                  <li><i class="fa fa-tags"></i>작성자 : ${vo.name }</li>
+                </ul>
+               </tr>
                 <c:if test="${vo.filecount>0 }">
-		        <tr>
-		          <th width=20% class="text-center">첨부파일</th>
-		          <td colspan="3" class="text-left">
-		            <ul>
-		              <c:forEach var="fn" items="${fList }" varStatus="s">
-		                <li><a href="data_download.do?fn=${fn }">${fn }&nbsp;(${sList[s.index]}Bytes)</li>
-		              </c:forEach>
-		            </ul>
-		          </td>  
-		        </tr>
-		        </c:if>
+			      <tr>
+			        <th class="text-center">첨부파일</th>
+			        <td colspan="3" class="text-left">
+			          <ul>
+			           <c:forEach var="fn" items="${fList }" varStatus="s">
+			            <li><a href="download.do?fn=${fn }">${fn }</a>&nbsp;(${sList[s.index]}Bytes)</li>
+			           </c:forEach>
+			          </ul>
+			        </td>
+			      </tr>
+		      </c:if>
               </table>
               <table class="table">
                 <tr>

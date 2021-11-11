@@ -194,7 +194,7 @@ public class TreatController {
 			vo.setFilecount(0);
 		}
 		dao.insertData(vo);
-		return "redirect:treat_data.do";
+		return "redirect:../emergency_treat/treat_data.do";
 	}
 
 	@GetMapping("data_download.do")
@@ -227,12 +227,23 @@ public class TreatController {
 	@GetMapping("data_update.do")
 	public String data_update(int no,int page,Model model)
 	{
-		Treat_DataVO vo=dao.tDataDetail(no);
+		Treat_DataVO vo=dao.tDataUpdateData(no);
 		
 		model.addAttribute("vo", vo);
 		model.addAttribute("page", page);
 		model.addAttribute("main_jsp", "../emergency_treat/data_update.jsp");
 		return "main/main";
+	}
+	
+	@PostMapping("data_update_ok.do")
+	public String board_update_ok(int page,Treat_DataVO vo,Model model)
+	{
+		boolean bCheck=dao.dataUpdate(vo);
+		
+		model.addAttribute("page" , page);
+		model.addAttribute("bCheck" , bCheck);
+		model.addAttribute("no" , vo.getNo());
+		return "emergency_treat/data_update_ok";
 	}
 	
 	@GetMapping("data_delete.do")
@@ -243,6 +254,41 @@ public class TreatController {
 		model.addAttribute("main_jsp", "../emergency_treat/data_delete.jsp");
 		return "main/main";
 	}
+	
+	@PostMapping("data_delete_ok.do")
+	public String data_delete_ok(int no,int page,String pwd,Model model)
+	{
+		Treat_DataVO vo=dao.tDataFileInfoData(no);
+		boolean bCheck=dao.dataDelete(no, pwd);
+		
+		if(bCheck==true)
+    	{
+    		try
+    		{
+    			if(vo.getFilecount()>0)
+    			{
+    				StringTokenizer st=new StringTokenizer(vo.getFilename(),",");
+    				while(st.hasMoreTokens())
+    				{
+    					File file=new File("c:\\download\\"+st.nextToken());
+    					file.delete();
+    				}
+    			}
+    		}catch(Exception ex){}
+    		model.addAttribute("page", page);
+    	}
+    	model.addAttribute("bCheck", bCheck);
+    	
+    	return "emergency_treat/data_delete_ok";
+	}
+	
+	@GetMapping("data_find.do")
+	public String data_find(Model model)
+	{
+		model.addAttribute("main_jsp", "../emergency_treat/data_find.jsp");
+		return "main/main";
+	}
+	
 	
 	
 

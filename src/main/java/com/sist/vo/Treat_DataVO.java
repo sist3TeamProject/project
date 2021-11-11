@@ -1,44 +1,36 @@
 package com.sist.vo;
 
-import java.util.List;
+import java.util.*;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Treat_DataVO {
-	private int no,filecount;
-	private String title,content,regdate,name,hit,filename,filesize,pwd;
-	private List<MultipartFile> files;
-	
-	
-	public List<MultipartFile> getFiles() {
-		return files;
-	}
-	public void setFiles(List<MultipartFile> files) {
-		this.files = files;
-	}
+	private int no,filecount,hit;
+    private String name,subject,content,pwd,filename,filesize;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date regdate;
+    // 파일 목록을 받는다 
+    private List<MultipartFile> files;
+    
+    
 	public int getNo() {
 		return no;
 	}
 	public void setNo(int no) {
 		this.no = no;
 	}
-	public String getTitle() {
-		return title;
+	public int getFilecount() {
+		return filecount;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setFilecount(int filecount) {
+		this.filecount = filecount;
 	}
-	public String getContent() {
-		return content;
+	public int getHit() {
+		return hit;
 	}
-	public void setContent(String content) {
-		this.content = content;
-	}
-	public String getRegdate() {
-		return regdate;
-	}
-	public void setRegdate(String regdate) {
-		this.regdate = regdate;
+	public void setHit(int hit) {
+		this.hit = hit;
 	}
 	public String getName() {
 		return name;
@@ -46,17 +38,23 @@ public class Treat_DataVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getHit() {
-		return hit;
+	public String getSubject() {
+		return subject;
 	}
-	public void setHit(String hit) {
-		this.hit = hit;
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
-	public int getFilecount() {
-		return filecount;
+	public String getContent() {
+		return content;
 	}
-	public void setFilecount(int filecount) {
-		this.filecount = filecount;
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
 	}
 	public String getFilename() {
 		return filename;
@@ -70,12 +68,20 @@ public class Treat_DataVO {
 	public void setFilesize(String filesize) {
 		this.filesize = filesize;
 	}
-	public String getPwd() {
-		return pwd;
+	public Date getRegdate() {
+		return regdate;
 	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
 	}
+	public List<MultipartFile> getFiles() {
+		return files;
+	}
+	public void setFiles(List<MultipartFile> files) {
+		this.files = files;
+	}
+	
+	
 	
 	
 	
