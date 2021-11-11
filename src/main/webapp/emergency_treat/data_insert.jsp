@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,7 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-let fileIndex=0; // 전역변수 
+let fileIndex=0;
 $(function(){
 	$('#add').click(function(){
 		$('#fileView').append(
@@ -54,7 +55,7 @@ $(function(){
 	        <tr>
 	          <th width=25% class="text-right">제목</th>
 	          <td width=75%>
-	            <input type=text name=title size=55 class="input-sm">
+	            <input type=text name=subject size=55 class="input-sm">
 	          </td>
 	        </tr>
 	        <tr>

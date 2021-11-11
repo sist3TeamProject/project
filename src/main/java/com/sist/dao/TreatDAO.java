@@ -75,6 +75,7 @@ public class TreatDAO {
 	
 	public Treat_DataVO tDataDetail(int no)
 	{
+		mapper.tDataHitIncreement(no);
 		return mapper.tDataDetail(no);
 	}
 	
@@ -83,54 +84,56 @@ public class TreatDAO {
 		mapper.insertData(vo);
 	}
 	
+	public Treat_DataVO tDataFileInfoData(int no)
+	{
+		return mapper.tDataFileInfoData(no);
+	}
+	
+	public Treat_DataVO tDataUpdateData(int no)
+	{
+		return mapper.tDataDetail(no);
+	}
+	
 	public boolean dataUpdate(Treat_DataVO vo)
 	{
 		boolean bCheck=false;
 		
-		String db_pwd=mapper.dataGetPassword(vo.getNo());
+		String db_pwd=mapper.tDataGetPassword(vo.getNo());
 		
 		if(db_pwd.equals(vo.getPwd()))
 		{
 			bCheck=true;
 			mapper.dataUpdate(vo);
 		}
-		else
-		{
-			bCheck=false;
-		}
 		
 		return bCheck;
 	}
 	
-	@Transactional(propagation=Propagation.REQUIRED,rollbackFor=Exception.class)
 	public boolean dataDelete(int no,String pwd)
 	{
 		boolean bCheck=false;
 		
-		String db_pwd=mapper.dataGetPassword(no);
+		String db_pwd=mapper.tDataGetPassword(no);
 		
 		if(db_pwd.equals(pwd))
 		{
 			bCheck=true;
 			mapper.dataDelete(no);
 		}
-		else
-		{
-			bCheck=false;
-		}
 		
 		return bCheck;
 	}
 	
-	public List<Treat_DataVO> dataFindData(Map map)
+	public List<Treat_DataVO> tDataFindData(Map map)
 	{
-		return mapper.dataFindData(map);
+		return mapper.tDataFindData(map);
 	}
 	
-	public int dataFindTotalPage(String title)
+	public int tDataFindTotalPage(String ss)
 	{
-		return mapper.dataFindTotalPage(title);
+		return mapper.tDataFindTotalPage(ss);
 	}
+	
 
 }
 

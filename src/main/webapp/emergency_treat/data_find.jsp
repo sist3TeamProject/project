@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
     var stmnLEFT = 10; // 오른쪽 여백 
 	var stmnGAP1 = 0; // 위쪽 여백 
@@ -49,7 +51,7 @@
 </head>
 <body onload="InitializeStaticMenu();">
 <div class="main">
-      <div class="container">
+     <div class="container">
         <ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
             <li><a href="javascript:;">응급처치방법</a></li>
@@ -63,53 +65,37 @@
             <h5>응급의료에 관한 다양한 자료를 다운로드받으실 수 있습니다.</h5>
             
             <div class="content-page">
-                <!-- BEGIN LEFT SIDEBAR -->            
-                <div class="col-md-9 col-sm-9 blog-posts">
-                  <div class="text-right">
-              		<a href="data_insert.do" class="btn btn-sm btn-info">새글</a>
-              		<a href="data_find.do" class="btn btn-sm btn-success">찾기</a>
-            	  </div>
-                  <c:forEach var="vo" items="${list }">
-                  <hr class="my-hr1">
-                  <div class="row">
+              <!-- BEGIN LEFT SIDEBAR -->            
+              <div class="col-md-9 col-sm-9 blog-posts">
+                <div class="text-right">
+                  <input type="text" size=30 class="input-sm" placeholder="검색어를 입력하세요" v-model="ss">
+      			  <button class="btn btn-sm btn-primary" v-on:click="dataFind()">검색</button>
+                </div>
+                <hr class="my-hr1">
+                  <div class="row" v-for="vo in find_data">
                     <div class="col-md-4 col-sm-4">
                       <img class="img-responsive" alt="" src="../pages/img/data_image.JPG">
                     </div>
                     <div class="col-md-8 col-sm-8">
-                      <h3><a href="../emergency_treat/data_detail.do?no=${vo.no }&page=${curpage}">${vo.subject }</a></h3>
+                    <!-- <a :href="'../food/detail.do?cno='+vo.cno"> -->
+                      <h3><a :href="'../emergency_treat/data_detail.do?no='+vo.no+'&page='+vo.curpage">{{vo.subject }}</a></h3>
                       <ul class="blog-info">
-                        <li><i class="fa fa-calendar"></i>${vo.regdate }</li>
-                        <li><i class="fa fa-comments"></i>${vo.hit }</li>
-                        <li><i class="fa fa-tags"></i>${vo.name }</li>
+                        <li><i class="fa fa-tags"></i>{{vo.name }}</li>
                       </ul>
-                      <%-- <p>${vo.content }</p> --%>
-                      <a href="../emergency_treat/data_detail.do?no=${vo.no }&page=${curpage}" class="more">Read more <i class="icon-angle-right"></i></a>
+                      <a href="#" class="more">Read more <i class="icon-angle-right"></i></a>
                     </div>
                   </div>
-                  </c:forEach>
-                  <hr class="blog-post-sep">
-                  <ul class="pagination">
-                    <c:if test="${startPage>1 }">
-			          <li><a href="../emergency_treat/treat_data.do?page=${startPage-1 }">&laquo; Previous</a></li>
-			        </c:if>
-			        <c:forEach var="i" begin="${startPage }" end="${endPage }">
-			          <c:if test="${i==curpage }">
-			            <li class="active"><a href="../emergency_treat/treat_data.do?page=${i }">${i }</a></li>
-			          </c:if>
-			          <c:if test="${i!=curpage }">
-			            <li><a href="../emergency_treat/treat_data.do?page=${i }">${i }</a></li>
-			          </c:if>
-			        </c:forEach>
-			        <c:if test="${endPage<totalpage }">
-			          <li><a href="../emergency_treat/treat_data.do?page=${endPage+1 }">Next &raquo;</a></li>
-			        </c:if>
-                  </ul>         
-                  <div style="height: 40px"></div>    
-                </div>
-                <!-- END LEFT SIDEBAR -->
-
-                <!-- BEGIN RIGHT SIDEBAR -->            
-                <div class="col-md-3 col-sm-3 blog-sidebar" id="STATICMENU">
+                <div class="row">
+			    <div class="text-center">
+			      <ul class="pagination">
+			        <li v-for="i in totalpage"><a href="#" v-on:click="pageChange(i)">{{i}}</a></li>
+			      </ul>
+			    </div>
+			  </div>
+			  <div style="height: 40px"></div>    
+              </div>
+              
+              <div class="col-md-3 col-sm-3 blog-sidebar" id="STATICMENU">
                   <!-- CATEGORIES START -->
                   <h2 class="no-top-space">Categories</h2>
                   <ul class="nav sidebar-categories margin-bottom-40">
@@ -119,9 +105,7 @@
                     <li><a href="../notice/notice.do">알림&소식</a></li>
                     <li><a href="../promotion_image/list.do">홍보자료</a></li>
                   </ul>
-                  <!-- CATEGORIES END -->
-
-                  <!-- BEGIN RECENT NEWS -->                            
+                            
                   <h2>Recent News</h2>
                   <div class="recent-news" style="width:280px">
                     <div class="row">
@@ -137,9 +121,7 @@
                       <p class="text-center"><a href="../notice/notice.do">2021년 8월 응급의료기관 및 응급의료기관<br>외의 의료기관(응급의료시설) 현황</a></p>                        
                     </div>
                   </div>
-                  <!-- END RECENT NEWS -->                            
 
-                  <!-- BEGIN BLOG TALKS -->
                   <div class="blog-talks margin-bottom-30">
                     <h2>Popular Post</h2>
                     <div class="tab-style-1">
@@ -159,16 +141,84 @@
                       </div>
                     </div>
                   </div>                            
-                  <!-- END BLOG TALKS -->
                 </div>
-                <!-- END RIGHT SIDEBAR -->            
-              </div>
             </div>
           </div>
-          <!-- END CONTENT -->
         </div>
-        <!-- END SIDEBAR & CONTENT -->
       </div>
-    </div>
+</div>
+<script>
+  new Vue({
+  	el:'.main',
+  	data:{
+  		find_data:[],
+  		page:1,
+  		ss:'응급',
+  		totalpage:0
+  	},
+  	mounted:function(){
+  		axios.get("http://localhost:8080/web/emergency_treat/rest_data_find.do",{
+  			params:{
+  				ss:this.ss,
+  				page:this.page
+  			}
+  		}).then(res=>{
+  			console.log(res.data);
+  			this.find_data=res.data;
+  			this.page=this.find_data[0].curpage;
+  			this.totalpage=this.find_data[0].totalpage;
+  		})
+  	},
+  	methods:{
+  		dataFind:function(){
+  			axios.get("http://localhost:8080/web/emergency_treat/rest_data_find.do",{
+      			params:{
+      				ss:this.ss,
+      				page:this.page
+      			}
+      		}).then(res=>{
+      			console.log(res);
+      			this.find_data=res.data;
+      			this.page=this.find_data[0].curpage;
+      			this.totalpage=this.find_data[0].totalpage;
+      		})
+  		},
+  		pageChange:function(p){
+  			this.page=p;
+  			axios.get("http://localhost:8080/web/emergency_treat/rest_data_find.do",{
+      			params:{
+      				ss:this.ss,
+      				page:this.page
+      			}
+      		}).then(res=>{
+      			console.log(res);
+      			this.find_data=res.data;
+      			this.page=this.find_data[0].curpage;
+      			this.totalpage=this.find_data[0].totalpage;
+      		})
+  		}
+  	}
+  })
+</script>      
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

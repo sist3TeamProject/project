@@ -1,83 +1,64 @@
 package com.sist.web;
-import com.sist.dao.*;
-import com.sist.vo.*;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import java.util.*;
+import com.sist.dao.*;
+import com.sist.vo.*;
 
 @RestController
 public class TreatRestController {
 	@Autowired
 	private TreatDAO dao;
 	
-	@PostMapping("emergency_treat/data_update_ok.do")
-	public String updata_ok(int page, Treat_DataVO vo)
-	{
-		
-		String url="";
-		
-		boolean bCheck=dao.dataUpdate(vo);
-		if(bCheck==true)
-		{
-			url="<script>"
-				+"location.href=\"../emergency_treat/data_detail.do?no="+vo.getNo()+"&page="+page+"\";"
-				+"</script>";
-		}
-		else
-		{
-			url="<script>"
-			    +"alert(\"비밀번호가 틀립니다!!\");"
-				+"history.back();"
-				+"</script>";
-		}
-		
-		return url;
-	}
 	
-	@PostMapping("emergency_treat/data_delete_ok.do")
-	public String delete_ok(int no, int page, String pwd)
-	{
-		String url="";
-		
-		boolean bCheck=dao.dataDelete(no, pwd);
-		if(bCheck==true)
-		{
-			url="<script>"
-				+"location.href=\"../emergency_treat/treat_data.do?page="+page+"\";"
-				+"</script>";
-		}
-		else
-		{
-			url="<script>"
-			    +"alert(\"비밀번호가 틀립니다!!\");"
-				+"history.back();"
-				+"</script>";
-		}
-		
-		return url;
-	}
-	
-	
+	 @RequestMapping(value="emergency_treat/rest_data_find.do",produces="text/plain;charset=UTF-8")
+    public String food_rest_find(String page, String ss)
+    {
+	   
+	   String json="";
+	   try
+	   {
+		   if(page==null)
+			   page="1";
+		   int curpage=Integer.parseInt(page);
+
+		   Map map=new HashMap();
+		   int rowSize=5;
+		   int start=(rowSize*curpage)-(rowSize-1);
+		   int end=rowSize*curpage;
+		   
+		   map.put("start", start);
+		   map.put("end", end);
+		   map.put("ss", ss);
+		   List<Treat_DataVO> list=dao.tDataFindData(map);
+		   int totalpage=dao.tDataFindTotalPage(ss);
+		   
+
+		   JSONArray arr=new JSONArray();
+		   int i=0;
+		   for(Treat_DataVO vo:list)
+		   {
+			   JSONObject obj=new JSONObject();
+			   obj.put("no", vo.getNo());
+			   obj.put("name", vo.getName());
+			   obj.put("subject", vo.getSubject());
+			   
+			   if(i==0)
+			   {
+				   obj.put("curpage", curpage);
+				   obj.put("totalpage", totalpage);
+			   }
+			   
+			   arr.add(obj);
+			   i++;
+		   }
+		   json=arr.toJSONString();
+	   }catch(Exception ex){}
+	   return json;
+    }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
