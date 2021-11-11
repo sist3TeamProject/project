@@ -37,7 +37,7 @@
 	height: 700px;
 }
 .emcList{
-	overflow:scroll;
+	overflow: auto;
 }
 </style>
 </head>
@@ -62,7 +62,8 @@
 					<div class="searchMap">
 						<div class="searchAddr">
 							<input type="text" v-model="targetAddr" placeholder="지명을 입력하세요" onclick="javascript:this.value='';">
-							<input type="button" value="근처 응급실 찾기" v-on:click="findEMC">
+							<input type="button" value="근처 응급실 찾기" v-on:click="findEMC()">
+							<input type="button" value="현재 위치에서 찾기" v-on:click="getCurrentLocation()">
 						</div>
 						<div class="col-sm-8 mapDiv">
 							<div id="map" style="width:100%;height:700px;"></div>
@@ -105,21 +106,30 @@ new Vue({
 		index:0
 	},
 	mounted:function(){
-		this.targetAddr="서울시 마포구 서교동";
+		this.targetAddr="경기도 고양시 덕양구";
 		this.findEMC();
 	},
 	updated:function(){
+		//console.log(this.baseLat);
+		//baseLat=this.baseLat;
 		this.initMap();
 	},
+  	watch:{
+  		baseLat: function (val) {
+  	      console.log(val);
+  	      this.getJSON();
+  	      this.initMap();
+  	    }
+  	},
 	methods: {
 		getCurrentLocation(){
+			let base=this;
 			if (navigator.geolocation) {
 				  // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-
 				  navigator.geolocation.getCurrentPosition(function(position) {
-				  	this.baseLat = position.coords.latitude, // 위도
-					this.baseLon = position.coords.longitude; // 경도
-					console.log(this.baseLat);
+				  	base.baseLat = position.coords.latitude, // 위도
+					base.baseLon = position.coords.longitude; // 경도
+					base.targetAddr="";
 				  });
 			}else {
 			  // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
