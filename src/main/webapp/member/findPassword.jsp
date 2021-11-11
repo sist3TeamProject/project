@@ -6,6 +6,13 @@
 	<head>
 		<title>비밀번호 찾기</title>
 		<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+		<style>
+			@media ( max-width : 767px) {
+				.input-group.col-sm-10 {
+					width:100%;
+				}
+			}
+		</style>
 	</head>
 	<body>
 		<div id="checkModal" class="modal fade" tabindex = "-1" role = "dialog">
@@ -29,7 +36,7 @@
 		</div>
 		<div class="clearfix">
 			<form onsubmit="return login()">
-				<div class="input-group">
+				<div class="input-group col-sm-10" style="margin:0px auto">
 					<span class="input-group-addon">
 						<label style="margin:0px" for="username">
 							<i class="glyphicon glyphicon-envelope"></i>

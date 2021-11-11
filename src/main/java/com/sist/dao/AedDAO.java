@@ -12,8 +12,10 @@ import java.util.*;
 public class AedDAO {
 	@Autowired
 	private AedMapper mapper;
-	public List<AedVO> aedDataList()
+	
+	
+	public List<AedVO> aedDataList(Map map)
 	{
-		return mapper.aedDataList();
+		return mapper.aedDataList(map);
 	}
 }

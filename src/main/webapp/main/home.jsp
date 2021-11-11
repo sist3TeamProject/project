@@ -198,9 +198,9 @@
               <div class="recent-work-item">
                 <em>
                   <img src="../pages/img/works/img3.jpg" class="img-responsive">
-                  <a href="../pages/img/works/AED.jpg" class="fancybox-button" title="자동 심장충격기" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                  <a href="../aed/find.do" class="fancybox-button" title="자동 심장충격기" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
-                <a class="recent-work-description" href="../pages/img/works/AED.jpg">
+                <a class="recent-work-description" href="../aed/find.do">
                   <strong>자동 심장충격기</strong>
                   <b>주변에 위치한 자동 심장충격기 정보를 알려드립니다. </b>
                 </a>

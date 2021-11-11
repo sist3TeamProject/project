@@ -1,5 +1,7 @@
 package com.sist.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
@@ -43,4 +45,8 @@ public interface MemberMapper {
 	
 	@Update("UPDATE member SET delete_check = #{deleteCheck}, delete_time = SYSDATE WHERE idx = #{idx}")
 	public Integer deleteMember(MemberDTO memberDTO);
+	
+
+	@Select("SELECT * FROM member")
+	public List<MemberDTO> find();
 }
