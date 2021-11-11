@@ -24,7 +24,7 @@ li{
 	font-size: 13px;
 	list-style: none;
 }
-.detailpart{
+.margin-15{
 	margin: 15px;
 }
 .detailList{
@@ -48,10 +48,18 @@ th{
 </head>
 <body>
 <div class="container">
-	<div class="row">
+	<div class="row margin-15">
 		<h2>응급실 찾기</h2>
 		<p>응급실 정보 검색 서비스입니다.</p>
-		<h3>${vo.name }</h3>
+		<hr>
+		<div style="display: flex; align-items: center; height: 40px;">
+			<h3 style="display: inline;">${vo.name }</h3>
+			<a href="https://map.kakao.com/link/to/${vo.name },${vo.lat },${vo.lon }">
+				<input style="margin-left: 10px;" type="button" value="길찾기 &raquo;" class="btn btn-md btn-success">
+			</a>
+		</div>
+	</div>
+	<div class="row">	
 		<div style="height: 300px;">
 			<div class="col-sm-5">
 				<div id="map" style="width: 100%; height: 300px;"></div>
@@ -73,7 +81,7 @@ th{
 				</table>
 			</div>
 		</div>
-		<div class="detailpart" >
+		<div class="margin-15" >
 			<h5>외래 진료시간</h5>
 			<div class="detailList">
 				<ul class="clearfix">
@@ -199,6 +207,9 @@ th{
 					</li>
 				</ul>
 			</div>
+		</div>
+		<div class="text-right margin-15">
+			<a href="javascript:history.back();"><input type="button" class="btn btn-sm btn-primary" value="목록"></a>
 		</div>
 	</div>
 </div>
