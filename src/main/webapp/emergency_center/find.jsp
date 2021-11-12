@@ -11,6 +11,20 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=be0965f85428a75d750a50fe123d2748&libraries=services"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style type="text/css">
+.voInfo{
+	margin-left: 30px;
+	margin-top: 20px;
+}
+.row{
+	margin: 15px;
+}
+.container{
+	padding: 0px;
+}
+h2{
+	font-weight: bolder;
+	margin: 20px 0;
+}
 .hover:hover{
 	cursor: pointer;
 	background-color: #EFEFEF;
@@ -61,7 +75,8 @@
 					<div class="searchMap">
 						<div class="searchAddr">
 							<input type="text" size="30" v-model="targetAddr" placeholder="지명을 입력하세요" onclick="javascript:this.value='';">
-							<input type="button" value="근처 응급실 찾기" v-on:click="findEMC()">
+							<input type="button" value="근처 응급실 찾기" v-on:click="findEMC">
+							<input type="button" value="현재 위치에서 찾기" v-on:click="getCurrentLocation	">
 						</div>
 						<div class="col-sm-8 mapDiv">
 							<div id="map" style="width:100%;height:700px;"></div>
@@ -73,8 +88,8 @@
 							<ul id="placesList" v-for="vo,index in hpidList" style="margin: 0px;padding: 0px;">
 								<li class="hover" v-on:click="goDetail(vo.hpid)" style="list-style: none;">
 									<h5>{{index+1}} . {{vo.name}}</h5>
-									<div class="voInfo" style="margin: 10px;">
-										<p style="font-size: small;">{{vo.distance}}km</p>
+									<div class="voInfo">
+										<p style="font-size: small;">거리 : {{vo.distance}}km</p>
 										<p>{{vo.addr}}</p>
 										<p>{{vo.tel}}</p>
 									</div>
@@ -96,8 +111,7 @@ new Vue({
 		hpidList:[],
 		baseLat:0,
 		baseLon:0,
-		targetAddr:this.targetAddr,
-		index:0
+		targetAddr:this.targetAddr
 	},
 	mounted:function(){
 		this.getCurrentLocation();
