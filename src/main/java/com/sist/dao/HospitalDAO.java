@@ -1,5 +1,5 @@
 package com.sist.dao;
-//hospitaldao
+
 import java.util.List;
 import java.util.Map;
 
