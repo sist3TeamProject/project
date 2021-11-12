@@ -20,7 +20,6 @@ public class ReservationDTO {
 	@Max(value = 5, message = "1 ~ 5명까지 가능합니다")
 	private Integer peopleNumber;
 	private LocalDateTime reservationTime;
-	private String parking;
 	private Integer status;
 	private String title;
 	private String writer;
@@ -67,12 +66,6 @@ public class ReservationDTO {
 	}
 	public void setReservationTime(LocalDateTime reservationTime) {
 		this.reservationTime = reservationTime;
-	}
-	public String getParking() {
-		return parking;
-	}
-	public void setParking(String parking) {
-		this.parking = parking;
 	}
 	public Integer getStatus() {
 		return status;

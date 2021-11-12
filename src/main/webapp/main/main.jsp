@@ -141,9 +141,8 @@ body {
 			form.attr("action", uri);
 			form.attr("method", "post");
 			form.appendTo("body");
-			form.append("<input type='hidden' name='targetIdx' value='1' />");
 			form.append("<input type='hidden' name='targetType' value='hospital' />");
-			form.append("<input type='hidden' name='title' value='테스트' />");
+			form.append("<input type='hidden' name='title' value='random' />");
 			form.submit();
 		}
 	</script>

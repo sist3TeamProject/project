@@ -54,13 +54,6 @@
 			</div>
 
 			<div class="form-group">
-				<label for="parking" class="col-sm-2 control-label">주차여부</label>
-				<div class="col-sm-9">
-					<input type="checkbox" id="parking" />
-				</div>
-			</div>
-
-			<div class="form-group">
 				<label class="col-sm-2 control-label">예약자</label>
 				<div class="col-sm-9">
 					<input type="text" class="form-control" value="${reservationDTO.writer}" readonly />
@@ -69,7 +62,7 @@
 
 			<div id="btnDiv" class="text-center table-btn">
 				<input type="button" class="btn btn-default" onclick="window.history.back()" value="뒤로가기" />
-				<button type="submit" class="btn btn-primary">저장하기</button>
+				<button type="submit" class="btn btn-success">저장하기</button>
 			</div>
 		</form>
 		<script>
@@ -88,7 +81,6 @@
 					return false;
 				}
 				let reservationDTO = $("#form").serializeArray();
-				reservationDTO.push({name:"parking", value:$("#parking").is(":checked") ? "Y" : "N"});
 				let uri = contextRoot+"/reservation/insert.do";
 				let headers = {};
 				headers["X-HTTP-Method-Override"] = "POST";
@@ -101,7 +93,7 @@
 					success : function(response) {
 						if(response){
 							alert("예약을 성공하였습니다.");
-							location.href=contextRoot+"/";
+							location.href=contextRoot+"/member/info.do?type=1";
 						}else{
 							alert("예약을 실패하였습니다.");
 						}

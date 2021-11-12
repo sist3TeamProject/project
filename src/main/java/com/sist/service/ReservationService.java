@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sist.dto.HospitalDTO;
 import com.sist.dto.ReservationDTO;
 import com.sist.mapper.ReservationMapper;
 
@@ -21,7 +22,13 @@ public class ReservationService {
 	}
 
 	public List<ReservationDTO> searchReservation(Map<String, Object> map) {		
-		return reservationMapper.searchReservation(map);
+		List<ReservationDTO> reservationList = reservationMapper.searchReservation(map);
+		int idx = reservationList.size();
+		for(int i = 0; i < reservationList.size(); i++) {
+			reservationList.get(i).setIdx(idx);
+			idx -= 1;
+		}
+		return reservationList;
 	}
 
 	public List<ReservationDTO> searchReservationAdmin(Map<String, Object> map) {
@@ -38,5 +45,12 @@ public class ReservationService {
 
 	public boolean deleteReservation(int idx) {
 		return (reservationMapper.deleteReservation(idx) > 0);
+	}
+	
+	public List<HospitalDTO> searchHospital(String address){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("address", address);
+		
+		return reservationMapper.searchHospital(map);
 	}
 }

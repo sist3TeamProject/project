@@ -38,7 +38,7 @@
                     <sec:authorize access="isAuthenticated()">
 						<ul class="list-unstyled list-inline pull-right">
 							<li>
-								<a href="javascript:void(0)" onclick="reservation()" class="button asset fit">예약 테스트</a>
+								<a href="javascript:void(0)" onclick="reservation()" class="button asset fit">긴급 예약</a>
 							</li>
 							<li>
 								<a href="<c:url value="/member/info.do" />" class="button asset fit">내 정보</a>
@@ -87,7 +87,9 @@
               </a>
                 
               <ul class="dropdown-menu">
-                <li><a href="../emergency_center/find.do">응급실찾기</a></li>
+                <li><a href="#">응급실찾기</a></li>
+                <li><a href="#">종합상황판</a></li>
+                <li><a href="#">민간구급차 검색</a></li>
               </ul>
             </li>
          
@@ -125,7 +127,7 @@
                 <li><a href="../emergency_treat/treat2.do">응급상황</a></li>
                 <li><a href="../emergency_treat/treat3.do">기본응급처치</a></li>
                 <li><a href="../emergency_treat/treat4.do">상황별응급처치</a></li>
-                <li><a href="../emergency_treat/treat_data.do">응급의료자료실</a></li>
+                <li><a href="../emergency_treat/treat_data.do">응급처치자료실</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -145,10 +147,10 @@
                 
               </a>
             <ul class="dropdown-menu">
-                <li><a href="../promotion_video/list.do">홍보동영상</a></li>
-                <li><a href="../promotion_audio/list.do">홍보음성</a></li>
-                <li><a href="../promotion_webtoon/list.do">홍보웹툰</a></li>
-                <li><a href="../promotion_image/list.do">홍보이미지</a></li>
+                <li><a href="#">홍보동영상</a></li>
+                <li><a href="#">홍보음성</a></li>
+                <li><a href="#">홍보웹툰</a></li>
+                <li><a href="#">홍보이미지</a></li>
               </ul>
             </li>   
             
