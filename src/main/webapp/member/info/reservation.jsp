@@ -91,7 +91,7 @@
 					</c:if>
 					<c:if test="${fn:length(reservationList) == 0}">
 						<tr>
-							<td colspan="100%">조회된 결과가 없습니다.</td>
+							<td style="text-align:center" colspan="100%">조회된 결과가 없습니다.</td>
 						</tr>
 					</c:if>
 				</tbody>
