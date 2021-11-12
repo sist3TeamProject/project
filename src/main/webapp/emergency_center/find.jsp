@@ -116,21 +116,15 @@ new Vue({
 	mounted:function(){
 		this.getCurrentLocation();
 	},
-	updated:function(){
-		this.setSleep();
-	},
   	watch:{
   		baseLat: function (val) {
   	      this.getJSON();
-  	      this.initMap();
-  	    }
+  	    },
+  		hpidList: function (val) {
+  			this.initMap();
+  		}
   	},
 	methods: {
-		setSleep(){
-			setTimeout(()=>{
-				this.initMap();
-			},1000)
-		},
 		getCurrentLocation(){
 			let base=this;
 			if (navigator.geolocation) {
@@ -161,20 +155,8 @@ new Vue({
 			geocoder.addressSearch(this.targetAddr, function(result, status) {
 				// 정상적으로 검색이 완료됐으면 
 				if (status === kakao.maps.services.Status.OK) {
-					baseLat=result[0].y;
-					baseLon=result[0].x;
-					
-					//JSON 불러오기
-					axios.get("http://localhost:8080/web/emergency_center/getFirst.do",{
-						params:{
-							baseLat:this.baseLat,
-							baseLon:this.baseLon
-						}
-					}).then(res=>{
-						base.hpidList=res.data;
-						base.baseLat=this.baseLat;
-						base.baseLon=this.baseLon;
-					})
+					base.baseLat=result[0].y;
+					base.baseLon=result[0].x;
 	  		    }
 	  		});
 		},
