@@ -76,7 +76,7 @@
                 <li><a href="<c:url value="/corona/city.do" />">시도별 발생동향</a></li>
                 <li><a href="<c:url value="/corona/route.do" />">확진환자 이동경로</a></li>
                 <li><a href="<c:url value="../corona/primary.do" />">백신 예약</a></li>
-                <li><a href="<c:url value="../corona/user_check.do" />">예약변경/취소</a></li>
+                <li><a href="<c:url value="../checklist/checklist.do" />">예약변경/취소</a></li>
                 <li><a href="<c:url value="../corona/reply.do" />">백신 리뷰</a></li>
               </ul>
             </li>
@@ -132,13 +132,12 @@
             </li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
-               알림&소식
+               자가진단
                 
               </a>
                 
               <ul class="dropdown-menu">
-                <li><a href="blog.html">공지사항</a></li>
-                <li><a href="blog-item.html">보도자료</a></li>
+                <li><a href="../checklist/checklist.do">자가진단</a></li>
               </ul>
             </li>
 

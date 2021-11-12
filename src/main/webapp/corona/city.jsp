@@ -100,7 +100,7 @@
 						      </div>
 						      <div id="content_yang">
 						        <!-- city,total_count,total_today,quarantine,quarantine_release,dying -->
-						        <ul class="nav" >
+						        <ul class="nav" style="font-size: 20px;">
 						         <li class="carousel-subtitle-v7 " style="margin-bottom: 10px;"><strong>{{corona.city}}</strong></li>
 						         <li class="carousel-subtitle-v7 " style="margin-bottom: 10px;">누적 확진환자&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{corona.totalcount}}명</strong></li>
 						         <li class="carousel-subtitle-v7 " style="margin-bottom: 10px;">전일 대비 증감률&nbsp;&nbsp;&nbsp;&nbsp;<strong>+{{corona.totaltoday}}명</strong></li>
