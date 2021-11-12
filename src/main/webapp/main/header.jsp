@@ -124,8 +124,8 @@
                 <li><a href="../emergency_treat/treat1.do">응급처치 개요</a></li>
                 <li><a href="../emergency_treat/treat2.do">응급상황</a></li>
                 <li><a href="../emergency_treat/treat3.do">기본응급처치</a></li>
-                <li><a href="../emergency_treat/treat4.do">상황별응급처치</a></li>
-                <li><a href="../emergency_treat/treat_data.do">응급처치자료실</a></li>
+                <li><a href="../emergency_treat/treat4.do">상황별응급처치</a></li> 
+                <li><a href="../emergency_treat/treat_data.do">응급처치자료실</a></li> 
               </ul>
             </li>
             <li class="dropdown">
@@ -145,10 +145,10 @@
                 
               </a>
             <ul class="dropdown-menu">
-                <li><a href="#">홍보동영상</a></li>
-                <li><a href="#">홍보음성</a></li>
-                <li><a href="#">홍보웹툰</a></li>
-                <li><a href="#">홍보이미지</a></li>
+                <li><a href="../promotion_video/list.do">홍보동영상</a></li>
+                <li><a href="../promotion_audio/list.do">홍보음성</a></li>
+                <li><a href="../promotion_webtoon/list.do">홍보웹툰</a></li>
+                <li><a href="../promotion_image/list.do">홍보이미지</a></li>
               </ul>
             </li>   
             
