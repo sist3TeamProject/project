@@ -28,7 +28,7 @@
           <div class="col-md-12 col-sm-12">
             <h1>응급의료 자료실(삭제하기)</h1>
             <h5>응급의료에 관한 다양한 자료를 다운로드받으실 수 있습니다.</h5>
-            <form method="post" action="../emergency_treat/data_delete_ok.do">
+            <form method="post" action="data_delete_ok.do">
 		       <table class="table">
 		         <tr>
 		           <td class="inline">

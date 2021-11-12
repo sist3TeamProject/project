@@ -37,7 +37,7 @@
 	height: 700px;
 }
 .emcList{
-	overflow:scroll;
+	overflow: auto;
 }
 </style>
 </head>
@@ -48,7 +48,6 @@
 			<div class="col-md-12 col-sm-12">
 				<h2>응급실 찾기</h2>
 				<p>응급실 정보 검색 서비스입니다.</p>
-				
 				<div class="content-page">
 					<table class="table">
 						<!-- <tr>
@@ -61,18 +60,14 @@
 						
 					<div class="searchMap">
 						<div class="searchAddr">
-							<input type="text" v-model="targetAddr" placeholder="지명을 입력하세요" onclick="javascript:this.value='';">
-							<input type="button" value="근처 응급실 찾기" v-on:click="findEMC">
+							<input type="text" size="30" v-model="targetAddr" placeholder="지명을 입력하세요" onclick="javascript:this.value='';">
+							<input type="button" value="근처 응급실 찾기" v-on:click="findEMC()">
 						</div>
 						<div class="col-sm-8 mapDiv">
 							<div id="map" style="width:100%;height:700px;"></div>
 						</div>
 						
 						<div class="col-sm-4 emcList">
-							<!-- <div id="menu_wrap" class="bg_white">
-						        <ul id="placesList"></ul>
-						        <div id="pagination"></div>
-						    </div> -->
 							<input type="hidden" v-model="baseLat">
 							<input type="hidden" v-model="baseLon">
 							<ul id="placesList" v-for="vo,index in hpidList" style="margin: 0px;padding: 0px;">
@@ -105,21 +100,33 @@ new Vue({
 		index:0
 	},
 	mounted:function(){
-		this.targetAddr="서울시 마포구 서교동";
-		this.findEMC();
+		this.getCurrentLocation();
 	},
 	updated:function(){
 		this.initMap();
 	},
+  	watch:{
+  		baseLat: function (val) {
+  	      this.getJSON();
+  	      this.initMap();
+  	    }
+  	},
 	methods: {
 		getCurrentLocation(){
+			let base=this;
 			if (navigator.geolocation) {
 				  // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-
 				  navigator.geolocation.getCurrentPosition(function(position) {
-				  	this.baseLat = position.coords.latitude, // 위도
-					this.baseLon = position.coords.longitude; // 경도
-					console.log(this.baseLat);
+				  	base.baseLat = position.coords.latitude, // 위도
+					base.baseLon = position.coords.longitude; // 경도
+					//base.targetAddr="";
+					//좌표 => 주소
+					var geocoder = new kakao.maps.services.Geocoder();
+					geocoder.coord2RegionCode(position.coords.longitude, position.coords.latitude, function(result, status){
+						if (status === kakao.maps.services.Status.OK) {
+							base.targetAddr = result[0].address_name;
+						}
+					});
 				  });
 			}else {
 			  // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
@@ -189,16 +196,6 @@ new Vue({
 			// 지도에 원을 표시합니다 
 			circle.setMap(map); 
 			
-			//************************* 목록 *************************
-			/* var listEl = document.getElementById('placesList'), 
-			    menuEl = document.getElementById('menu_wrap'),
-			    fragment = document.createDocumentFragment();
-			
-			while (listEl.hasChildNodes()) {
-				listEl.removeChild (listEl.lastChild);
-		    } */
-			//*************************/목록 *************************
-			
 			//************************* 마커 *************************
 			// 마커를 표시할 위치와 title 객체 배열입니다
 			var positions = [];
@@ -215,39 +212,8 @@ new Vue({
 						
 					}
 				);
-				//목록
-				/*
-				var content = document.createElement('div');
-				content.className = 'overlaybox';
-				
-				var store = document.createElement('h3');
-				store.className = 'popup-name';
-				store.appendChild(document.createTextNode(pos.title));
-				title.appendChild(store);
-				content.appendChild(title);
-				*/
-				
-				/* var el = document.createElement('li'),
-				itemStr = '<span class="markerbg marker_' + (i+1) + '"></span>' +
-			                '<div class="info hover" ref="click">' +
-			                '   <h5>' + this.hpidList[i].name + '</h5>';
-
-		        itemStr += '    <span>' + this.hpidList[i].addr + '</span>';
-			                 
-				itemStr += '  <span class="tel">' + this.hpidList[i].tel + '</span>' +
-							'</div>';           
-
-			    el.innerHTML = itemStr;
-			    el.className = 'item';
-			    
-				fragment.appendChild(el); */
-				//
 			}
 			
-			//
-			/* listEl.appendChild(fragment);
-			menuEl.scrollTop = 0; */
-			//
 			var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png", // 마커이미지의 주소입니다
 		    imageSize = new kakao.maps.Size(24, 35), // 마커이미지의 크기입니다
 		    imageOption = { offset: new kakao.maps.Point(20, 35) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
@@ -287,19 +253,6 @@ new Vue({
 				location.appendChild(document.createElement('br'));
 				content.appendChild(location);
 				
-				/*
-				var timeContainer = document.createElement('div');
-				
-				var time = document.createElement('p');
-				time.className = 'time-text';
-				time.appendChild(document.createTextNode(pos.time));
-				timeContainer.appendChild(time);
-				var vacation = document.createElement('p');
-				vacation.className = 'time-text';
-				vacation.appendChild(document.createTextNode(pos.vacation));
-				timeContainer.appendChild(vacation);
-				content.appendChild(timeContainer);
-				*/
 				var tel = document.createElement('span');
 				tel.className = 'telephone';
 				tel.appendChild(document.createTextNode(pos.tel));

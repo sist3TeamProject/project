@@ -47,14 +47,14 @@ $(function(){
 </head>
 <body>
    <div class="container1">
-     <h1>글쓰기></h1>
+     <h1>&lt;글쓰기&gt;</h1>
      <div class="row">
       <form method="post" action="insert_ok.do" enctype="multipart/form-data">
       <table class="table">
        <tr>
          <th width=25% class="text-center info">이름</th>
          <td width=75%>
-          <input type=text name=name size=15 class="input-sm">
+          <input type=text name=name size=15 class="input-sm" value="관리자"> 
          </td> 
        </tr>
        <tr>
