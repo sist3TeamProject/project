@@ -8,23 +8,22 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.sist.dto.HospitalDTO;
 import com.sist.dto.ReservationDTO;
 
 public interface ReservationMapper {
 
-	@Insert("INSERT INTO reservation "
-			+ "VALUES(reservation_seq.NEXTVAL,#{targetIdx},#{targetType},#{memberIdx},#{peopleNumber},#{reservationTime},#{parking},#{status})")
+	@Insert("INSERT INTO reservation(idx, target_idx, target_type, member_idx, people_number, reservation_time, status) "
+			+ "VALUES(reservation_seq.NEXTVAL,#{targetIdx},#{targetType},#{memberIdx},#{peopleNumber},#{reservationTime},#{status})")
 	public int insertReservation(ReservationDTO reservationDTO);
 	
 	@Select({"<script>"
-			+ "SELECT "
-			+ "reservation.idx, "
+			+ "SELECT /*+ INDEX_DESC(reservation PK_reservation) */ "
 			+ "target_idx, "
 			+ "target_type, "
 			+ "member_idx, "
 			+ "people_number, "
 			+ "reservation_time, "
-			+ "parking, "
 			+ "status, "
 			+ "<choose>"
 			+ "<when test='targetType.equals(\"hospital\")'> "
@@ -46,14 +45,13 @@ public interface ReservationMapper {
 	public List<ReservationDTO> searchReservation(Map<String, Object> map);
 	
 	@Select({"<script>"
-			+ "SELECT "
+			+ "SELECT /*+ INDEX_DESC(reservation PK_reservation) */ "
 			+ "reservation.idx, "
 			+ "target_idx, "
 			+ "target_type, "
 			+ "member_idx, "
 			+ "people_number, "
 			+ "reservation_time, "
-			+ "parking, "
 			+ "status, "
 			+ "nickname as writer, "
 			+ "member.phone_number as phoneNumber, "
@@ -84,4 +82,8 @@ public interface ReservationMapper {
 			+ "reservation "
 			+ "WHERE idx = #{idx}")
 	public int deleteReservation(int idx);
+	
+	// 테스트로 추가
+	@Select("SELECT /*+ INDEX_ASC(hospital PK_hospital) */ idx, name, type, phone_number, address, latitude, longitude, monday, tuesday, wednesday, thursday, friday, saturday, sunday, holiday FROM hospital WHERE address LIKE '%'||#{address}||'%' AND rownum <= 20")
+	public List<HospitalDTO> searchHospital(Map<String, String> map);
 }

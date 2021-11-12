@@ -8,6 +8,9 @@
 		<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 		<style>
+			span[id^="valid_"] {
+				color: red;
+			}
 			div.input-group.col-sm-10{
 				margin: 0px auto;
 			}
@@ -15,9 +18,7 @@
 				.input-group.col-sm-10.valid {
 					margin-left: 0px;
 				}
-			}span[id^="valid_"] {
-	color: red;
-}
+			}
 		</style>
 	</head>
 	<body>

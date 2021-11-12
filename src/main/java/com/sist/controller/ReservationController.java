@@ -1,6 +1,7 @@
 package com.sist.controller;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sist.dto.HospitalDTO;
+import com.sist.dto.MemberDTO;
 import com.sist.dto.ReservationDTO;
 import com.sist.service.MemberService;
 import com.sist.service.ReservationService;
@@ -32,12 +35,23 @@ public class ReservationController {
 	@PostMapping("/write.do")
 	public String viewReservation(@RequestParam Map<String, Object> map, HttpSession session, Model model) {
 		ReservationDTO reservationDTO = new ReservationDTO();
-		reservationDTO.setTargetIdx(Integer.parseInt(map.get("targetIdx").toString()));
-		reservationDTO.setTargetType(map.get("targetType").toString());
 		int memberIdx = (Integer) session.getAttribute("memberIdx");
+		MemberDTO memberDTO = memberService.selectMember(memberIdx);
+		if(map.get("title").toString().equals("random")) {
+			String address = memberDTO.getAddress();
+			address = address.substring(address.indexOf(" ")+1);
+			address = address.substring(0, address.indexOf(" "));
+			List<HospitalDTO> hospitalList = reservationService.searchHospital(address);
+			int random = (int)(Math.random() * hospitalList.size());
+			reservationDTO.setTargetIdx(hospitalList.get(random).getIdx());
+			reservationDTO.setTitle(hospitalList.get(random).getName());
+		}else {
+			reservationDTO.setTargetIdx(Integer.parseInt(map.get("targetIdx").toString()));
+			reservationDTO.setTitle(map.get("title").toString());
+		}
+		reservationDTO.setTargetType(map.get("targetType").toString());
 		reservationDTO.setMemberIdx(memberIdx);
-		reservationDTO.setTitle(map.get("title").toString());
-		reservationDTO.setWriter(memberService.selectMember(memberIdx).getNickname());
+		reservationDTO.setWriter(memberDTO.getNickname());
 		model.addAttribute("reservationDTO", reservationDTO);
 
 		model.addAttribute("main_jsp", "/member/reservation.jsp");

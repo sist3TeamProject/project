@@ -18,6 +18,7 @@
 		<intercept-url pattern="/member/info.do" access="isAuthenticated()" />
 		<intercept-url pattern="/member/logout.do" access="isAuthenticated()" />
 		<intercept-url pattern="/member/delete.do" access="isAuthenticated()" />
+		<intercept-url pattern="/reservation/write.do" access="isAuthenticated()" />
 		<intercept-url pattern="/**" access="permitAll()" />
 		<form-login login-page="/member/login.do"
 			login-processing-url="/member/processLogin.do" default-target-url="/"

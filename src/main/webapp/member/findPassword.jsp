@@ -118,7 +118,8 @@
 								headers : headers,
 								data : email,
 								success : function(response) {
-									alert(response);
+									alert("변경된 비밀번호는 "+response+"입니다.");
+									location.href=contextRoot+"/member/login.do";
 								},
 								error : function(request, status, error) {
 									console.log("code:" + request.status + "\n" + "message:"

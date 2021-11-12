@@ -85,8 +85,24 @@ th{
 				</ul>
 			</div>
 		</div>
+		<div style="text-align:center">
+			<input type="button" class="btn btn-danger" size=30 value="병원 예약하기" onclick="reservationTarget()" />
+		</div>
 	</div>
 </div>
 <div style="height: 200px;"></div>
+	<script>
+		const reservationTarget=()=>{
+			let uri = contextRoot+"/reservation/write.do";
+			let form = $("<form></form>");
+			form.attr("action", uri);
+			form.attr("method", "post");
+			form.appendTo("body");
+			form.append("<input type='hidden' name='targetType' value='hospital' />");
+			form.append("<input type='hidden' name='targetIdx' value='${result.IDX}' />");
+			form.append("<input type='hidden' name='title' value='${result.NAME}' />");
+			form.submit();
+		}
+	</script>
 </body>
 </html>

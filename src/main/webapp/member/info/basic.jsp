@@ -8,6 +8,9 @@
 		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 		<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 		<style>
+			span[id^="valid_"] {
+				color: red;
+			}
 			div.input-group.col-sm-10{
 				margin: 0px auto;
 			}
@@ -24,7 +27,7 @@
 				<div class="nav navbar-nav" style="margin:0px">
 					<a class="navbar-brand" href="<c:url value="/member/info.do?type=0" />">계정변경</a>
 					<a class="navbar-brand" href="<c:url value="/member/info.do?type=1" />">병원예약</a>
-					<a class="navbar-brand" href="<c:url value="/member/info.do?type=2" />">코로나예약</a>
+					<!-- <a class="navbar-brand" href="<c:url value="/member/info.do?type=2" />">코로나예약</a> -->
 				</div>
 			</div>
 		</nav>

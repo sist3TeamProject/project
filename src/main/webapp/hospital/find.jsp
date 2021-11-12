@@ -50,7 +50,6 @@
 			<div class="col-md-12 col-sm-12">
 				<h2>병원찾기</h2>
 				<p>병원 정보 검색 서비스입니다.</p>
-				<input type="button" class="btn btn-danger" size=30 value="병원 예약하기" style = "text-align:right;">
 				
 				<div class="content-page">
 					<table class="table">

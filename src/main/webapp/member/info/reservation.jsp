@@ -33,18 +33,17 @@
 				<div class="nav navbar-nav" style="margin:0px">
 					<a class="navbar-brand" href="<c:url value="/member/info.do?type=0" />">계정변경</a>
 					<a class="navbar-brand" href="<c:url value="/member/info.do?type=1" />">병원예약</a>
-					<a class="navbar-brand" href="<c:url value="/member/info.do?type=2" />">코로나예약</a>
+					<!-- <a class="navbar-brand" href="<c:url value="/member/info.do?type=2" />">코로나예약</a> -->
 				</div>
 			</div>
 		</nav>
-		<div class="table-responsive clearfix">
+		<div class="table-responsive col-sm-10" style="margin: 0px auto; float: none">
 			<table class="table table-hover">
 				<thead>
 					<tr class="success">
 						<th>번호</th>
 						<th>${type==1?'병원명':'약국명'}</th>
 						<th>인원수</th>
-						<th>주차여부</th>
 						<sec:authorize access="hasRole('ROLE_ADMIN')">
 							<th>예약자</th>
 							<th>전화번호</th>
@@ -61,7 +60,6 @@
 									<td>${reservationDTO.idx}</td>
 									<td>${reservationDTO.title}</td>
 									<td>${reservationDTO.peopleNumber}명</td>
-									<td>${reservationDTO.parking}</td>
 									<td>${reservationDTO.writer}</td>
 									<td>${reservationDTO.phoneNumber}</td>
 									<fmt:parseDate value="${reservationDTO.reservationTime}" var="dateFmt" pattern="yyyy-MM-dd'T'HH:mm" />
@@ -71,7 +69,7 @@
 									</c:if>
 									<c:if test="${reservationDTO.status == 0}">
 										<td>
-											<input type="button" class="btn btn-xs btn-primary" style="width:50px; height:30px" onclick="reservationCheck(this, ${reservationDTO.idx}, 1)" value="승인" />
+											<input type="button" class="btn btn-xs btn-success" style="width:50px; height:30px" onclick="reservationCheck(this, ${reservationDTO.idx}, 1)" value="승인" />
 											<input type="button" class="btn btn-xs btn-danger" style="width:50px; height:30px" onclick="reservationCheck(this, ${reservationDTO.idx}, -1)" value="거부" />
 										</td>
 									</c:if>
@@ -84,7 +82,6 @@
 									<td>${reservationDTO.idx}</td>
 									<td>${reservationDTO.title}</td>
 									<td>${reservationDTO.peopleNumber}명</td>
-									<td>${reservationDTO.parking}</td>
 									<fmt:parseDate value="${reservationDTO.reservationTime}" var="dateFmt" pattern="yyyy-MM-dd'T'HH:mm" />
 									<td><fmt:formatDate value="${dateFmt}" pattern="yy-MM-dd HH:mm" /></td>
 									<td>${reservationDTO.status==0?'처리 대기중':(reservationDTO.status==1?'승인 완료':'승인 거부')}</td>
@@ -94,7 +91,7 @@
 					</c:if>
 					<c:if test="${fn:length(reservationList) == 0}">
 						<tr>
-							<td colspan="7">조회된 결과가 없습니다.</td>
+							<td colspan="100%">조회된 결과가 없습니다.</td>
 						</tr>
 					</c:if>
 				</tbody>
@@ -113,11 +110,11 @@
 	
 			const viewTarget=(idx)=>{
 				let link;
-				if(type === 1){
-					link = contextRoot+"/list1.do?idx=";
-				}else{
-					link = contextRoot+"/list2.do?idx=";
-				}
+				//if(type === 1){
+					link = contextRoot+"/hospital/detail.do?IDX=";
+				/*}else{
+					link = contextRoot+"/test/detail.do?IDX=";
+				}*/
 				link += idx;
 				location.href = link;
 			}

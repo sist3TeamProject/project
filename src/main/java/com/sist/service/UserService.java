@@ -37,6 +37,9 @@ public class UserService implements UserDetailsService {
 			if (memberDTO.getDeleteCheck().equals("Y")) {
 				throw new LockedException("탈퇴한 계정입니다. 관리자에게 문의하세요.");
 			}
+			if (memberDTO.getLockCount() >= 3) {
+				throw new LockedException("비밀번호 횟수 초과하였습니다. 비밀번호 찾기를 진행해주세요.");
+			}
 			List<GrantedAuthority> authorities = new ArrayList<>();
 			if (memberDTO.getAdminCheck().equals("Y")) {
 				authorities.add(new SimpleGrantedAuthority(MemberRole.ADMIN.getValue()));
