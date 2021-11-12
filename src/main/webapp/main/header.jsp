@@ -93,13 +93,12 @@
          
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
-               병원&약국
+               병원
                 
               </a>
                 
               <ul class="dropdown-menu">
-                <li><a href="#">병원찾기</a></li>
-                <li><a href="#">약국찾기</a></li>
+                <li><a href="../hospital/find.do">병원찾기</a></li>
               </ul>
             </li>
               <li class="dropdown">
