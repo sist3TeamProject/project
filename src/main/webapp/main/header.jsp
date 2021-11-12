@@ -98,7 +98,7 @@
               </a>
                 
               <ul class="dropdown-menu">
-                <li><a href="../hospital/find.do">병원찾기</a></li>
+                <li><a href="../hospital/find.do">병원찾기</a></li><!-- 약국아직 못함 -->
               </ul>
             </li>
               <li class="dropdown">

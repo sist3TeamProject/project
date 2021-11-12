@@ -20,6 +20,7 @@ import com.sist.vo.EmergencyCenterDetailVO;
 import com.sist.vo.EmergencyCenterVO;
 import com.sist.vo.HospitalVO;
 
+
 @Controller
 public class HospitalController {
 	@Autowired

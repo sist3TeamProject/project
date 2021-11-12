@@ -20,10 +20,10 @@ public interface HospitalMapper {
 	public List<HospitalDTO> searchHospital();
 	
 	//찾기 결과
-		@Select("select IDX,NAME,ADDRESS,PHONE_NUMBER as PHONENUMBER from hospital where ADDRESS like '%${searchKeyword}%'")
-		public List<HospitalVO> getHospitalList(HospitalVO hospitalVO);
+	@Select("select IDX,NAME,ADDRESS,PHONE_NUMBER as PHONENUMBER from hospital where ADDRESS like '%${searchKeyword}%'")
+	public List<HospitalVO> getHospitalList(HospitalVO hospitalVO);
 
 		//상세보기 hpid
-		@Select("select * from hospital where IDX = '${IDX}' ")
-		public HospitalVO getDetailFromHPID(HospitalVO hospitalVO);
+	@Select("select * from hospital where IDX = '${IDX}' ")
+	public HospitalVO getDetailFromHPID(HospitalVO hospitalVO);
 }

@@ -1,4 +1,5 @@
 package com.sist.vo;
+
 /*
  * IDX          NOT NULL NUMBER        
 NAME         NOT NULL VARCHAR2(100) 

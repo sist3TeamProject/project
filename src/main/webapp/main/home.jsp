@@ -190,7 +190,7 @@
                   <img src="../pages/img/works/img2.jpg" class="img-responsive">
                   <a href="../findhopital/find.jpg" class="fancybox-button" title="병원·약국 찾기" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
                 </em>
-                <a class="recent-work-description" href="../hospital/find.do">
+                <a class="recent-work-description" href="../hospital/find.do"><!-- 약국 아직 못함 -->
                   <strong>병원·약국 찾기</strong>
                   <b>주변에 위치한 병원·약국 정보를 알려드립니다. </b>
                 </a>
