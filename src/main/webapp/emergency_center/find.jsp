@@ -117,7 +117,7 @@ new Vue({
 		this.getCurrentLocation();
 	},
 	updated:function(){
-		this.initMap();
+		this.setSleep();
 	},
   	watch:{
   		baseLat: function (val) {
@@ -126,6 +126,11 @@ new Vue({
   	    }
   	},
 	methods: {
+		setSleep(){
+			setTimeout(()=>{
+				this.initMap();
+			},1000)
+		},
 		getCurrentLocation(){
 			let base=this;
 			if (navigator.geolocation) {
