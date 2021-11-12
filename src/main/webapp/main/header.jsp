@@ -76,7 +76,7 @@
                 <li><a href="<c:url value="/corona/city.do" />">시도별 발생동향</a></li>
                 <li><a href="<c:url value="/corona/route.do" />">확진환자 이동경로</a></li>
                 <li><a href="<c:url value="../corona/primary.do" />">백신 예약</a></li>
-                <li><a href="<c:url value="../checklist/checklist.do" />">예약변경/취소</a></li>
+                <li><a href="<c:url value="../corona/primary.do" />">예약변경/취소</a></li>
                 <li><a href="<c:url value="../corona/reply.do" />">백신 리뷰</a></li>
               </ul>
             </li>
@@ -87,9 +87,7 @@
               </a>
                 
               <ul class="dropdown-menu">
-                <li><a href="#">응급실찾기</a></li>
-                <li><a href="#">종합상황판</a></li>
-                <li><a href="#">민간구급차 검색</a></li>
+                <li><a href="../emergency_center/find.do">응급실찾기</a></li>
               </ul>
             </li>
          
